@@ -1,4 +1,23 @@
 -------------------------------------------------------------------------------
 Test set: starter.CucumberTestSuite
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.14 s -- in starter.CucumberTestSuite
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 10.94 s <<< FAILURE! -- in starter.CucumberTestSuite
+Sales List Page - User.Verify "No Sales Found" message is displayed when no sales records exist -- Time elapsed: 8.095 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+['No Sales Found' message should be visible when no records exist] 
+Expecting value to be true but was false
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.steps.SalesListUserSteps.verifyNoSalesFoundMessage(SalesListUserSteps.java:48)
+	at starter.steps.SalesListUserSteps$ByteBuddy$VPB0bOFp.verifyNoSalesFoundMessage$accessor$4kbnq7Sf(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesListUserSteps$ByteBuddy$VPB0bOFp.verifyNoSalesFoundMessage(Unknown Source)
+	at starter.stepdefinitions.SalesListUserStepDefinitions.theMessageShouldBeDisplayedOnThePage(SalesListUserStepDefinitions.java:33)
+	at ✽.the "No Sales Found" message should be displayed on the page(classpath:features/ui/sales_list_user.feature:14)
+

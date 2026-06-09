@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Sales List Page - User" skipped="0" tests="2" time="13.29" timestamp="2026-06-09 03:57:12"><testcase name="Verify &quot;No Sales Found&quot; message is displayed when no sales records exist"><failure message="['No Sales Found' message should be visible when no records exist] &#10;Expecting value to be true but was false" type="org.opentest4j.AssertionFailedError">['No Sales Found' message should be visible when no records exist] 
+Expecting value to be true but was false</failure><system-err>['No Sales Found' message should be visible when no records exist] 
+Expecting value to be true but was false
+starter.steps.SalesListUserSteps.verifyNoSalesFoundMessage(SalesListUserSteps.java:48)
+starter.stepdefinitions.SalesListUserStepDefinitions.theMessageShouldBeDisplayedOnThePage(SalesListUserStepDefinitions.java:33)
+✽.the "No Sales Found" message should be displayed on the page(classpath:features/ui/sales_list_user.feature:14)
+</system-err></testcase><testcase name="Verify regular user can view their sales records as a paginated list"/></testsuite>

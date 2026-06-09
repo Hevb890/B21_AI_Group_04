@@ -14,7 +14,7 @@ import java.time.Duration;
 @DefaultUrl("http://localhost:8080/ui/sales")
 public class SalesListPage extends PageObject {
 
-    @FindBy(xpath = "//button[contains(text(),'Sell Plant')] | //a[contains(text(),'Sell Plant')]")
+    @FindBy(css = "a[href='/ui/sales/new']")
     private WebElementFacade sellPlantButton;
 
     @FindBy(xpath = "(//button[descendant::i[contains(@class, 'bi-trash')]])[1]")

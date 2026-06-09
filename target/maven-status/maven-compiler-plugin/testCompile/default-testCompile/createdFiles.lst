@@ -1,6 +1,9 @@
 starter/stepdefinitions/SalesListAdminStepDefinitions.class
 starter/navigation/SellPlantPage.class
+starter/stepdefinitions/SalesListUserStepDefinitions.class
 starter/CucumberTestSuite.class
+starter/navigation/SalesListUserPage.class
 starter/navigation/LoginPage.class
-starter/steps/SalesListAdminSteps.class
+starter/steps/SalesListUserSteps.class
 starter/navigation/SalesListPage.class
+starter/steps/SalesListAdminSteps.class
