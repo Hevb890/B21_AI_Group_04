@@ -17,10 +17,6 @@ public class SalesHooks {
     private static Long mainTestCategoryId = null;
     private static Long testPlantId = null;
 
-    // ─────────────────────────────────────────────────────────
-    // USER_01: Setup — find/create sub-category, create plant, sell 50 times
-    // ─────────────────────────────────────────────────────────
-
     @Before("@UI_SALESLISTPAGE_USER_01")
     public void createFiftySalesRecords() {
         String token = getAdminToken();
@@ -119,10 +115,6 @@ public class SalesHooks {
         System.out.println("[SalesHooks] Created 50 sales records. Pagination ready.");
     }
 
-    // ─────────────────────────────────────────────────────────
-    // USER_01: Cleanup — delete sales, plant, categories (only if created)
-    // ─────────────────────────────────────────────────────────
-
     @After("@UI_SALESLISTPAGE_USER_01")
     public void cleanUpSalesRecords() {
         String token = getAdminToken();
@@ -205,10 +197,6 @@ public class SalesHooks {
 
         System.out.println("[SalesHooks] All sales cleared. Empty state ready.");
     }
-
-    // ─────────────────────────────────────────────────────────
-    // Helpers
-    // ─────────────────────────────────────────────────────────
 
     private Long findExistingSubCategory(String token) {
         Response response = SerenityRest

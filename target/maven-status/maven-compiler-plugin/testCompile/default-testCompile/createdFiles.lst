@@ -1,3 +1,5 @@
+starter/navigation/SalesAdminApiPage.class
+starter/steps/SalesAdminApiSteps.class
 starter/stepdefinitions/SalesListAdminStepDefinitions.class
 starter/navigation/SellPlantPage.class
 starter/stepdefinitions/SalesListUserStepDefinitions.class
@@ -8,3 +10,4 @@ starter/navigation/LoginPage.class
 starter/steps/SalesListUserSteps.class
 starter/navigation/SalesListPage.class
 starter/steps/SalesListAdminSteps.class
+starter/stepdefinitions/SalesAdminApiStepDefinitions.class
