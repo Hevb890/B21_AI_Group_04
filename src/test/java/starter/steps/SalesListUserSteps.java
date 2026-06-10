@@ -47,4 +47,33 @@ public class SalesListUserSteps {
                 .as("'No Sales Found' message should be visible when no records exist")
                 .isTrue();
     }
+
+    // ─── UI_SALESLISTPAGE_USER_03 ─────────────────────────────
+    @Step("Verify default sorting is by sold date")
+    public void verifyDefaultSortIsSoldDate() {
+        assertThat(salesListUserPage.isDefaultSortBySoldDate())
+                .as("Default sorting should be set to 'sold date' on page load")
+                .isTrue();
+    }
+
+    // ─── UI_SALESLISTPAGE_USER_04 ─────────────────────────────
+    @Step("User clicks the sorting option")
+    public void clickSortingOption() {
+        salesListUserPage.clickSortingOption();
+    }
+
+    @Step("Verify other sorting options are visible")
+    public void verifyOtherSortingOptionsVisible() {
+        assertThat(salesListUserPage.hasSortingOptions())
+                .as("Multiple sorting options should be available")
+                .isTrue();
+    }
+
+    // ─── UI_SALESLISTPAGE_USER_05 ─────────────────────────────
+    @Step("Verify delete button is not visible to regular user")
+    public void verifyDeleteButtonNotVisible() {
+        assertThat(salesListUserPage.isDeleteButtonVisible())
+                .as("Delete button should NOT be visible to regular users")
+                .isFalse();
+    }
 }

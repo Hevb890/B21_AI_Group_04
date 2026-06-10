@@ -33,4 +33,26 @@ public class SalesListUserStepDefinitions {
             salesListUserSteps.verifyNoSalesFoundMessage();
         }
     }
+
+    @Then("the default sorting option should be {string}")
+    public void theDefaultSortingOptionShouldBe(String sortOption) {
+        if (sortOption.equalsIgnoreCase("sold date")) {
+            salesListUserSteps.verifyDefaultSortIsSoldDate();
+        }
+    }
+
+    @When("the user clicks the sorting option")
+    public void theUserClicksTheSortingOption() {
+        salesListUserSteps.clickSortingOption();
+    }
+
+    @Then("other sorting options should be visible")
+    public void otherSortingOptionsShouldBeVisible() {
+        salesListUserSteps.verifyOtherSortingOptionsVisible();
+    }
+
+    @Then("the delete button should not be visible to the user")
+    public void theDeleteButtonShouldNotBeVisibleToTheUser() {
+        salesListUserSteps.verifyDeleteButtonNotVisible();
+    }
 }
