@@ -216,7 +216,7 @@ public class SalesUserApiSteps {
 
         // ─── API_POST_SELLPLANT_02 (unauthorized) ─────────────────
 
-        @Step("User sends POST request to sell a plant — expects 401 or 201")
+        @Step("User sends POST request to sell a plant — expects 401")
         public void sellPlantAsUser() {
                 Response response = SerenityRest
                                 .given()
@@ -228,13 +228,13 @@ public class SalesUserApiSteps {
                                 .post("/api/sales/plant/" + validPlantId);
 
                 assertThat(response.statusCode())
-                                .as("User selling plant should return 201 (or 401 if security configured)")
-                                .isIn(201, 401);
+                                .as("User selling plant should return 401 Unauthorized")
+                                .isEqualTo(401);
         }
 
         // ─── API_DELETE_SALE_03 (unauthorized) ────────────────────
 
-        @Step("User sends DELETE request to delete a sale — expects 401 or 204")
+        @Step("User sends DELETE request to delete a sale — expects 401")
         public void deleteSaleAsUser() {
                 Response response = SerenityRest
                                 .given()
@@ -245,8 +245,8 @@ public class SalesUserApiSteps {
                                 .delete("/api/sales/" + validSaleId);
 
                 assertThat(response.statusCode())
-                                .as("User deleting sale should return 204 (or 401 if security configured)")
-                                .isIn(204, 401);
+                                .as("User deleting sale should return 401 Unauthorized")
+                                .isEqualTo(401);
         }
 
         // ─── API_GET_SALES_04 ─────────────────────────────────────

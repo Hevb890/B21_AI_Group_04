@@ -52,17 +52,21 @@ public class SalesListUserPage extends PageObject {
     }
 
     public void clickSortingOption() {
-        getDriver()
-                .findElements(By.cssSelector("table.table-striped thead th a"))
-                .stream()
-                .findFirst()
-                .ifPresent(el -> el.click());
+        // According to the test document, we expect a dedicated sorting icon/button/dropdown trigger.
+        // If not present, we throw an AssertionError to report the UI defect.
+        if (getDriver().findElements(By.cssSelector("button.sort, .sort-btn, .sort-icon, select.sort-dropdown, .sorting-options-trigger")).size() > 0) {
+            getDriver().findElement(By.cssSelector("button.sort, .sort-btn, .sort-icon, select.sort-dropdown, .sorting-options-trigger")).click();
+        } else {
+            throw new AssertionError("Defect: Dedicated sorting icon, button, or dropdown trigger is not present on the sales list page.");
+        }
     }
 
     public boolean hasSortingOptions() {
+        // According to the test document expected result: "Visibility of sorting options when sorting icon / button is clicked"
+        // Check for visible sorting options list or dropdown menu items.
         return getDriver()
-                .findElements(By.cssSelector("table.table-striped thead th a"))
-                .size() > 1;
+                .findElements(By.cssSelector(".sorting-options-menu, .sort-option, select.sort-dropdown option"))
+                .size() > 0;
     }
 
     public boolean isDeleteButtonVisible() {
