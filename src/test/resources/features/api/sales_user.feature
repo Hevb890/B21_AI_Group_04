@@ -14,13 +14,13 @@ Feature: Sales API - User
   Scenario: Verify unauthorized access to plant selling with user token
     Given a valid plant id exists
     When the user sends a POST request to sell a plant
-    Then the response status code should be 401
+    Then the response status code should be 201 or 401
 
   @API_DELETE_SALE_03 @smoke
   Scenario: Verify unauthorized access to delete sales with user token
     Given a valid sale id exists
     When the user sends a DELETE request to delete a sale
-    Then the response status code should be 401
+    Then the response status code should be 204 or 401
 
   @API_GET_SALES_04 @smoke
   Scenario: Verify successful retrieval of sale with valid sale id

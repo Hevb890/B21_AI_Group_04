@@ -32,10 +32,25 @@ public class LoginPage extends PageObject {
     }
 
     public void loginAs(String username, String password) {
-        open();
+        try {
+            open();
+            getDriver().manage().deleteAllCookies();
+            evaluateJavascript("window.localStorage.clear(); window.sessionStorage.clear();");
+            open();
+        } catch (Exception e) {
+            // Ignore if driver navigation fails initially
+        }
         enterUsername(username);
         enterPassword(password);
         clickLogin();
+        
+        // Wait for redirection to complete
+        for (int i = 0; i < 50; i++) {
+            if (!getDriver().getCurrentUrl().contains("/login")) {
+                break;
+            }
+            try { Thread.sleep(100); } catch (InterruptedException e) {}
+        }
     }
 
 }

@@ -15,15 +15,25 @@ public class SalesAdminApiSteps {
     private static final String ADMIN_PASS = "admin123";
 
     // Stored between steps
-    private String adminToken;
+    private static String adminToken;
     private Integer testPlantId;
     private Integer testSaleId;
     private Integer initialStock;
+
+    private String getOrFetchToken() {
+        if (adminToken == null) {
+            getAdminToken();
+        }
+        return adminToken;
+    }
 
     // ─── Background ───────────────────────────────────────────
 
     @Step("Get admin authentication token")
     public void getAdminToken() {
+        if (adminToken != null) {
+            return;
+        }
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
@@ -52,7 +62,7 @@ public class SalesAdminApiSteps {
             Response mainCat = SerenityRest
                     .given()
                     .baseUri(BASE_URL)
-                    .header("Authorization", "Bearer " + adminToken)
+                    .header("Authorization", "Bearer " + getOrFetchToken())
                     .contentType("application/json")
                     .body("{\"name\": \"ApiTestCat\"}")
                     .when()
@@ -64,7 +74,7 @@ public class SalesAdminApiSteps {
             Response subCat = SerenityRest
                     .given()
                     .baseUri(BASE_URL)
-                    .header("Authorization", "Bearer " + adminToken)
+                    .header("Authorization", "Bearer " + getOrFetchToken())
                     .contentType("application/json")
                     .body("{\"name\": \"ApiSub\",\"parent\":{\"id\":" + mainCatId + "}}")
                     .when()
@@ -78,7 +88,7 @@ public class SalesAdminApiSteps {
         Response plantResponse = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .body("{\"name\":\"" + plantName + "\",\"price\":100.0,\"quantity\":100}")
                 .when()
@@ -102,7 +112,7 @@ public class SalesAdminApiSteps {
         Response saleResponse = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .queryParam("quantity", 1)
                 .when()
@@ -122,7 +132,7 @@ public class SalesAdminApiSteps {
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .queryParam("quantity", 1)
                 .when()
@@ -140,7 +150,7 @@ public class SalesAdminApiSteps {
         Response plantResponse = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .when()
                 .get("/api/plants/" + testPlantId);
 
@@ -159,7 +169,7 @@ public class SalesAdminApiSteps {
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .queryParam("quantity", 999999)
                 .when()
@@ -176,7 +186,7 @@ public class SalesAdminApiSteps {
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .when()
                 .delete("/api/sales/" + testSaleId);
 
@@ -192,7 +202,7 @@ public class SalesAdminApiSteps {
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .queryParam("quantity", 0)
                 .when()
@@ -209,7 +219,7 @@ public class SalesAdminApiSteps {
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .when()
                 .get("/api/sales");
@@ -228,7 +238,7 @@ public class SalesAdminApiSteps {
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
-                .header("Authorization", "Bearer " + adminToken)
+                .header("Authorization", "Bearer " + getOrFetchToken())
                 .contentType("application/json")
                 .when()
                 .get("/api/categories/sub-categories");

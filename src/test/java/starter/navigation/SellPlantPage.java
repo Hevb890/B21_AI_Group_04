@@ -75,6 +75,11 @@ public class SellPlantPage extends PageObject {
     }
 
     public boolean isErrorMessageDisplayed() {
-        return errorMessage.isCurrentlyVisible();
+        try {
+            errorMessage.waitUntilVisible();
+            return errorMessage.isCurrentlyVisible();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
