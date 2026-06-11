@@ -1,8 +1,0 @@
-starter/CucumberTestSuite.class
-starter/search/LookForInformation.class
-starter/navigation/NavigateTo.class
-starter/search/SearchArticle.class
-starter/search/SearchForm.class
-starter/stepdefinitions/ParameterDefinitions.class
-starter/stepdefinitions/SearchStepDefinitions.class
-starter/navigation/DuckDuckGoHomePage.class
