@@ -1,3 +1,4 @@
+/Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/steps/SalesUserApiSteps.java
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/stepdefinitions/SalesAdminApiStepDefinitions.java
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/steps/SalesListAdminSteps.java
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/steps/SalesAdminApiSteps.java
@@ -10,4 +11,5 @@
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/navigation/SalesAdminApiPage.java
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/hooks/SalesHooks.java
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/steps/SalesListUserSteps.java
+/Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/stepdefinitions/SalesUserApiStepDefinitions.java
 /Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/java/starter/navigation/LoginPage.java

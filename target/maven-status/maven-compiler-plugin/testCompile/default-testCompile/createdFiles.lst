@@ -8,6 +8,8 @@ starter/hooks/SalesHooks.class
 starter/navigation/SalesListUserPage.class
 starter/navigation/LoginPage.class
 starter/steps/SalesListUserSteps.class
+starter/steps/SalesUserApiSteps.class
 starter/navigation/SalesListPage.class
+starter/stepdefinitions/SalesUserApiStepDefinitions.class
 starter/steps/SalesListAdminSteps.class
 starter/stepdefinitions/SalesAdminApiStepDefinitions.class
