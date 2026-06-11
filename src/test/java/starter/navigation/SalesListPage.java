@@ -1,8 +1,6 @@
 package starter.navigation;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.annotations.DefaultUrl;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -14,12 +12,6 @@ import java.time.Duration;
 
 @DefaultUrl("http://localhost:8080/ui/sales")
 public class SalesListPage extends PageObject {
-
-    @FindBy(css = "a[href='/ui/sales/new']")
-    private WebElementFacade sellPlantButton;
-
-    @FindBy(xpath = "(//button[descendant::i[contains(@class, 'bi-trash')]])[1]")
-    private WebElementFacade firstDeleteButton;
 
     public boolean isSellPlantButtonVisible() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
@@ -38,7 +30,6 @@ public class SalesListPage extends PageObject {
                 By.cssSelector("a[href='/ui/sales/new']"))).click();
     }
 
-    // FIX 2: Remove //form// from XPath — trash button is NOT inside a form
     public void clickFirstDeleteButton() {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         org.openqa.selenium.WebElement deleteBtn = wait.until(

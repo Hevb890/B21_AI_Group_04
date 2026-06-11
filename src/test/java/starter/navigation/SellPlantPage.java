@@ -23,17 +23,13 @@ public class SellPlantPage extends PageObject {
     @FindBy(xpath = "//button[normalize-space()='Cancel'] | //a[normalize-space()='Cancel']")
     private WebElementFacade cancelButton;
 
-    @FindBy(css = ".error, .alert-danger, [class*='error-msg'], [class*='stock-error']")
-    private WebElementFacade errorMessage;
-
     public void openPlantDropdown() {
         plantDropdown.waitUntilVisible().click();
     }
 
     public boolean plantDropdownHasOptions() {
         List<WebElement> options = getDriver().findElements(
-                By.cssSelector(
-                        "select[id='plantId'] option, select[name='plantId'] option"));
+                By.cssSelector("select[id='plantId'] option, select[name='plantId'] option"));
         return options.stream()
                 .filter(o -> !o.getAttribute("value").isEmpty()
                         && !o.getText().toLowerCase().contains("select"))
@@ -86,9 +82,5 @@ public class SellPlantPage extends PageObject {
 
     public void clickCancel() {
         cancelButton.waitUntilClickable().click();
-    }
-
-    public boolean isErrorMessageDisplayed() {
-        return errorMessage.isCurrentlyVisible();
     }
 }
