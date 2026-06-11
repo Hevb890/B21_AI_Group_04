@@ -273,7 +273,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 11-06-2026 18:55:45</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 11-06-2026 19:00:44</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -288,7 +288,7 @@
                         <td width="375px" valign="top">
                             <div class="test-count-summary">
                                 <div class="test-count-title">
-                                    5 tests
+                                    8 tests
 
                                      |
                                         <a href="2e8f1269fe45189870d5526ad4ad731be44b38828d72bce8e524d95df0079f07.csv" title="Download CSV"> <i class="bi bi-cloud-arrow-down"
@@ -367,54 +367,54 @@
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>5</td>
+                    <td>8</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Jun 11, 2026 18:55:18</td>
+                    <td>Jun 11, 2026 19:00:40</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Jun 11, 2026 18:55:43</td>
+                    <td>Jun 11, 2026 19:00:42</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>24s</td>
+                    <td>1s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>2s</td>
+                    <td>121ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>6s</td>
+                    <td>260ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>4s</td>
+                    <td>168ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Cumulative Test Time
                         <br/><small class="text-muted">(sum of all individual test durations)</small>
                     </td>
-                    <td>23s</td>
+                    <td>1s</td>
                 </tr>
                 </tbody>
             </table>
@@ -445,21 +445,29 @@
                                                                         <tbody>
                                                                                 <tr>
                                                                                     <td>
-                                                                                            <a href="15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html"> Sales List Page - User</a>
+                                                                                            <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html"> Sales API - User</a>
                                                                                     </td>
                                                                                     <td>5</td>
-                                                                                    <td>5</td>
-                                                                                    <td>100%</td>
+                                                                                    <td>8</td>
+                                                                                    <td>75%</td>
                                                                                     <td>
-                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            <a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
                                                                                     </td>
                                                                                     <td>
                                                                                         <div class="progress">
                                                                                                 <div class="progress-bar"
                                                                                                      role="progressbar"
-                                                                                                     style="width: 100%; background-color: #b0cf73"
-                                                                                                     aria-valuenow="5"
-                                                                                                     title="100% success"
+                                                                                                     style="width: 75%; background-color: #b0cf73"
+                                                                                                     aria-valuenow="6"
+                                                                                                     title="75% success"
+                                                                                                     aria-valuemin="0"
+                                                                                                     aria-valuemax="100">
+                                                                                                </div>
+                                                                                                <div class="progress-bar"
+                                                                                                     role="progressbar"
+                                                                                                     style="width: 25%; background-color: #fd938e"
+                                                                                                     aria-valuenow="2"
+                                                                                                     title="25% failure"
                                                                                                      aria-valuemin="0"
                                                                                                      aria-valuemax="100">
                                                                                                 </div>
@@ -471,6 +479,51 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <h3>Test Failure Overview</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <h4>Most Frequent Failures</h4>
+                                                            <table class="table" style="width:40vw;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="failure-color top-list-title">
+                                                                            <a href="4700173f71ac97a0f1d5b751da298ef12393b99bf9643a6e6aad73d7997ea7bb.html"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a> Assertion failed error: [User selling plant should return 401 Unauthorized] expe...</a>
+                                                                        </td>
+                                                                        <td><span
+                                                                                    class="badge failure-badge">1</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="failure-color top-list-title">
+                                                                            <a href="4700173f71ac97a0f1d5b751da298ef12393b99bf9643a6e6aad73d7997ea7bb.html"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a> Assertion failed error: [User deleting sale should return 401 Unauthorized] expe...</a>
+                                                                        </td>
+                                                                        <td><span
+                                                                                    class="badge failure-badge">1</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <h4>Most Unstable Features</h4>
+                                                            <table class="table" style="width:40vw;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="failure-color top-list-title">
+                                                                            <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html">Sales API - User</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class="badge failure-badge">25%</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
                                             </div>
                                             <div class="container-fluid">
         <div class="row">
@@ -479,61 +532,49 @@
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                    <a href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">
+                                    <a href="4cb41f9b49a5507b156e9ab7a44ab178f91c873357f7c1ed67f7e8401684de6c.html">
                                     <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Ui&nbsp;&nbsp;&nbsp;5
+                                        <i class="bi bi-tag-fill"></i> API GET SALES 04&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="101e2268f8ba4445dff7dac3ae519b01310c12450fb6ab3294d4de3f7e03f9e2.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API GET PAGINATEDSALES 02&nbsp;&nbsp;&nbsp;4
                                     </span>
                                     </a>
                                     <a href="d90251482f38cdbfa54d8febaa9556420fb2115e9e965248d4778ab264711f79.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Sales&nbsp;&nbsp;&nbsp;5
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Sales&nbsp;&nbsp;&nbsp;8
                                     </span>
                                     </a>
                                     <a href="2e8f1269fe45189870d5526ad4ad731be44b38828d72bce8e524d95df0079f07.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> User&nbsp;&nbsp;&nbsp;5
-                                    </span>
-                                    </a>
-                                    <a href="063a691de356d2d836778e349484fdc29c4192bea222244772e3e53867670ef0.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 04&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="17416e3775a6c9a3d859612edad2a8d1986133b5c45a78fc8118f15016c4832b.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 03&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="c934c5ed4d548ab9d4edd7aab7e0f92448913e6de3367db2dd1f9b6673368ab8.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 02&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="b446464fb33d2546006c178abfa324e855f70ab2887b38a30aafae57dad3fc2c.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 01&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="81a628ffffdcc49821267ac2412d657170f2d3f970ec8e15467f9ba051f27cba.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 05&nbsp;&nbsp;&nbsp;1
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> User&nbsp;&nbsp;&nbsp;8
                                     </span>
                                     </a>
                                     <a href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Smoke&nbsp;&nbsp;&nbsp;5
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Smoke&nbsp;&nbsp;&nbsp;8
                                     </span>
                                     </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                                <h5 class="card-title">Context</h5>
-                            <div>
-                                    <a href="83a1614f3dda521b0b7f5f6481c9e8fca62028b7ee1d7022b7d38143cdeaeee1.html">
+                                    <a href="189855f8c1683c172ad79b53946681403aac4208bc3e81918f8565b89aa4d412.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API DELETE SALE 03&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="e0eefc53d204e4faadceae7a22dc5be73bac20d7ff946fa503c24627ab356e26.html">
                                     <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Chrome, Mac&nbsp;&nbsp;&nbsp;5
+                                        <i class="bi bi-tag-fill"></i> API GET PAGINATEDSALES 01&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;8
+                                    </span>
+                                    </a>
+                                    <a href="3e363deb8ca388838f7102808268aa41a5b50d4e7188820d9343be21289585d3.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API POST SELLPLANT 02&nbsp;&nbsp;&nbsp;1
                                     </span>
                                     </a>
                             </div>
@@ -561,17 +602,17 @@
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>24s</td>
+                    <td>1s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>5</td>
+                    <td>8</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>2s</td>
+                    <td>121ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -582,30 +623,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>6s</td>
+                    <td>260ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td>Jun 11, 2026 18:55:18</td>
+                    <td>Jun 11, 2026 19:00:40</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>4s</td>
+                    <td>168ms</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td>Jun 11, 2026 18:55:43</td>
+                    <td>Jun 11, 2026 19:00:42</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Cumulative Test Time
                         <br/><small class="text-muted">(sum of all individual test durations)</small>
                     </td>
-                    <td>23s</td>
+                    <td>1s</td>
                 </tr>
                 </tbody>
             </table>
@@ -629,76 +670,81 @@
                                                                 <tbody>
                                                                     <tr class="scenario-result SUCCESS">
                                                                         <td>
-                                                                                <a href="15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html">Sales List Page - User</a>
+                                                                                <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html">Sales API - User</a>
                                                                         </td>
-                                                                        <td data-order="Verify regular user can view their sales records as a paginated list">
-                                                                                    <a href="d0950069b55ddc41c8abaa9d3498225094ef4c8f98a7db1d144021cd1aa43852.html">Verify regular user can view their sales records as a paginated list</a>
+                                                                        <td data-order="Verify successful retrieval of paginated sales records when records are available">
+                                                                                    <a href="ff99ca5bcb51bf939315d50657118de5fef5d72e2be83783cdf8e8c2acf952a7.html">Verify successful retrieval of paginated sales records when records are available</a>
                                                                         </td>
-                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                        <td><span style="display:none"></span>
                                                                         </td>
-                                                                        <td>109</td>
-                                                                        <td data-order="1781184318">18:55:18</td>
-                                                                        <td>5s 771ms</td>
+                                                                        <td>4</td>
+                                                                        <td data-order="1781184640">19:00:40</td>
+                                                                        <td>142ms</td>
                                                                         <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result FAILURE">
+                                                                        <td>
+                                                                                <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html">Sales API - User</a>
+                                                                        </td>
+                                                                        <td data-order="Verify unauthorized access to plant selling with user token">
+                                                                                    <a href="7bbf900ad665e8a755b825aa34ef061d8054c5c74d24a08310eefb30b85c29ce.html">Verify unauthorized access to plant selling with user token</a>
+                                                                        </td>
+                                                                        <td><span style="display:none"></span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td data-order="1781184641">19:00:41</td>
+                                                                        <td>193ms</td>
+                                                                        <td class="test-result-cell"><span style="display:none">FAILURE</span> <a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="scenario-result FAILURE">
+                                                                        <td>
+                                                                                <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html">Sales API - User</a>
+                                                                        </td>
+                                                                        <td data-order="Verify unauthorized access to delete sales with user token">
+                                                                                    <a href="b08f95f4a5b6272e1bac9c88cc6f74cfd696bd4976029559a9b6f185a41dc841.html">Verify unauthorized access to delete sales with user token</a>
+                                                                        </td>
+                                                                        <td><span style="display:none"></span>
+                                                                        </td>
+                                                                        <td>4</td>
+                                                                        <td data-order="1781184641">19:00:41</td>
+                                                                        <td>245ms</td>
+                                                                        <td class="test-result-cell"><span style="display:none">FAILURE</span> <a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
                                                                         </td>
                                                                     </tr>
                                                                     <tr class="scenario-result SUCCESS">
                                                                         <td>
-                                                                                <a href="15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html">Sales List Page - User</a>
+                                                                                <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html">Sales API - User</a>
                                                                         </td>
-                                                                        <td data-order="Verify &quot;No Sales Found&quot; message is displayed when no sales records exist">
-                                                                                    <a href="f6c2ed563762f22b5fc01e1bdebb017f9e054a970cb3e945f4ca6703d12f52b9.html">Verify "No Sales Found" message is displayed when no sales records exist</a>
+                                                                        <td data-order="Verify successful retrieval of sale with valid sale id">
+                                                                                    <a href="046b9e082057ee80496c4bb6e5dc7d8e5a1898f2b270f83c184c7f7ba52f58a6.html">Verify successful retrieval of sale with valid sale id</a>
                                                                         </td>
-                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                        <td><span style="display:none"></span>
                                                                         </td>
                                                                         <td>5</td>
-                                                                        <td data-order="1781184324">18:55:24</td>
-                                                                        <td>2s 955ms</td>
+                                                                        <td data-order="1781184641">19:00:41</td>
+                                                                        <td>260ms</td>
                                                                         <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                                                         </td>
                                                                     </tr>
                                                                     <tr class="scenario-result SUCCESS">
                                                                         <td>
-                                                                                <a href="15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html">Sales List Page - User</a>
+                                                                                <a href="9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html">Sales API - User</a>
                                                                         </td>
-                                                                        <td data-order="Verify default sorting is set to &quot;sold date&quot; when the sales page is loaded">
-                                                                                    <a href="c6c6a0b0cf6db1a4e315dc987e70f30b6fb0e49af3cfd5684731662bc4311d9d.html">Verify default sorting is set to "sold date" when the sales page is loaded</a>
+                                                                        <td data-order="Verify paginated sales retrieval with different sorting options">
+                                                                            <i class="bi bi-table"
+                                                                               title="Data Driven Scenario"> <a
+                                                                                        href="7df1c8cd98d86e97077b50428c423d27170b626410eed2a399db9dc1935b03fa.html">Verify paginated sales retrieval with different sorting options</a>
+                                                                                <br/>
+                                                                                    <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a> 4 passing test cases
+                                                                                    <br/>
                                                                         </td>
-                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                        <td><span style="display:none"></span>
                                                                         </td>
-                                                                        <td>20</td>
-                                                                        <td data-order="1781184327">18:55:27</td>
-                                                                        <td>4s 106ms</td>
-                                                                        <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr class="scenario-result SUCCESS">
-                                                                        <td>
-                                                                                <a href="15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html">Sales List Page - User</a>
-                                                                        </td>
-                                                                        <td data-order="Verify other sorting options are available on the sales page">
-                                                                                    <a href="8f73a179e06774a4945e6ccc2d28a5c6602ffe3befc39ea3ba52b036d211b927.html">Verify other sorting options are available on the sales page</a>
-                                                                        </td>
-                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
-                                                                        </td>
-                                                                        <td>21</td>
-                                                                        <td data-order="1781184332">18:55:32</td>
-                                                                        <td>4s 637ms</td>
-                                                                        <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr class="scenario-result SUCCESS">
-                                                                        <td>
-                                                                                <a href="15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html">Sales List Page - User</a>
-                                                                        </td>
-                                                                        <td data-order="Verify delete button is not visible to regular users">
-                                                                                    <a href="1296808af6a72a3dd250bc0d784ce74ddccb6691a147f09fb941368e53aec6fe.html">Verify delete button is not visible to regular users</a>
-                                                                        </td>
-                                                                        <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
-                                                                        </td>
-                                                                        <td>20</td>
-                                                                        <td data-order="1781184336">18:55:36</td>
-                                                                        <td>6s 496ms</td>
+                                                                        <td>3</td>
+                                                                        <td data-order="1781184641">19:00:41</td>
+                                                                        <td>510ms</td>
                                                                         <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                                                         </td>
                                                                     </tr>
@@ -724,61 +770,49 @@
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                    <a href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">
+                                    <a href="4cb41f9b49a5507b156e9ab7a44ab178f91c873357f7c1ed67f7e8401684de6c.html">
                                     <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Ui&nbsp;&nbsp;&nbsp;5
+                                        <i class="bi bi-tag-fill"></i> API GET SALES 04&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="101e2268f8ba4445dff7dac3ae519b01310c12450fb6ab3294d4de3f7e03f9e2.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API GET PAGINATEDSALES 02&nbsp;&nbsp;&nbsp;4
                                     </span>
                                     </a>
                                     <a href="d90251482f38cdbfa54d8febaa9556420fb2115e9e965248d4778ab264711f79.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Sales&nbsp;&nbsp;&nbsp;5
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Sales&nbsp;&nbsp;&nbsp;8
                                     </span>
                                     </a>
                                     <a href="2e8f1269fe45189870d5526ad4ad731be44b38828d72bce8e524d95df0079f07.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> User&nbsp;&nbsp;&nbsp;5
-                                    </span>
-                                    </a>
-                                    <a href="063a691de356d2d836778e349484fdc29c4192bea222244772e3e53867670ef0.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 04&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="17416e3775a6c9a3d859612edad2a8d1986133b5c45a78fc8118f15016c4832b.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 03&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="c934c5ed4d548ab9d4edd7aab7e0f92448913e6de3367db2dd1f9b6673368ab8.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 02&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="b446464fb33d2546006c178abfa324e855f70ab2887b38a30aafae57dad3fc2c.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 01&nbsp;&nbsp;&nbsp;1
-                                    </span>
-                                    </a>
-                                    <a href="81a628ffffdcc49821267ac2412d657170f2d3f970ec8e15467f9ba051f27cba.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> UI SALESLISTPAGE USER 05&nbsp;&nbsp;&nbsp;1
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> User&nbsp;&nbsp;&nbsp;8
                                     </span>
                                     </a>
                                     <a href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">
-                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Smoke&nbsp;&nbsp;&nbsp;5
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Smoke&nbsp;&nbsp;&nbsp;8
                                     </span>
                                     </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                                <h5 class="card-title">Context</h5>
-                            <div>
-                                    <a href="83a1614f3dda521b0b7f5f6481c9e8fca62028b7ee1d7022b7d38143cdeaeee1.html">
+                                    <a href="189855f8c1683c172ad79b53946681403aac4208bc3e81918f8565b89aa4d412.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API DELETE SALE 03&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="e0eefc53d204e4faadceae7a22dc5be73bac20d7ff946fa503c24627ab356e26.html">
                                     <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
-                                        <i class="bi bi-tag-fill"></i> Chrome, Mac&nbsp;&nbsp;&nbsp;5
+                                        <i class="bi bi-tag-fill"></i> API GET PAGINATEDSALES 01&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;8
+                                    </span>
+                                    </a>
+                                    <a href="3e363deb8ca388838f7102808268aa41a5b50d4e7188820d9343be21289585d3.html">
+                                    <span class="tag-badge badge" style="background-color:#fd938e; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API POST SELLPLANT 02&nbsp;&nbsp;&nbsp;1
                                     </span>
                                     </a>
                             </div>
@@ -832,7 +866,7 @@
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [5,0,0,0,0,0,0,0],
+                data: [6,0,0,0,0,2,0,0],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -883,7 +917,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = "100%"
+                        var text = "75%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -928,7 +962,7 @@
             datasets: [
                 {
                     label: 'Automated',
-                    data: [5,0,0,0,0,0,0,0],
+                    data: [6,0,0,0,0,2,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -1011,7 +1045,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['0','5','0','0','0','0','0','0'],
+                data: ['8','0','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
@@ -1074,37 +1108,37 @@
 
         const coverageReports = [
             {
-                title: 'Sales List Page - User',
-                result: 'SUCCESS',
-                link: "15a45370419c8dd69b1b02b0de2df4182de485109c43ac6edbb54667564f6ffe.html"
+                title: 'Sales API - User',
+                result: 'FAILURE',
+                link: "9322b4f0d882da0f95f17ac5d484f21ebf2c84c2c378d4cff186c39d32b62740.html"
             },
             {
                 title: 'Sales List Page - Admin',
                 result: 'SUCCESS',
-                link: "c2cf408d3606a12c78dda528e3bfd770c00e0711e1cb9c04884f22b5a923d1a0.html"
+                link: "#"
             },
             {
                 title: 'Sales API - Admin',
                 result: 'SUCCESS',
-                link: "#"
+                link: "f6d9ed1e4068adca9736c4d10e65ad58274fd8f55b092b066b2158b7a5b1b812.html"
             },
             {
-                title: 'Sales API - User',
+                title: 'Sales List Page - User',
                 result: 'SUCCESS',
                 link: "#"
             },
         ]
         const coverageData = {
             labels: [
-                'Sales List Page - User',
+                'Sales API - User',
                 'Sales List Page - Admin',
                 'Sales API - Admin',
-                'Sales API - User',
+                'Sales List Page - User',
             ],
             datasets: [
                 {
                     label: ['Passing Tests'],
-                    data: [5,0,0,0],
+                    data: [6,0,0,0],
                     backgroundColor: [ 'rgba(153,204,51,0.5)' ]
                 },
                 {
@@ -1129,7 +1163,7 @@
                 },
                 {
                     label: ['Failed Tests'],
-                    data: [0,0,0,0],
+                    data: [2,0,0,0],
                     backgroundColor: [ 'rgba(255, 22, 49, 0.5)' ]
                 },
                 {

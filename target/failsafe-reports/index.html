@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">10 methods,   10 passed</span>
+                    <span class="method-stats">13 methods, 2 failed,   11 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify unauthorized access to plant selling with user token&quot;, &quot;Sales API - User&quot;)">runScenario("Verify unauthorized access to plant selling with user token", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify unauthorized access to delete sales with user token&quot;, &quot;Sales API - User&quot;)">runScenario("Verify unauthorized access to delete sales with user token", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,52 +122,57 @@
                     <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify that confirmation prompt appears when admin performs delete action&quot;, &quot;Sales List Page - Admi...)">runScenario("Verify that confirmation prompt appears when admin performs delete action", "Sales List Page - Admi...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify error message is displayed when quantity exceeds current stock&quot;, &quot;Sales List Page - Admin&quot;)">runScenario("Verify error message is displayed when quantity exceeds current stock", "Sales List Page - Admin")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify &quot;No Sales Found&quot; message is displayed when no sales records exist&quot;, &quot;Sales List Page - User&quot;)">runScenario("Verify "No Sales Found" message is displayed when no sales records exist", "Sales List Page - User")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful deletion request with valid sale id&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify successful deletion request with valid sale id", "Sales API - Admin")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify regular user can view their sales records as a paginated list&quot;, &quot;Sales List Page - User&quot;)">runScenario("Verify regular user can view their sales records as a paginated list", "Sales List Page - User")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful sell plant request with valid plant id and quantity&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify successful sell plant request with valid plant id and quantity", "Sales API - Admin")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify other sorting options are available on the sales page&quot;, &quot;Sales List Page - User&quot;)">runScenario("Verify other sorting options are available on the sales page", "Sales List Page - User")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify retrieval of all available sales records&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify retrieval of all available sales records", "Sales API - Admin")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify that &quot;Sell Plant&quot; button is visible to the admin&quot;, &quot;Sales List Page - Admin&quot;)">runScenario("Verify that "Sell Plant" button is visible to the admin", "Sales List Page - Admin")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify default sorting is set to &quot;sold date&quot; when the sales page is loaded&quot;, &quot;Sales List Page - Use...)">runScenario("Verify default sorting is set to "sold date" when the sales page is loaded", "Sales List Page - Use...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful retrieval of sale with valid sale id&quot;, &quot;Sales API - User&quot;)">runScenario("Verify successful retrieval of sale with valid sale id", "Sales API - User")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify delete button is not visible to regular users&quot;, &quot;Sales List Page - User&quot;)">runScenario("Verify delete button is not visible to regular users", "Sales List Page - User")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful retrieval of paginated sales records when records are available&quot;, &quot;Sales API - Us...)">runScenario("Verify successful retrieval of paginated sales records when records are available", "Sales API - Us...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify plant dropdown contains available plants and current stock&quot;, &quot;Sales List Page - Admin&quot;)">runScenario("Verify plant dropdown contains available plants and current stock", "Sales List Page - Admin")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify validation of exceeded plant quantity&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify validation of exceeded plant quantity", "Sales API - Admin")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify navigation back to sales list page when cancel button is clicked&quot;, &quot;Sales List Page - Admin&quot;)">runScenario("Verify navigation back to sales list page when cancel button is clicked", "Sales List Page - Admin")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify validation of quantity less than 1&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify validation of quantity less than 1", "Sales API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -163,6 +187,68 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">starter.CucumberTestSuite</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify unauthorized access to plant selling with user token&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify unauthorized access to plant selling with user token", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify unauthorized access to plant selling with user token","Sales API - User")</span>
+                  <div class="stack-trace">org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 400
+	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:154)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.sellPlantAsUser$accessor$le2yIbGF(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.sellPlantAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:47)
+	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+... Removed 4 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify unauthorized access to delete sales with user token&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify unauthorized access to delete sales with user token", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify unauthorized access to delete sales with user token","Sales API - User")</span>
+                  <div class="stack-trace">org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:171)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.deleteSaleAsUser$accessor$le2yIbGF(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.deleteSaleAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:54)
+	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+... Removed 4 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -171,100 +257,110 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify that confirmation prompt appears when admin performs delete action&quot;, &quot;Sales List Page - Admi...)">
-                  </a> <!-- runScenario("Verify that confirmation prompt appears when admin performs delete action", "Sales List Page - Admi...) -->
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify that confirmation prompt appears when admin performs delete action","Sales List Page - Admin")</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify error message is displayed when quantity exceeds current stock&quot;, &quot;Sales List Page - Admin&quot;)">
-                  </a> <!-- runScenario("Verify error message is displayed when quantity exceeds current stock", "Sales List Page - Admin") -->
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify error message is displayed when quantity exceeds current stock","Sales List Page - Admin")</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify &quot;No Sales Found&quot; message is displayed when no sales records exist&quot;, &quot;Sales List Page - User&quot;)">
-                  </a> <!-- runScenario("Verify "No Sales Found" message is displayed when no sales records exist", "Sales List Page - User") -->
+                  <a name="runScenario(&quot;Verify successful deletion request with valid sale id&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify successful deletion request with valid sale id", "Sales API - Admin") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify "No Sales Found" message is displayed when no sales records exist","Sales List Page - User")</span>
+                  <span class="parameters">("Verify successful deletion request with valid sale id","Sales API - Admin")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify regular user can view their sales records as a paginated list&quot;, &quot;Sales List Page - User&quot;)">
-                  </a> <!-- runScenario("Verify regular user can view their sales records as a paginated list", "Sales List Page - User") -->
+                  <a name="runScenario(&quot;Verify successful sell plant request with valid plant id and quantity&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify successful sell plant request with valid plant id and quantity", "Sales API - Admin") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify regular user can view their sales records as a paginated list","Sales List Page - User")</span>
+                  <span class="parameters">("Verify successful sell plant request with valid plant id and quantity","Sales API - Admin")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify other sorting options are available on the sales page&quot;, &quot;Sales List Page - User&quot;)">
-                  </a> <!-- runScenario("Verify other sorting options are available on the sales page", "Sales List Page - User") -->
+                  <a name="runScenario(&quot;Verify retrieval of all available sales records&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify retrieval of all available sales records", "Sales API - Admin") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify other sorting options are available on the sales page","Sales List Page - User")</span>
+                  <span class="parameters">("Verify retrieval of all available sales records","Sales API - Admin")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify that &quot;Sell Plant&quot; button is visible to the admin&quot;, &quot;Sales List Page - Admin&quot;)">
-                  </a> <!-- runScenario("Verify that "Sell Plant" button is visible to the admin", "Sales List Page - Admin") -->
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify that "Sell Plant" button is visible to the admin","Sales List Page - Admin")</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify default sorting is set to &quot;sold date&quot; when the sales page is loaded&quot;, &quot;Sales List Page - Use...)">
-                  </a> <!-- runScenario("Verify default sorting is set to "sold date" when the sales page is loaded", "Sales List Page - Use...) -->
+                  <a name="runScenario(&quot;Verify successful retrieval of sale with valid sale id&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify successful retrieval of sale with valid sale id", "Sales API - User") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify default sorting is set to "sold date" when the sales page is loaded","Sales List Page - User")</span>
+                  <span class="parameters">("Verify successful retrieval of sale with valid sale id","Sales API - User")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify delete button is not visible to regular users&quot;, &quot;Sales List Page - User&quot;)">
-                  </a> <!-- runScenario("Verify delete button is not visible to regular users", "Sales List Page - User") -->
+                  <a name="runScenario(&quot;Verify successful retrieval of paginated sales records when records are available&quot;, &quot;Sales API - Us...)">
+                  </a> <!-- runScenario("Verify successful retrieval of paginated sales records when records are available", "Sales API - Us...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify delete button is not visible to regular users","Sales List Page - User")</span>
+                  <span class="parameters">("Verify successful retrieval of paginated sales records when records are available","Sales API - User")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify plant dropdown contains available plants and current stock&quot;, &quot;Sales List Page - Admin&quot;)">
-                  </a> <!-- runScenario("Verify plant dropdown contains available plants and current stock", "Sales List Page - Admin") -->
+                  <a name="runScenario(&quot;Verify validation of exceeded plant quantity&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify validation of exceeded plant quantity", "Sales API - Admin") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify plant dropdown contains available plants and current stock","Sales List Page - Admin")</span>
+                  <span class="parameters">("Verify validation of exceeded plant quantity","Sales API - Admin")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify navigation back to sales list page when cancel button is clicked&quot;, &quot;Sales List Page - Admin&quot;)">
-                  </a> <!-- runScenario("Verify navigation back to sales list page when cancel button is clicked", "Sales List Page - Admin") -->
+                  <a name="runScenario(&quot;Verify validation of quantity less than 1&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify validation of quantity less than 1", "Sales API - Admin") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify navigation back to sales list page when cancel button is clicked","Sales List Page - Admin")</span>
+                  <span class="parameters">("Verify validation of quantity less than 1","Sales API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -330,52 +426,64 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(10);
+data.addRows(13);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'starter.CucumberTestSuite')
-data.setCell(0, 3, 9722);
+data.setCell(0, 3, 1914);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'starter.CucumberTestSuite')
-data.setCell(1, 3, 8221);
+data.setCell(1, 3, 263);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'starter.CucumberTestSuite')
-data.setCell(2, 3, 7006);
+data.setCell(2, 3, 247);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'runScenario')
 data.setCell(3, 2, 'starter.CucumberTestSuite')
-data.setCell(3, 3, 6810);
+data.setCell(3, 3, 219);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'runScenario')
 data.setCell(4, 2, 'starter.CucumberTestSuite')
-data.setCell(4, 3, 6580);
+data.setCell(4, 3, 198);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'runScenario')
 data.setCell(5, 2, 'starter.CucumberTestSuite')
-data.setCell(5, 3, 5855);
+data.setCell(5, 3, 191);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'runScenario')
 data.setCell(6, 2, 'starter.CucumberTestSuite')
-data.setCell(6, 3, 5751);
+data.setCell(6, 3, 182);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'runScenario')
 data.setCell(7, 2, 'starter.CucumberTestSuite')
-data.setCell(7, 3, 4722);
+data.setCell(7, 3, 143);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'runScenario')
 data.setCell(8, 2, 'starter.CucumberTestSuite')
-data.setCell(8, 3, 4198);
+data.setCell(8, 3, 135);
 data.setCell(9, 0, 9)
 data.setCell(9, 1, 'runScenario')
 data.setCell(9, 2, 'starter.CucumberTestSuite')
-data.setCell(9, 3, 3038);
+data.setCell(9, 3, 132);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'runScenario')
+data.setCell(10, 2, 'starter.CucumberTestSuite')
+data.setCell(10, 3, 128);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'runScenario')
+data.setCell(11, 2, 'starter.CucumberTestSuite')
+data.setCell(11, 3, 121);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'runScenario')
+data.setCell(12, 2, 'starter.CucumberTestSuite')
+data.setCell(12, 3, 121);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 3 seconds</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -403,52 +511,68 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">starter.CucumberTestSuite</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@1c742ed4)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@97e93f1)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify that "Sell Plant" button is visible to the admin", "Sales List Page - Admin")</span>
-                <span class="method-start">426 ms</span>
+                <span class="method-name">runScenario("Verify successful sell plant request with valid plant id and quantity", "Sales API - Admin")</span>
+                <span class="method-start">395 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify that confirmation prompt appears when admin performs delete action", "Sales List Page - Admi...)</span>
-                <span class="method-start">10151 ms</span>
+                <span class="method-name">runScenario("Verify validation of exceeded plant quantity", "Sales API - Admin")</span>
+                <span class="method-start">2311 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify plant dropdown contains available plants and current stock", "Sales List Page - Admin")</span>
-                <span class="method-start">16961 ms</span>
+                <span class="method-name">runScenario("Verify successful deletion request with valid sale id", "Sales API - Admin")</span>
+                <span class="method-start">2502 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify error message is displayed when quantity exceeds current stock", "Sales List Page - Admin")</span>
-                <span class="method-start">25182 ms</span>
+                <span class="method-name">runScenario("Verify validation of quantity less than 1", "Sales API - Admin")</span>
+                <span class="method-start">2722 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify navigation back to sales list page when cancel button is clicked", "Sales List Page - Admin")</span>
-                <span class="method-start">32188 ms</span>
+                <span class="method-name">runScenario("Verify retrieval of all available sales records", "Sales API - Admin")</span>
+                <span class="method-start">2905 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify regular user can view their sales records as a paginated list", "Sales List Page - User")</span>
-                <span class="method-start">37940 ms</span>
+                <span class="method-name">runScenario("Verify successful retrieval of paginated sales records when records are available", "Sales API - Us...)</span>
+                <span class="method-start">3026 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify "No Sales Found" message is displayed when no sales records exist", "Sales List Page - User")</span>
-                <span class="method-start">43795 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify unauthorized access to plant selling with user token", "Sales API - User")</span>
+                <span class="method-start">3169 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify default sorting is set to "sold date" when the sales page is loaded", "Sales List Page - Use...)</span>
-                <span class="method-start">46834 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify unauthorized access to delete sales with user token", "Sales API - User")</span>
+                <span class="method-start">3368 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify other sorting options are available on the sales page", "Sales List Page - User")</span>
-                <span class="method-start">51032 ms</span>
+                <span class="method-name">runScenario("Verify successful retrieval of sale with valid sale id", "Sales API - User")</span>
+                <span class="method-start">3615 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify delete button is not visible to regular users", "Sales List Page - User")</span>
-                <span class="method-start">55754 ms</span>
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">3878 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">4013 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">4145 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">4274 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">62335 ms</span>
+                <span class="method-start">4396 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

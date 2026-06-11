@@ -1,187 +1,293 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="13" passed="11" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-11T18:54:40 IST" name="Surefire suite" finished-at="2026-06-11T18:55:43 IST" duration-ms="62716">
+  <suite started-at="2026-06-11T19:00:37 IST" name="Surefire suite" finished-at="2026-06-11T19:00:42 IST" duration-ms="4711">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-06-11T18:54:40 IST" name="Surefire test" finished-at="2026-06-11T18:55:43 IST" duration-ms="62716">
+    <test started-at="2026-06-11T19:00:37 IST" name="Surefire test" finished-at="2026-06-11T19:00:42 IST" duration-ms="4711">
       <class name="starter.CucumberTestSuite">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:54:40 IST" name="setUpClass" finished-at="2026-06-11T18:54:41 IST" duration-ms="420" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:37 IST" name="setUpClass" finished-at="2026-06-11T19:00:38 IST" duration-ms="390" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1c742ed4]]>
+                <![CDATA[org.testng.TestRunner@97e93f1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:54:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:54:51 IST" duration-ms="9722" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:40 IST" duration-ms="1914" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify that "Sell Plant" button is visible to the admin"]]>
+                <![CDATA["Verify successful sell plant request with valid plant id and quantity"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - Admin"]]>
+                <![CDATA["Sales API - Admin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:54:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:54:57 IST" duration-ms="6810" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:40 IST" duration-ms="191" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify that confirmation prompt appears when admin performs delete action"]]>
+                <![CDATA["Verify validation of exceeded plant quantity"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - Admin"]]>
+                <![CDATA["Sales API - Admin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:54:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:06 IST" duration-ms="8221" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:40 IST" duration-ms="219" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify plant dropdown contains available plants and current stock"]]>
+                <![CDATA["Verify successful deletion request with valid sale id"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - Admin"]]>
+                <![CDATA["Sales API - Admin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:13 IST" duration-ms="7006" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:40 IST" duration-ms="182" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify error message is displayed when quantity exceeds current stock"]]>
+                <![CDATA["Verify validation of quantity less than 1"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - Admin"]]>
+                <![CDATA["Sales API - Admin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:18 IST" duration-ms="5751" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:40 IST" duration-ms="121" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify navigation back to sales list page when cancel button is clicked"]]>
+                <![CDATA["Verify retrieval of all available sales records"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - Admin"]]>
+                <![CDATA["Sales API - Admin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:24 IST" duration-ms="5855" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:41 IST" duration-ms="143" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify regular user can view their sales records as a paginated list"]]>
+                <![CDATA["Verify successful retrieval of paginated sales records when records are available"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - User"]]>
+                <![CDATA["Sales API - User"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:24 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:27 IST" duration-ms="3038" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:41 IST" duration-ms="198" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify "No Sales Found" message is displayed when no sales records exist"]]>
+                <![CDATA["Verify unauthorized access to plant selling with user token"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - User"]]>
+                <![CDATA["Sales API - User"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message>
+              <![CDATA[[User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 400]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 400
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:154)
+at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.sellPlantAsUser$accessor$le2yIbGF(Unknown Source)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.sellPlantAsUser(Unknown Source)
+at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:47)
+at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.opentest4j.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:41 IST" duration-ms="247" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify unauthorized access to delete sales with user token"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Sales API - User"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.opentest4j.AssertionFailedError">
+            <message>
+              <![CDATA[[User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:171)
+at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.deleteSaleAsUser$accessor$le2yIbGF(Unknown Source)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+at starter.steps.SalesUserApiSteps$ByteBuddy$R1PWGWnW.deleteSaleAsUser(Unknown Source)
+at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:54)
+at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.opentest4j.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:41 IST" duration-ms="263" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify successful retrieval of sale with valid sale id"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Sales API - User"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:32 IST" duration-ms="4198" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:41 IST" duration-ms="135" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify default sorting is set to "sold date" when the sales page is loaded"]]>
+                <![CDATA["Verify paginated sales retrieval with different sorting options"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - User"]]>
+                <![CDATA["Sales API - User"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:36 IST" duration-ms="4722" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:42 IST" duration-ms="132" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify other sorting options are available on the sales page"]]>
+                <![CDATA["Verify paginated sales retrieval with different sorting options"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - User"]]>
+                <![CDATA["Sales API - User"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T18:55:43 IST" duration-ms="6580" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:42 IST" duration-ms="128" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify delete button is not visible to regular users"]]>
+                <![CDATA["Verify paginated sales retrieval with different sorting options"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Sales List Page - User"]]>
+                <![CDATA["Sales API - User"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T18:55:43 IST" name="tearDownClass" finished-at="2026-06-11T18:55:43 IST" duration-ms="371" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-06-11T19:00:42 IST" duration-ms="121" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify paginated sales retrieval with different sorting options"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Sales API - User"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:starter.CucumberTestSuite@4d5650ae]" started-at="2026-06-11T19:00:42 IST" name="tearDownClass" finished-at="2026-06-11T19:00:42 IST" duration-ms="307" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

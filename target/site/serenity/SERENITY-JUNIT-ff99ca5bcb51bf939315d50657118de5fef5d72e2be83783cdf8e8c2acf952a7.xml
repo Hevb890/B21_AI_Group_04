@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="2" name="Sales API - User" skipped="0" tests="8" time="1.35" timestamp="2026-06-11 07:00:40"><testcase name="Verify successful retrieval of paginated sales records when records are available"/><testcase name="Verify unauthorized access to plant selling with user token"><failure message="[User selling plant should return 401 Unauthorized] &#10;expected: 401&#10; but was: 400" type="org.opentest4j.AssertionFailedError">[User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 400</failure><system-err>[User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 400
+starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:154)
+starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:47)
+✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+</system-err></testcase><testcase name="Verify unauthorized access to delete sales with user token"><failure message="[User deleting sale should return 401 Unauthorized] &#10;expected: 401&#10; but was: 204" type="org.opentest4j.AssertionFailedError">[User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204</failure><system-err>[User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:171)
+starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:54)
+✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+</system-err></testcase><testcase name="Verify successful retrieval of sale with valid sale id"/><testcase name="Verify paginated sales retrieval with different sorting options"/></testsuite>

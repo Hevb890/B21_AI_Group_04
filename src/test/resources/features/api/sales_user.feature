@@ -29,7 +29,7 @@ Feature: Sales API - User
     Then the response status code should be 200
     And the response should contain valid sale details
 
-  @API_GET_PAGINATEDSALES_02 @regression
+  @API_GET_PAGINATEDSALES_02 @smoke
   Scenario Outline: Verify paginated sales retrieval with different sorting options
     When the user sends a GET request to retrieve paginated sales sorted by "<sortField>" in "<sortDir>" order
     Then the response status code should be 200
