@@ -61,6 +61,20 @@ public class SellPlantPage extends PageObject {
         }
     }
 
+    public boolean isStockExceededErrorDisplayed() {
+        return getDriver()
+                .findElements(By.cssSelector("div.alert.alert-danger span"))
+                .stream()
+                .filter(el -> {
+                    try {
+                        return el.isDisplayed();
+                    } catch (Exception e) {
+                        return false;
+                    }
+                })
+                .count() > 0;
+    }
+
     public void enterQuantity(String quantity) {
         quantityField.waitUntilVisible().clear();
         quantityField.type(quantity);

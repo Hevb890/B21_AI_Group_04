@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.annotations.DefaultUrl;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,18 +22,33 @@ public class SalesListPage extends PageObject {
     private WebElementFacade firstDeleteButton;
 
     public boolean isSellPlantButtonVisible() {
-        return sellPlantButton.isCurrentlyVisible();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.cssSelector("a[href='/ui/sales/new']")));
+            return true;
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
     public void clickSellPlantButton() {
-        sellPlantButton.waitUntilClickable().click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("a[href='/ui/sales/new']"))).click();
     }
 
+    // FIX 2: Remove //form// from XPath — trash button is NOT inside a form
     public void clickFirstDeleteButton() {
-        firstDeleteButton.waitUntilClickable().click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        org.openqa.selenium.WebElement deleteBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("(//button[descendant::i[contains(@class, 'bi-trash')]])[1]")));
+        ((org.openqa.selenium.JavascriptExecutor) getDriver())
+                .executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+        deleteBtn.click();
     }
 
-    // Check Prompt Visibility
     public boolean isConfirmationPromptVisible() {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));

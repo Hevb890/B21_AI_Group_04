@@ -44,7 +44,7 @@ public class SalesListUserSteps {
     @Step("Verify 'No Sales Found' message is displayed")
     public void verifyNoSalesFoundMessage() {
         assertThat(salesListUserPage.isNoSalesFoundMessageDisplayed())
-                .as("'No Sales Found' message should be visible when no records exist")
+                .as("No sales found")
                 .isTrue();
     }
 
