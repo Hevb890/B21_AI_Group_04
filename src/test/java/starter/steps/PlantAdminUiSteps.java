@@ -124,8 +124,11 @@ public class PlantAdminUiSteps {
 
     @Step("Verify plant list accurately displays '{0}' record")
     public void verifyPlantListDisplaysRecord(String expectedRecord) {
-        assertThat(plantPage.isPlantDisplayed(expectedRecord))
-                .as("Plant record should be displayed in the list")
+        assertThat(plantPage.isSearchEmptyStateDisplayed())
+                .as("Search results should not show 'No plants found' empty state")
+                .isFalse();
+        assertThat(plantPage.isPlantRecordInTable(expectedRecord))
+                .as("Plant record '%s' should appear in the search results table", expectedRecord)
                 .isTrue();
     }
 

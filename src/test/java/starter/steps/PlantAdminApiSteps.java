@@ -281,6 +281,7 @@ public class PlantAdminApiSteps {
         getAdminToken();
         ensureSubCategoryExists();
         recreatePlantForUi(SEARCH_PLANT_NAME, 200, 20);
+        recreatePlantForUi("Green Fern", 50, 10);
     }
 
     @Step("Remove plant '{0}' if it already exists before UI create test")

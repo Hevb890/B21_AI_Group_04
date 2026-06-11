@@ -82,7 +82,7 @@ public class PlantPage extends PageObject {
     }
 
     public boolean hasAtLeastOnePlantRow() {
-        return !getDriver().findElements(By.xpath("//table//tbody//tr[td]")).isEmpty();
+        return !getDataRows().isEmpty();
     }
 
     public boolean isAddPlantButtonVisible() {
@@ -107,7 +107,17 @@ public class PlantPage extends PageObject {
 
     public void clickSearchButton() {
         searchButton.waitUntilClickable().click();
-        waitABit(1000);
+        waitForSearchResults();
+    }
+
+    public void waitForSearchResults() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//tr/td[contains(normalize-space(.), 'No plants found')]")),
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//tr[td[1] and not(contains(normalize-space(.), 'No plants found'))]]"))
+        ));
     }
 
     public void clickResetButton() {
@@ -172,27 +182,35 @@ public class PlantPage extends PageObject {
         return columnName.equalsIgnoreCase(expected);
     }
 
-    public boolean isPlantDisplayed(String plantName) {
-        String normalizedExpected = plantName.replace(" ", "").toLowerCase();
+    public boolean isSearchEmptyStateDisplayed() {
+        return !getDriver().findElements(
+                By.xpath("//table//tbody//tr/td[contains(normalize-space(.), 'No plants found')]")
+        ).isEmpty();
+    }
+
+    public boolean isPlantRecordInTable(String plantName) {
+        if (isSearchEmptyStateDisplayed()) {
+            return false;
+        }
         for (WebElement row : getDriver().findElements(By.xpath("//table//tbody//tr[td]"))) {
-            String rowText = row.getText().replace(" ", "").toLowerCase();
-            if (matchesPlantNameInText(rowText, normalizedExpected, plantName)) {
+            if (isEmptyStateRow(row)) {
+                continue;
+            }
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            if (cells.isEmpty()) {
+                continue;
+            }
+            if (cells.get(0).getText().trim().equalsIgnoreCase(plantName.trim())) {
                 return true;
             }
         }
-        String pageText = getDriver().getPageSource().replace(" ", "").toLowerCase();
-        return matchesPlantNameInText(pageText, normalizedExpected, plantName);
+        return false;
     }
 
-    private boolean matchesPlantNameInText(String haystack, String normalizedExpected, String plantName) {
-        if (haystack.contains(normalizedExpected)) {
-            return true;
-        }
-        if (plantName.toLowerCase().contains("anthurium") && haystack.contains("anthoorium")) {
-            return true;
-        }
-        if (plantName.toLowerCase().contains("anthoorium") && haystack.contains("anthurium")) {
-            return true;
+    private boolean isEmptyStateRow(WebElement row) {
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        if (cells.size() == 1) {
+            return cells.get(0).getText().contains("No plants found");
         }
         return false;
     }
@@ -351,12 +369,7 @@ public class PlantPage extends PageObject {
     }
 
     public boolean isNoPlantsMessageDisplayed() {
-        try {
-            return noPlantsMessage.isCurrentlyVisible()
-                    || getDriver().getPageSource().contains("No plants found");
-        } catch (Exception e) {
-            return getDriver().getPageSource().contains("No plants found");
-        }
+        return isSearchEmptyStateDisplayed();
     }
 
     public boolean hasRowWithQuantityUnder5() {
@@ -436,7 +449,13 @@ public class PlantPage extends PageObject {
     }
 
     private List<WebElement> getDataRows() {
-        return getDriver().findElements(By.xpath("//table//tbody//tr[td]"));
+        List<WebElement> dataRows = new ArrayList<>();
+        for (WebElement row : getDriver().findElements(By.xpath("//table//tbody//tr[td]"))) {
+            if (!isEmptyStateRow(row)) {
+                dataRows.add(row);
+            }
+        }
+        return dataRows;
     }
 
     private Integer extractQuantityFromRow(WebElement row) {
