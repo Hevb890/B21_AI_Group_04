@@ -114,12 +114,8 @@ jobs:
           fi
 
       # Note: Added 'needs: Wait for application to start' dependency implicitly by step order
-      - name: Run API tests
-        run: mvn clean verify -Dcucumber.filter.tags="@api"
-        continue-on-error: true
-
-      - name: Run UI tests
-        run: mvn verify -Dcucumber.filter.tags="@ui" -Dheadless.mode=true
+      - name: Run API and UI tests
+        run: mvn clean verify -Dcucumber.filter.tags="@ui or @api"
         continue-on-error: true
 
       # FIX: Changed to if: always() to guarantee you see the stack trace if it fails
