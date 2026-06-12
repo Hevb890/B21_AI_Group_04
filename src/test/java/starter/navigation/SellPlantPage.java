@@ -83,13 +83,4 @@ public class SellPlantPage extends PageObject {
     public void clickCancel() {
         cancelButton.waitUntilClickable().click();
     }
-
-    public boolean isErrorMessageDisplayed() {
-        try {
-            errorMessage.waitUntilVisible();
-            return errorMessage.isCurrentlyVisible();
-        } catch (Exception e) {
-            return false;
-        }
-    }
 }

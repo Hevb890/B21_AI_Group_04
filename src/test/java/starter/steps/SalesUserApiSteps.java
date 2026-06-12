@@ -5,7 +5,6 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,24 +16,14 @@ public class SalesUserApiSteps {
         private static final String ADMIN_USER = "admin";
         private static final String ADMIN_PASS = "admin123";
 
-        private static String userToken;
+        private String userToken;
         private Integer validSaleId;
         private Integer validPlantId;
-
-        private String getOrFetchToken() {
-                if (userToken == null) {
-                        getUserToken();
-                }
-                return userToken;
-        }
 
         // ─── Background ───────────────────────────────────────────
 
         @Step("Get user authentication token")
         public void getUserToken() {
-                if (userToken != null) {
-                        return;
-                }
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -55,11 +44,11 @@ public class SalesUserApiSteps {
 
         @Step("Ensure a valid plant id exists")
         public void ensureValidPlantExists() {
-                // Fetch all plants using user token (user has read access too)
+                // Fetch all plants using admin token (user has read access too)
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
-                                .header("Authorization", "Bearer " + getOrFetchToken())
+                                .header("Authorization", "Bearer " + userToken)
                                 .contentType("application/json")
                                 .when()
                                 .get("/api/plants");
@@ -67,78 +56,11 @@ public class SalesUserApiSteps {
                 assertThat(response.statusCode())
                                 .as("Get plants should return 200").isEqualTo(200);
 
-                List<Map<String, Object>> plants = response.jsonPath().getList("");
-                Integer foundPlantId = null;
-                if (plants != null) {
-                        for (Map<String, Object> plant : plants) {
-                                Number qty = (Number) plant.get("quantity");
-                                if (qty != null && qty.intValue() > 0) {
-                                        foundPlantId = ((Number) plant.get("id")).intValue();
-                                        break;
-                                }
-                        }
-                }
+                List<Integer> plantIds = response.jsonPath().getList("id", Integer.class);
+                assertThat(plantIds)
+                                .as("At least one plant must exist for this test").isNotEmpty();
 
-                if (foundPlantId != null) {
-                        validPlantId = foundPlantId;
-                } else {
-                        // If no plant with stock exists, create one via Admin
-                        String adminToken = getAdminToken();
-
-                        // 1. Get or create a sub-category ID
-                        Long subCategoryId = null;
-                        Response catResponse = SerenityRest
-                                        .given()
-                                        .baseUri(BASE_URL)
-                                        .header("Authorization", "Bearer " + adminToken)
-                                        .contentType("application/json")
-                                        .when()
-                                        .get("/api/categories/sub-categories");
-                        if (catResponse.statusCode() == 200) {
-                                List<Integer> ids = catResponse.jsonPath().getList("id", Integer.class);
-                                if (ids != null && !ids.isEmpty()) {
-                                        subCategoryId = ids.get(0).longValue();
-                                }
-                        }
-
-                        if (subCategoryId == null) {
-                                // Create main category
-                                Response mainCat = SerenityRest
-                                                .given()
-                                                .baseUri(BASE_URL)
-                                                .header("Authorization", "Bearer " + adminToken)
-                                                .contentType("application/json")
-                                                .body("{\"name\": \"UserApiCat\"}")
-                                                .when()
-                                                .post("/api/categories");
-                                Long mainCatId = mainCat.jsonPath().getLong("id");
-
-                                // Create sub-category
-                                Response subCat = SerenityRest
-                                                .given()
-                                                .baseUri(BASE_URL)
-                                                .header("Authorization", "Bearer " + adminToken)
-                                                .contentType("application/json")
-                                                .body("{\"name\": \"UserApiSub\",\"parent\":{\"id\":" + mainCatId + "}}")
-                                                .when()
-                                                .post("/api/categories");
-                                subCategoryId = subCat.jsonPath().getLong("id");
-                        }
-
-                        // 2. Create plant with 100 stock
-                        String plantName = "UserApiPl" + (int) (Math.random() * 10000);
-                        Response plantResponse = SerenityRest
-                                        .given()
-                                        .baseUri(BASE_URL)
-                                        .header("Authorization", "Bearer " + adminToken)
-                                        .contentType("application/json")
-                                        .body("{\"name\":\"" + plantName + "\",\"price\":100.0,\"quantity\":100}")
-                                        .when()
-                                        .post("/api/plants/category/" + subCategoryId);
-
-                        validPlantId = plantResponse.jsonPath().getInt("id");
-                }
-
+                validPlantId = plantIds.get(0);
                 System.out.println("[SalesUserApiSteps] Using plant id: " + validPlantId);
         }
 
@@ -189,7 +111,7 @@ public class SalesUserApiSteps {
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
-                                .header("Authorization", "Bearer " + getOrFetchToken())
+                                .header("Authorization", "Bearer " + userToken)
                                 .contentType("application/json")
                                 .queryParam("page", 0)
                                 .queryParam("size", 10)
@@ -202,7 +124,7 @@ public class SalesUserApiSteps {
                 assertThat(response.jsonPath().get("content") != null)
                                 .as("Response should contain 'content' field (PageSale schema) " +
                                                 "— BUG: API returning flat array instead of paginated response")
-                                 .isTrue();
+                                .isTrue();
                 assertThat(response.jsonPath().get("totalElements") != null)
                                 .as("Response should contain 'totalElements' field (PageSale schema)")
                                 .isTrue();
@@ -221,7 +143,7 @@ public class SalesUserApiSteps {
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
-                                .header("Authorization", "Bearer " + getOrFetchToken())
+                                .header("Authorization", "Bearer " + userToken)
                                 .contentType("application/json")
                                 .queryParam("quantity", 1)
                                 .when()
@@ -239,7 +161,7 @@ public class SalesUserApiSteps {
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
-                                .header("Authorization", "Bearer " + getOrFetchToken())
+                                .header("Authorization", "Bearer " + userToken)
                                 .contentType("application/json")
                                 .when()
                                 .delete("/api/sales/" + validSaleId);
@@ -256,7 +178,7 @@ public class SalesUserApiSteps {
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
-                                .header("Authorization", "Bearer " + getOrFetchToken())
+                                .header("Authorization", "Bearer " + userToken)
                                 .contentType("application/json")
                                 .when()
                                 .get("/api/sales/" + validSaleId);
@@ -286,7 +208,7 @@ public class SalesUserApiSteps {
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
-                                .header("Authorization", "Bearer " + getOrFetchToken())
+                                .header("Authorization", "Bearer " + userToken)
                                 .contentType("application/json")
                                 .queryParam("page", 0)
                                 .queryParam("size", 10)

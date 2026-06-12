@@ -11,6 +11,11 @@ public class SalesUserApiStepDefinitions {
 
     // ─── Background ───────────────────────────────────────────
 
+    @Given("the user authentication token is available")
+    public void theUserAuthenticationTokenIsAvailable() {
+        salesUserApiSteps.getUserToken();
+    }
+
     // ─── Setup ────────────────────────────────────────────────
 
     @Given("a valid plant id exists")

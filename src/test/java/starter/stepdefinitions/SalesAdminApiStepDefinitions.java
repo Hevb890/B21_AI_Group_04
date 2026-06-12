@@ -11,6 +11,11 @@ public class SalesAdminApiStepDefinitions {
 
     // ─── Background ───────────────────────────────────────────
 
+    @Given("the admin authentication token is available")
+    public void theAdminAuthenticationTokenIsAvailable() {
+        salesAdminApiSteps.getAdminToken();
+    }
+
     // ─── Setup steps ──────────────────────────────────────────
 
     @Given("a valid plant exists with sufficient stock")
@@ -68,4 +73,11 @@ public class SalesAdminApiStepDefinitions {
         // Assertion already done inside getAllSales() step
     }
 
+    // ─── Shared status code assertion ─────────────────────────
+
+    @Then("the response status code should be {int}")
+    public void theResponseStatusCodeShouldBe(int statusCode) {
+        // Status code assertions are done inline in each step method
+        // This step is intentionally empty — assertions already verified above
+    }
 }

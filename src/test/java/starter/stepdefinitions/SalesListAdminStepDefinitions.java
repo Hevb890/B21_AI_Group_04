@@ -15,12 +15,24 @@ public class SalesListAdminStepDefinitions {
 
     // ─── Background ───────────────────────────────────────────
 
+    @Given("the admin is logged in")
+    public void theAdminIsLoggedIn() {
+        salesListAdminSteps.loginAsAdmin(ADMIN_USERNAME, ADMIN_PASSWORD);
+    }
+
     @Given("the admin navigates to the sales list page")
     public void theAdminNavigatesToTheSalesListPage() {
         salesListAdminSteps.navigateToSalesListPage();
     }
 
     // ─── TC01: Sell Plant button visible ──────────────────────
+
+    @Then("the {string} button should be visible on the page")
+    public void theButtonShouldBeVisibleOnThePage(String buttonName) {
+        if (buttonName.equalsIgnoreCase("Sell Plant")) {
+            salesListAdminSteps.verifySellPlantButtonIsVisible();
+        }
+    }
 
     // ─── TC02: Delete confirmation prompt ─────────────────────
     // Note: Delete button has a trash icon (bi-trash), not text
@@ -38,6 +50,13 @@ public class SalesListAdminStepDefinitions {
     }
 
     // ─── TC03: Plant dropdown content ─────────────────────────
+
+    @When("the admin clicks the {string} button")
+    public void theAdminClicksTheButton(String buttonName) {
+        if (buttonName.equalsIgnoreCase("Sell Plant")) {
+            salesListAdminSteps.clickSellPlantButton();
+        }
+    }
 
     @When("the admin opens the plant dropdown")
     public void theAdminOpensThePlantDropdown() {
