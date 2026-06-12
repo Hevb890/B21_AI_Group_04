@@ -4,6 +4,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.rest.SerenityRest;
+import starter.steps.AuthAdminApiSteps;
+import starter.steps.AuthUserApiSteps;
 import starter.steps.CategoryAdminApiSteps;
 import starter.steps.CategoryUserApiSteps;
 import starter.steps.SalesAdminApiSteps;
@@ -12,6 +14,12 @@ import starter.steps.SalesUserApiSteps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CommonApiStepDefinitions {
+
+    @Steps
+    AuthAdminApiSteps authAdminApiSteps;
+
+    @Steps
+    AuthUserApiSteps authUserApiSteps;
 
     @Steps
     CategoryAdminApiSteps categoryAdminApiSteps;
@@ -27,16 +35,18 @@ public class CommonApiStepDefinitions {
 
     @Given("the admin authentication token is available")
     public void theAdminAuthenticationTokenIsAvailable() {
-        // Obtain tokens for both admin step libraries
+        // Obtain tokens for all admin step libraries
         categoryAdminApiSteps.getAdminToken();
         salesAdminApiSteps.getAdminToken();
+        authAdminApiSteps.fetchAdminToken();
     }
 
     @Given("the user authentication token is available")
     public void theUserAuthenticationTokenIsAvailable() {
-        // Obtain tokens for both user step libraries
+        // Obtain tokens for all user step libraries
         categoryUserApiSteps.getUserToken();
         salesUserApiSteps.getUserToken();
+        authUserApiSteps.fetchUserToken();
     }
 
     @Then("the response status code should be {int}")
