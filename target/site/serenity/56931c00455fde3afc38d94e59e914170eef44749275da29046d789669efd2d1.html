@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Verify admin can successfully edit existing plant data with valid plant data</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jquery-ui-1.14.1/jquery-ui.css" rel="Stylesheet" />
+<script type="text/javascript" src="jquery-ui-1.14.1/jquery-ui.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<!-- ImgPreview -->
+<script src="scripts/imgpreview.full.jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="results-page">
+
+
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity and Cucumber Quick Start</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs">
+            <a href="index.html" class="breadcrumbs">Home</a>
+
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="2623001b95f13b2c65ad5345fe8f9ded3199543becc82972c476d3413259ad15.html">
+            Ui
+        </a>
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="df87a62c196d56c0c6d59fdfb8ed0075e82642dc6055cfaa68dee1229f172d4f.html">
+            Plantation Page - Admin
+        </a>
+        >
+            Verify admin can successfully edit existing plant data with valid plant data
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 12-06-2026 11:40</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                                <div>
+                                    <h3 class="discreet-story-header">
+                                        <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
+                                        <span class="story-header-title">Plantation Page - Admin </span>
+                                    </h3>
+
+                                </div>
+
+                        </td>
+                        <td valign="top">
+                            <p class="tag">
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">Regression
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">Ui
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="34658a1663fcf042bd7acb3325affbe4e647c8acd84d0228be2f52e1381e61b9.html">10 To 30 Seconds
+                                              (Duration)
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="3447f77379c16a5bb29fa6a6fe37b4b4d20fe344b053c4ae136be0a1e7290834.html">Admin
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="5e654cb370ccb0ed103d72f0032d11cf78ac749f75dc0a313703af90e8749dcc.html">UI PLANTATIONPAGE ADMIN 05
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="8368df1f1b528996f419de2840157de2dbd71e343831cc17b51f54bb7510234a.html">Plant
+                                        </a>
+                                </span>
+                                    <span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="error-color">
+                                    Verify admin can successfully edit existing plant data with valid plant data
+                                        <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+</div>
+</div>
+
+<div class="clr"></div>
+
+
+<div id="beforetable"></div>
+
+
+<div id="tablecontents">
+    <div>
+        <table class="step-table">
+            <tr class="step-titles">
+                <th width="65">
+                </th>
+                <th class="step-description-column greentext">
+                    Steps
+                </th>
+
+                    <th width="150" class="greentext">Screenshots</th>
+                <th width="130" class="greentext">Outcome</th>
+                <th width="100" class="greentext"><i title="Duration" class="bi bi-stopwatch"></i></th>
+            </tr>
+            <tr class="step-table-separator">
+                <td colspan="5"></td>
+            </tr>
+
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection0 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Given the plant admin is logged in
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=2">
+                                    <img src="4255f44560b6932d62842700d32321bcd396f4456ba7b093fc77634f00d3777b.png"
+                                         href="4255f44560b6932d62842700d32321bcd396f4456ba7b093fc77634f00d3777b.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">4s 359ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="0-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin logs in with username 'admin' and password 'admin123'
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=1">
+                                    <img src="4255f44560b6932d62842700d32321bcd396f4456ba7b093fc77634f00d3777b.png"
+                                         href="4255f44560b6932d62842700d32321bcd396f4456ba7b093fc77634f00d3777b.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">4s 351ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection1 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                And the admin navigates to the plant page
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=4">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">676ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="1-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin navigates to the Plant page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=3">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">675ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection2 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Given the edit target plant "Red Anthurium" is prepared for UI tests
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=12">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">2s 374ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection2-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Prepare edit target plant 'Red Anthurium' for UI edit test
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=10">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">678ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Get admin authentication token
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=6">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">001ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-1')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection2-0-1 success-icon"
+                                   style="margin-left: 60px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-1')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Ensure sub-category ID exists
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=9">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">031ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0-1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-0"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Get admin authentication token
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=8">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">001ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-1"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET http://localhost:8080/api/categories/sub-categories
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-10">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/categories/sub-categories</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjQ0NDU2LCJleHAiOjE3ODEyNDgwNTZ9.-RNfk7Sxipk9I31bob75fXVL6JlU9KQXkdkvBfKTkTU<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=C40B4F9B1F9D39B8F84A5D61EED1907E; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 46<br>Date: Fri, 12 Jun 2026 06:10:57 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    {<br>        &quot;id&quot;: 2,<br>        &quot;name&quot;: &quot;TestSub&quot;,<br>        &quot;subCategories&quot;: [<br>            <br>        ]<br>    }<br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=C40B4F9B1F9D39B8F84A5D61EED1907E;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-2"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET http://localhost:8080/api/plants/paged?page=0&amp;size=500
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-11">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-11">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/paged?page=0&size=500</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjQ0NDU2LCJleHAiOjE3ODEyNDgwNTZ9.-RNfk7Sxipk9I31bob75fXVL6JlU9KQXkdkvBfKTkTU<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=B684F569903C33AB21F3CFAF0DC5CAB9; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 7281<br>Date: Fri, 12 Jun 2026 06:10:57 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;content&quot;: [<br>        {<br>            &quot;id&quot;: 1,<br>            &quot;name&quot;: &quot;PlantjQKKZ&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 147,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;PlantWNSwx&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 3,<br>            &quot;name&quot;: &quot;PlantImRzs&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;PlantiBDeb&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 13,<br>            &quot;name&quot;: &quot;PlantaGfuZ&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 14,<br>            &quot;name&quot;: &quot;PlantHjrZq&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 15,<br>            &quot;name&quot;: &quot;PlantfdXyW&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 16,<br>            &quot;name&quot;: &quot;PlantSmmiI&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 17,<br>            &quot;name&quot;: &quot;PlantEaRzm&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 150,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 18,<br>            &quot;name&quot;: &quot;PlantxqKdZ&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 19,<br>            &quot;name&quot;: &quot;PlantssHEq&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 20,<br>            &quot;name&quot;: &quot;PlantmzjIV&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 21,<br>            &quot;name&quot;: &quot;PlantgZGfb&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 22,<br>            &quot;name&quot;: &quot;PlantUqwmW&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 23,<br>            &quot;name&quot;: &quot;PlantKFLQK&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 24,<br>            &quot;name&quot;: &quot;PlantyvoHK&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 25,<br>            &quot;name&quot;: &quot;PlantCJfVw&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 150,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 26,<br>            &quot;name&quot;: &quot;PlantuyBcq&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 27,<br>            &quot;name&quot;: &quot;PlantphQHX&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 28,<br>            &quot;name&quot;: &quot;PlantZaLHj&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 41,<br>            &quot;name&quot;: &quot;PlantYjAng&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 42,<br>            &quot;name&quot;: &quot;PlantisgoM&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 43,<br>            &quot;name&quot;: &quot;Plantsmxio&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 44,<br>            &quot;name&quot;: &quot;PlantyWzmr&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 45,<br>            &quot;name&quot;: &quot;PlantNUreK&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 150,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 46,<br>            &quot;name&quot;: &quot;PlantyGYtW&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 47,<br>            &quot;name&quot;: &quot;PlantnJfah&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 48,<br>            &quot;name&quot;: &quot;PlantUXlwZ&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 61,<br>            &quot;name&quot;: &quot;PlantghSmK&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 62,<br>            &quot;name&quot;: &quot;PlantoVKQe&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 63,<br>            &quot;name&quot;: &quot;PlantaJrdG&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 64,<br>            &quot;name&quot;: &quot;PlantrcEVk&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 65,<br>            &quot;name&quot;: &quot;PlantOhGOS&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 66,<br>            &quot;name&quot;: &quot;PlantoThgJ&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 67,<br>            &quot;name&quot;: &quot;PlanthSkaH&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 150,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 68,<br>            &quot;name&quot;: &quot;PlantxVkQJ&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 69,<br>            &quot;name&quot;: &quot;PlantjgeMm&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 70,<br>            &quot;name&quot;: &quot;PlantVesfF&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 84,<br>            &quot;name&quot;: &quot;Auto Test Plant&quot;,<br>            &quot;price&quot;: 150.0,<br>            &quot;quantity&quot;: 25,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 85,<br>            &quot;name&quot;: &quot;ApiPlant5642&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 86,<br>            &quot;name&quot;: &quot;ApiPlant3685&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 100,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 87,<br>            &quot;name&quot;: &quot;ApiPlant5053&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 88,<br>            &quot;name&quot;: &quot;ApiPlant6745&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 100,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 90,<br>            &quot;name&quot;: &quot;ApiPlant5301&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 91,<br>            &quot;name&quot;: &quot;ApiPlant2298&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 100,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 92,<br>            &quot;name&quot;: &quot;ApiPlant4165&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 93,<br>            &quot;name&quot;: &quot;ApiPlant4264&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 100,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 95,<br>            &quot;name&quot;: &quot;ApiPlant9521&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 96,<br>            &quot;name&quot;: &quot;ApiPlant7540&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 100,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 97,<br>            &quot;name&quot;: &quot;ApiPlant7566&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 98,<br>            &quot;name&quot;: &quot;ApiPlant6116&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 100,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 99,<br>            &quot;name&quot;: &quot;PlantXkmqf&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 100,<br>            &quot;name&quot;: &quot;PlantZfLAv&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 101,<br>            &quot;name&quot;: &quot;PlantnlqbG&quot;,<br>            &quot;price&quot;: 50.0<br><br>[Response truncated - exceeded 16384 bytes]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=B684F569903C33AB21F3CFAF0DC5CAB9;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-3"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET http://localhost:8080/api/plants
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-12">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjQ0NDU2LCJleHAiOjE3ODEyNDgwNTZ9.-RNfk7Sxipk9I31bob75fXVL6JlU9KQXkdkvBfKTkTU<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=214A474D73E201ECF663CEE8FCCE8C5D; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 6963<br>Date: Fri, 12 Jun 2026 06:10:57 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    {<br>        &quot;id&quot;: 1,<br>        &quot;name&quot;: &quot;PlantjQKKZ&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 147,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 2,<br>        &quot;name&quot;: &quot;PlantWNSwx&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 3,<br>        &quot;name&quot;: &quot;PlantImRzs&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 4,<br>        &quot;name&quot;: &quot;PlantiBDeb&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 13,<br>        &quot;name&quot;: &quot;PlantaGfuZ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 14,<br>        &quot;name&quot;: &quot;PlantHjrZq&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 15,<br>        &quot;name&quot;: &quot;PlantfdXyW&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 16,<br>        &quot;name&quot;: &quot;PlantSmmiI&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 17,<br>        &quot;name&quot;: &quot;PlantEaRzm&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 18,<br>        &quot;name&quot;: &quot;PlantxqKdZ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 19,<br>        &quot;name&quot;: &quot;PlantssHEq&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 20,<br>        &quot;name&quot;: &quot;PlantmzjIV&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 21,<br>        &quot;name&quot;: &quot;PlantgZGfb&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 22,<br>        &quot;name&quot;: &quot;PlantUqwmW&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 23,<br>        &quot;name&quot;: &quot;PlantKFLQK&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 24,<br>        &quot;name&quot;: &quot;PlantyvoHK&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 25,<br>        &quot;name&quot;: &quot;PlantCJfVw&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 26,<br>        &quot;name&quot;: &quot;PlantuyBcq&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 27,<br>        &quot;name&quot;: &quot;PlantphQHX&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 28,<br>        &quot;name&quot;: &quot;PlantZaLHj&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 41,<br>        &quot;name&quot;: &quot;PlantYjAng&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 42,<br>        &quot;name&quot;: &quot;PlantisgoM&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 43,<br>        &quot;name&quot;: &quot;Plantsmxio&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 44,<br>        &quot;name&quot;: &quot;PlantyWzmr&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 45,<br>        &quot;name&quot;: &quot;PlantNUreK&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 46,<br>        &quot;name&quot;: &quot;PlantyGYtW&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 47,<br>        &quot;name&quot;: &quot;PlantnJfah&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 48,<br>        &quot;name&quot;: &quot;PlantUXlwZ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 61,<br>        &quot;name&quot;: &quot;PlantghSmK&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 62,<br>        &quot;name&quot;: &quot;PlantoVKQe&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 63,<br>        &quot;name&quot;: &quot;PlantaJrdG&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 64,<br>        &quot;name&quot;: &quot;PlantrcEVk&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 65,<br>        &quot;name&quot;: &quot;PlantOhGOS&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 66,<br>        &quot;name&quot;: &quot;PlantoThgJ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 67,<br>        &quot;name&quot;: &quot;PlanthSkaH&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 68,<br>        &quot;name&quot;: &quot;PlantxVkQJ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 69,<br>        &quot;name&quot;: &quot;PlantjgeMm&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 70,<br>        &quot;name&quot;: &quot;PlantVesfF&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 84,<br>        &quot;name&quot;: &quot;Auto Test Plant&quot;,<br>        &quot;price&quot;: 150.0,<br>        &quot;quantity&quot;: 25,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 85,<br>        &quot;name&quot;: &quot;ApiPlant5642&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 86,<br>        &quot;name&quot;: &quot;ApiPlant3685&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 100,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 87,<br>        &quot;name&quot;: &quot;ApiPlant5053&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 88,<br>        &quot;name&quot;: &quot;ApiPlant6745&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 100,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 90,<br>        &quot;name&quot;: &quot;ApiPlant5301&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 91,<br>        &quot;name&quot;: &quot;ApiPlant2298&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 100,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 92,<br>        &quot;name&quot;: &quot;ApiPlant4165&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 93,<br>        &quot;name&quot;: &quot;ApiPlant4264&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 100,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 95,<br>        &quot;name&quot;: &quot;ApiPlant9521&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 96,<br>        &quot;name&quot;: &quot;ApiPlant7540&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 100,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 97,<br>        &quot;name&quot;: &quot;ApiPlant7566&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 98,<br>        &quot;name&quot;: &quot;ApiPlant6116&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 100,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 99,<br>        &quot;name&quot;: &quot;PlantXkmqf&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 100,<br>        &quot;name&quot;: &quot;PlantZfLAv&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 101,<br>        &quot;name&quot;: &quot;PlantnlqbG&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 102,<br>        &quot;name&quot;: &quot;PlantfDurU&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 103,<br>        &quot;name&quot;: &quot;PlantXzCiT&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 104,<br>        &quot;name&quot;: &quot;PlantBiDxj&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 105,<br>        &quot;name&quot;: &quot;PlantZBleV&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 106,<br>        &quot;name&quot;: &quot;PlantcubxZ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 108,<br>        &quot;name&quot;: &quot;Red Anthurium&quot;,<br>        &quot;price&quot;: 200.0,<br>        &quot;quantity&quot;: 20,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 109,<br>        &quot;name&quot;: &quot;Green Fern&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 10,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    }<br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=214A474D73E201ECF663CEE8FCCE8C5D;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-1"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Refresh plants list page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=9">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">1s 694ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-ERROR">
+
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection3 error-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                When the admin clicks the Edit button on a particular plant data row "Red Anthurium"
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="ERROR-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=12">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">ERROR</span></td>
+                    <td width="100"><span class="top-level-step">1m 7s</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Refresh plants list page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=11">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">1s 624ms</span></td>
+                </tr>
+                <tr class="test-ERROR">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-1"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon ' title='ERROR'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin clicks Edit button for plant 'Red Anthurium'
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="ERROR-text">
+
+                                <a href="56931c00455fde3afc38d94e59e914170eef44749275da29046d789669efd2d1_screenshots.html?screenshot=12">
+                                    <img src="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         href="1721b3ef9fb765f0514dcd0419760fc2e9034e6267d9957de0dd23e10db43d21.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">ERROR</span></td>
+                    <td width="100"><span class="nested-group-step">4s 739ms</span></td>
+                </tr>
+                    <tr class="test-ERROR">
+                        <td width="40">&nbsp</td>
+                        <td width="%" colspan="4" class="error-message-cell">
+
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">org.openqa.selenium.NoSuchElementException: Edit link not found for plant row: Red Anthurium<br>For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception<br>Build info: version: &#39;4.41.0&#39;, revision: &#39;9fc754f&#39;<br>System info: os.name: &#39;Mac OS X&#39;, os.arch: &#39;aarch64&#39;, os.version: &#39;26.4.1&#39;, java.version: &#39;21&#39;<br>Driver info: driver.version: unknown</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-16"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-16">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.NoSuchElementException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>starter.navigation.PlantPage.clickEditButtonForPlant(PlantPage.java:332)<br />starter.steps.PlantAdminUiSteps.clickEditButtonForPlant(PlantAdminUiSteps.java:137)<br />starter.stepdefinitions.PlantUiStepDefinitions.adminClicksEditButton(PlantUiStepDefinitions.java:162)<br />✽.the admin clicks the Edit button on a particular plant data row "Red Anthurium"(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:46)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the admin enters "White Orkind" in the Plant Name field
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="5"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the admin selects the updated sub-category from the dropdown
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="6"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the admin enters the updated price in the Price field
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="7"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the admin enters the updated quantity in the Quantity field
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="8"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the admin clicks the save plant button
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="9"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Then a plant success message "Plant updated successfully" should be displayed
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SKIPPED">
+
+                    <td width="50" class="step-icon">
+                        <a name="10"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-skip-forward skipped-icon ' title='SKIPPED'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                And the system navigates back to the Plants page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SKIPPED-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SKIPPED</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+            <tr class="test-ERROR">
+                    <td colspan="3"></td>
+                <td width="130"><span class="top-level-step"><em>ERROR</em></span></td>
+                <td width="100"><span class="top-level-step"><em>13.79s</em></span></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="beforefooter"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 5.3.8</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function toggleDiv(divId) {
+        $("#" + divId).toggle();
+        var $icon = $(".img" + divId);
+        $icon.toggleClass("bi-caret-right-square");
+        $icon.toggleClass("bi-caret-down-square");
+    }
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    $(document).ready(function () {
+        $('img.screenshot').imgPreview({
+            imgCSS: {
+                width: '500px'
+            },
+            distanceFromCursor: {top: 10, left: -200}
+        });
+    });
+
+    //]]>
+</script>
+<div id="imgPreviewContainer" style="position: absolute; top: 612px; left: 355px; display: none; " class=""><img
+            src="" style="display: none; "></div>
+<div id="imgPreviewContainer2" style="position: absolute; top: 925px; left: 320px; display: none; " class="">
+    <img style="width: 200px; display: none; " src=""></div>
+<div id="imgPreviewWithStyles" style="position: absolute; top: 1272px; left: 321px; display: none; " class="">
+    <img style="height: 200px; opacity: 1; display: none; " src=""></div>
+<div id="imgPreviewWithStyles2" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+<div id="imgPreviewWithStyles3" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+
+</div>
+</body>
+</html>

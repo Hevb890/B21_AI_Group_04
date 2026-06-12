@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="2" name="Plantation Page - User" skipped="0" tests="5" time="60.08" timestamp="2026-06-12 11:41:07"><testcase name="Verify the system successfully searches for plants with multi-word names"><failure message="[Search results should not show 'No plants found' empty state] &#10;Expecting value to be false but was true" type="org.opentest4j.AssertionFailedError">[Search results should not show 'No plants found' empty state] 
+Expecting value to be false but was true</failure><system-err>[Search results should not show 'No plants found' empty state] 
+Expecting value to be false but was true
+starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+✽.the plant list should accurately display the "Red Anthurium" record(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:14)
+</system-err></testcase><testcase name="Verify clicking the Reset button clears all search filters and restores the full plant records display"/><testcase name="Verify visual indicator logic for low-stock plant products"/><testcase name="Verify multi-column sorting functionality for the plant data table"/><testcase name="Verify the No plants found empty state behavior on the plants list dashboard"><failure message="['No plants found' message should be displayed] &#10;Expecting value to be true but was false" type="org.opentest4j.AssertionFailedError">['No plants found' message should be displayed] 
+Expecting value to be true but was false</failure><system-err>['No plants found' message should be displayed] 
+Expecting value to be true but was false
+starter.steps.PlantUserUiSteps.verifyNoPlantsMessageDisplayed(PlantUserUiSteps.java:86)
+starter.stepdefinitions.PlantUiStepDefinitions.userSeesMessageOnPlantPage(PlantUiStepDefinitions.java:244)
+✽.the user should see the message "No plants found" on the plant page(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:48)
+</system-err></testcase></testsuite>

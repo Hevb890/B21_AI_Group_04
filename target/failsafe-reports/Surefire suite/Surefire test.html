@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>38/5/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>74/9/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jun 12 11:35:24 IST 2026</td>
+<td>Started on:</td><td>Fri Jun 12 11:37:30 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>10 seconds (10397 ms)</td>
+<tr><td>Total time:</td><td>277 seconds (277519 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,30 +76,12 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user login fails with empty credentials", "Authentication & Dashboard API - User"</td>
-<td><div><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
-expected: 400
- but was: 401
-	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
-	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
-... Removed 2 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1228474687", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1228474687'><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
-expected: 400
- but was: 401
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
-	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
-</pre></div></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify unauthorized access to delete sales with user token", "Sales API - User"</td>
-<td><div><pre>org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify unauthorized access to plant selling with user token", "Sales API - User"</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
 expected: 401
- but was: 204
-	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:180)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser$accessor$UPqikj2q(Unknown Source)
+ but was: 201
+	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:162)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.sellPlantAsUser$accessor$ncCG2cNm(Unknown Source)
 	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
 	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
 	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
@@ -107,17 +89,17 @@ expected: 401
 	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
 	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
 	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser(Unknown Source)
-	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:47)
-	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
-... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace404956474", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace404956474'><pre>org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.sellPlantAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:40)
+	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace227606913", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace227606913'><pre>org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
 expected: 401
- but was: 204
+ but was: 201
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:180)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser$accessor$UPqikj2q(Unknown Source)
+	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:162)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.sellPlantAsUser$accessor$ncCG2cNm(Unknown Source)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
@@ -127,9 +109,27 @@ expected: 401
 	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
 	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
 	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser(Unknown Source)
-	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:47)
-	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.sellPlantAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:40)
+	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+</pre></div></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user login fails with empty credentials", "Authentication & Dashboard API - User"</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
+expected: 400
+ but was: 401
+	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
+... Removed 2 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace678592097", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace678592097'><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
+expected: 400
+ but was: 401
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
 </pre></div></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
@@ -153,8 +153,8 @@ expected: 401
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1572088568", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1572088568'><pre>io.cucumber.core.runner.AmbiguousStepDefinitionsException: &quot;the response status code should be 401 or 403&quot; matches more than one step definition:
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1999063540", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1999063540'><pre>io.cucumber.core.runner.AmbiguousStepDefinitionsException: &quot;the response status code should be 401 or 403&quot; matches more than one step definition:
   &quot;the response status code should be 401 or 403&quot; in starter.stepdefinitions.AuthUserApiStepDefinitions.theResponseStatusCodeShouldBe401Or403()
   &quot;the response status code should be {int} or {int}&quot; in starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBeOrElse(int,int)
 	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:458)
@@ -186,14 +186,174 @@ expected: 401
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify unauthorized access to delete sales with user token", "Sales API - User"</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:180)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.deleteSaleAsUser$accessor$ncCG2cNm(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.deleteSaleAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:47)
+	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1147000842", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1147000842'><pre>org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:180)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.deleteSaleAsUser$accessor$ncCG2cNm(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$VJdtT0ow.deleteSaleAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:47)
+	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+</pre></div></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify the No plants found empty state behavior on the plants list dashboard", "Plantation Page - User"</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: [&apos;No plants found&apos; message should be displayed] 
+Expecting value to be true but was false
+	at starter.steps.PlantUserUiSteps.verifyNoPlantsMessageDisplayed(PlantUserUiSteps.java:86)
+	at starter.steps.PlantUserUiSteps$ByteBuddy$lr2Mzyy4.verifyNoPlantsMessageDisplayed$accessor$TuowHyto(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantUserUiSteps$ByteBuddy$lr2Mzyy4.verifyNoPlantsMessageDisplayed(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.userSeesMessageOnPlantPage(PlantUiStepDefinitions.java:244)
+	at ✽.the user should see the message &quot;No plants found&quot; on the plant page(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:48)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace474043769", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace474043769'><pre>org.opentest4j.AssertionFailedError: [&apos;No plants found&apos; message should be displayed] 
+Expecting value to be true but was false
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.steps.PlantUserUiSteps.verifyNoPlantsMessageDisplayed(PlantUserUiSteps.java:86)
+	at starter.steps.PlantUserUiSteps$ByteBuddy$lr2Mzyy4.verifyNoPlantsMessageDisplayed$accessor$TuowHyto(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantUserUiSteps$ByteBuddy$lr2Mzyy4.verifyNoPlantsMessageDisplayed(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.userSeesMessageOnPlantPage(PlantUiStepDefinitions.java:244)
+	at ✽.the user should see the message &quot;No plants found&quot; on the plant page(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:48)
+</pre></div></td>
+<td>8</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can successfully edit existing plant data with valid plant data", "Plantation Page - Admin"</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Edit link not found for plant row: Red Anthurium
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.41.0&apos;, revision: &apos;9fc754f&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;26.4.1&apos;, java.version: &apos;21&apos;
+Driver info: driver.version: unknown
+	at starter.navigation.PlantPage.clickEditButtonForPlant(PlantPage.java:332)
+	at starter.steps.PlantAdminUiSteps.clickEditButtonForPlant(PlantAdminUiSteps.java:137)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.clickEditButtonForPlant$accessor$l4CY2K52(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.clickEditButtonForPlant(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.adminClicksEditButton(PlantUiStepDefinitions.java:162)
+	at ✽.the admin clicks the Edit button on a particular plant data row &quot;Red Anthurium&quot;(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:46)
+... Removed 2 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1588905485", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1588905485'><pre>org.openqa.selenium.NoSuchElementException: Edit link not found for plant row: Red Anthurium
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.41.0&apos;, revision: &apos;9fc754f&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;26.4.1&apos;, java.version: &apos;21&apos;
+Driver info: driver.version: unknown
+	at starter.navigation.PlantPage.clickEditButtonForPlant(PlantPage.java:332)
+	at starter.steps.PlantAdminUiSteps.clickEditButtonForPlant(PlantAdminUiSteps.java:137)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.clickEditButtonForPlant$accessor$l4CY2K52(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.clickEditButtonForPlant(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.adminClicksEditButton(PlantUiStepDefinitions.java:162)
+	at ✽.the admin clicks the Edit button on a particular plant data row &quot;Red Anthurium&quot;(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:46)
+</pre></div></td>
+<td>13</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify the system successfully searches for plants with multi-word names", "Plantation Page - Admin"</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: [Search results should not show &apos;No plants found&apos; empty state] 
+Expecting value to be false but was true
+	at starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord$accessor$l4CY2K52(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+	at ✽.the plant list should accurately display the &quot;Red Anthurium&quot; record(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:41)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1511412027", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1511412027'><pre>org.opentest4j.AssertionFailedError: [Search results should not show &apos;No plants found&apos; empty state] 
+Expecting value to be false but was true
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord$accessor$l4CY2K52(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+	at ✽.the plant list should accurately display the &quot;Red Anthurium&quot; record(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:41)
+</pre></div></td>
+<td>12</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
 <td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin login fails with invalid password", "Authentication & Dashboard API - Admin"</td>
 <td><div><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
 expected: 400
  but was: 401
 	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
 	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_admin.feature:13)
-... Removed 2 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace849173952", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace849173952'><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
+... Removed 2 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1741673537", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1741673537'><pre>org.opentest4j.AssertionFailedError: [Response status code should be 400] 
 expected: 400
  but was: 401
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
@@ -204,12 +364,11 @@ expected: 400
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify unauthorized access to plant selling with user token", "Sales API - User"</td>
-<td><div><pre>org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
-expected: 401
- but was: 201
-	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:162)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser$accessor$UPqikj2q(Unknown Source)
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify the system successfully searches for plants with multi-word names", "Plantation Page - User"</td>
+<td><div><pre>org.opentest4j.AssertionFailedError: [Search results should not show &apos;No plants found&apos; empty state] 
+Expecting value to be false but was true
+	at starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord$accessor$l4CY2K52(Unknown Source)
 	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
 	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
 	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
@@ -217,17 +376,16 @@ expected: 401
 	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
 	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
 	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser(Unknown Source)
-	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:40)
-	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
-... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1003420656", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1003420656'><pre>org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
-expected: 401
- but was: 201
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+	at ✽.the plant list should accurately display the &quot;Red Anthurium&quot; record(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:14)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace971401464", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace971401464'><pre>org.opentest4j.AssertionFailedError: [Search results should not show &apos;No plants found&apos; empty state] 
+Expecting value to be false but was true
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:162)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser$accessor$UPqikj2q(Unknown Source)
+	at starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord$accessor$l4CY2K52(Unknown Source)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
@@ -237,11 +395,11 @@ expected: 401
 	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
 	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
 	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
-	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser(Unknown Source)
-	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:40)
-	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$2EKLbKop.verifyPlantListDisplaysRecord(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+	at ✽.the plant list should accurately display the &quot;Red Anthurium&quot; record(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:14)
 </pre></div></td>
-<td>0</td>
+<td>10</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -253,9 +411,84 @@ expected: 401
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful retrieval of paginated sales records when records are available", "Sales API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can search category by category name", "Category Page - Admin"</td>
+<td></td>
+<td>5</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve category by valid ID", "Category API - User"</td>
 <td></td>
 <td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify "No Sales Found" message is displayed when no sales records exist", "Sales List Page - User"</td>
+<td></td>
+<td>5</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify regular user can view category list as paginated list", "Category Page - User"</td>
+<td></td>
+<td>3</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve category summary", "Authentication & Dashboard API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify invalid login error message is displayed for regular user", "Authentication - User UI"</td>
+<td></td>
+<td>5</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful retrieval of sale with valid sale id", "Sales API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify User-role cannot update plant data via API", "Plantation API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user receives error for invalid category ID", "Category API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify regular user can view category list", "Category API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify visual indicator logic for low-stock plant products", "Plantation Page - User"</td>
+<td></td>
+<td>14</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify "Add Category" button is visible to admin users", "Category Page - Admin"</td>
+<td></td>
+<td>3</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify "No category found" message is displayed when no records exist", "Category Page - User"</td>
+<td></td>
+<td>4</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful deletion of a plant record by ID", "Plantation API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify duplicate category creation is restricted", "Category API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify active navigation menu is highlighted on Dashboard page for admin user", "Dashboard - Admin UI"</td>
+<td></td>
+<td>2</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
 <td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful deletion request with valid sale id", "Sales API - Admin"</td>
@@ -263,12 +496,92 @@ expected: 401
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify delete button is not visible to regular users", "Sales List Page - User"</td>
+<td></td>
+<td>6</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify add a plant button appear to the admin role", "Plantation Page - Admin"</td>
+<td></td>
+<td>3</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify User-role cannot add a plants data via API", "Plantation API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can add a new plant with valid data", "Plantation Page - Admin"</td>
+<td></td>
+<td>14</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify paginated sales retrieval with different sorting options", "Sales API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify error message is displayed when quantity exceeds current stock", "Sales List Page - Admin"</td>
+<td></td>
+<td>7</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify plant dropdown contains available plants and current stock", "Sales List Page - Admin"</td>
+<td></td>
+<td>6</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify unauthorized user is redirected to login page when accessing dashboard without authentication", "Authentication - User UI"</td>
+<td></td>
+<td>4</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify paginated sales retrieval with different sorting options", "Sales API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can login with valid credentials", "Authentication & Dashboard API - Admin"</td>
+<td></td>
+<td>1</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
 <td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can add a new plant successfully", "Plantation API - Admin"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful deletion of a plant record by ID", "Plantation API - Admin"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Edit and Delete actions are hidden for regular users", "Category Page - User"</td>
+<td></td>
+<td>8</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve plant summary", "Authentication & Dashboard API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve paginated category list", "Category API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve main categories only", "Category API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify retrieval of all available sales records", "Sales API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate handling of non-existent plant deletion", "Plantation API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify User-role cannot delete plant data via API", "Plantation API - User"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
@@ -283,7 +596,52 @@ expected: 401
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve category by valid ID", "Category API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify API boundary constraints for pagination query parameters", "Plantation API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify logout success message is displayed for admin user", "Authentication - Admin UI"</td>
+<td></td>
+<td>4</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify dashboard summary information is displayed for regular user", "Dashboard - User UI"</td>
+<td></td>
+<td>3</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can update category details", "Category API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify validation of exceeded plant quantity", "Sales API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify default sorting is set to "sold date" when the sales page is loaded", "Sales List Page - User"</td>
+<td></td>
+<td>7</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify regular user can filter categories by parent category", "Category Page - User"</td>
+<td></td>
+<td>4</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify paginated sales retrieval with different sorting options", "Sales API - User"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve sales records", "Authentication & Dashboard API - Admin"</td>
+<td></td>
+<td>0</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve category summary", "Authentication & Dashboard API - Admin"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
@@ -298,67 +656,7 @@ expected: 401
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can login with valid credentials", "Authentication & Dashboard API - Admin"</td>
-<td></td>
-<td>1</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify retrieval of all available sales records", "Sales API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user receives error for invalid category ID", "Category API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify paginated sales retrieval with different sorting options", "Sales API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve sales records", "Authentication & Dashboard API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify regular user can view category list", "Category API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can login with valid credentials", "Authentication & Dashboard API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful retrieval of plant record by ID", "Plantation API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify User-role cannot delete plant data via API", "Plantation API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can update category details", "Category API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can delete category", "Category API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve category summary", "Authentication & Dashboard API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve plant summary", "Authentication & Dashboard API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify validation of quantity less than 1", "Sales API - Admin"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
@@ -368,22 +666,52 @@ expected: 401
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve paginated category list", "Category API - Admin"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify sorting by category name works correctly", "Category Page - Admin"</td>
+<td></td>
+<td>4</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify other sorting options are available on the sales page", "Sales List Page - User"</td>
+<td></td>
+<td>6</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify active navigation menu is highlighted on Dashboard page for regular user", "Dashboard - User UI"</td>
+<td></td>
+<td>2</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify that confirmation prompt appears when admin performs delete action", "Sales List Page - Admin"</td>
+<td></td>
+<td>5</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify multi-column sorting functionality for the plant data table", "Plantation Page - User"</td>
+<td></td>
+<td>14</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify regular user can view their sales records as a paginated list", "Sales List Page - User"</td>
+<td></td>
+<td>6</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Plant Name, Sub-category, Price, and Quantity are required fields", "Plantation Page - Admin"</td>
+<td></td>
+<td>8</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can login with valid credentials", "Authentication & Dashboard API - User"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify User-role cannot add a plants data via API", "Plantation API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify that "Sell Plant" button is visible to the admin", "Sales List Page - Admin"</td>
 <td></td>
-<td>0</td>
+<td>10</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve main categories only", "Category API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify paginated sales retrieval with different sorting options", "Sales API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve plant summary", "Authentication & Dashboard API - User"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
@@ -393,54 +721,64 @@ expected: 401
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify duplicate category creation is restricted", "Category API - Admin"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify validation message is displayed when admin submits empty login form", "Authentication - Admin UI"</td>
+<td></td>
+<td>3</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify regular user can successfully login with valid credentials", "Authentication - User UI"</td>
+<td></td>
+<td>4</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful retrieval of paginated sales records when records are available", "Sales API - User"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify validation of quantity less than 1", "Sales API - Admin"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify validation message appears when category name is empty", "Category Page - Admin"</td>
+<td></td>
+<td>5</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify navigation back to sales list page when cancel button is clicked", "Sales List Page - Admin"</td>
+<td></td>
+<td>6</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify clicking the Reset button clears all search filters and restores the full plant records display", "Plantation Page - User"</td>
+<td></td>
+<td>12</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify "Add Category" button is not visible to regular users", "Category Page - User"</td>
+<td></td>
+<td>3</td>
+<td>starter.CucumberTestSuite@4d5650ae</td></tr>
+<tr>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can delete category", "Category API - Admin"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify paginated sales retrieval with different sorting options", "Sales API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful retrieval of plant record by ID", "Plantation API - Admin"</td>
 <td></td>
 <td>0</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate handling of non-existent plant deletion", "Plantation API - Admin"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify cancel button navigates back to category list page", "Category Page - Admin"</td>
 <td></td>
-<td>0</td>
+<td>5</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify admin can retrieve plant summary", "Authentication & Dashboard API - Admin"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify dashboard summary information is displayed for admin user", "Dashboard - Admin UI"</td>
 <td></td>
-<td>0</td>
+<td>3</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 <tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify successful retrieval of sale with valid sale id", "Sales API - User"</td>
+<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify that admin user can successfully login with valid credentials", "Authentication - Admin UI"</td>
 <td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can retrieve category summary", "Authentication & Dashboard API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify validation of exceeded plant quantity", "Sales API - Admin"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify API boundary constraints for pagination query parameters", "Plantation API - User"</td>
-<td></td>
-<td>0</td>
-<td>starter.CucumberTestSuite@4d5650ae</td></tr>
-<tr>
-<td title='starter.CucumberTestSuite.runScenario()'><b>runScenario</b><br>Test class: starter.CucumberTestSuite<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify User-role cannot update plant data via API", "Plantation API - User"</td>
-<td></td>
-<td>0</td>
+<td>4</td>
 <td>starter.CucumberTestSuite@4d5650ae</td></tr>
 </table><p>
 </body>

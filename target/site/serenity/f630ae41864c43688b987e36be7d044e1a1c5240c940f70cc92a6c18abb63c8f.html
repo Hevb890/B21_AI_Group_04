@@ -187,7 +187,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [];
+            var requirementsTree = [{"text":"Authentication - Admin UI","type":"feature","href":"f630ae41864c43688b987e36be7d044e1a1c5240c940f70cc92a6c18abb63c8f.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e3 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e3 test cases\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -234,7 +234,7 @@
             <span class="breadcrumbs">
             <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
 
-                > <a href="#">Ui</a>
+                > <a href="2623001b95f13b2c65ad5345fe8f9ded3199543becc82972c476d3413259ad15.html">Ui</a>
 
 
                     > <span class="truncate-40">Authentication - admin UI</span>
@@ -262,7 +262,7 @@
             <a href="#"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated </span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 12-06-2026 11:38</span>
     <br style="clear:left"/>
 </div>
 
@@ -277,11 +277,32 @@
                         <div clas="table">
                             <div class="row">
 
-                                    <div class="col-sm-12">
+                                <div class="col-sm-8">
                                         <span>
                                             <h2><i class="bi bi-book"></i> Feature: Authentication - admin UI</h2>
                                         </span>
                                     </div>
+                                        <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                            <p class="tag">
+                                                <span class="badge feature-tag tag-badge" style="background:default;">
+                                                        <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink"
+                                                                                               style="background:default;"
+                                                                                               href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">ui (tag)</a>
+                                                    </span>
+                                                <span class="badge feature-tag tag-badge" style="background:default;">
+                                                        <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink"
+                                                                                               style="background:default;"
+                                                                                               href="3447f77379c16a5bb29fa6a6fe37b4b4d20fe344b053c4ae136be0a1e7290834.html">admin (tag)</a>
+                                                    </span>
+                                                <span class="badge feature-tag tag-badge" style="background:default;">
+                                                        <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink"
+                                                                                               style="background:default;"
+                                                                                               href="29fc4e8afd129773ed0480d3187dd71c40c1ff9a388a67f93095a06664b80af7.html">auth (tag)</a>
+                                                    </span>
+                                            </p>
+                                        </span>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -316,83 +337,262 @@
                                                 <h3>Feature Coverage By Scenario</h3>
 
                                                 <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
 
                                             </div>
                                             <div class="col-sm-8">
-                                                <h3>Requirements Overview</h3>
+                                                <!--- TOC --->
+                                                <div id="toc">
+                                                    <h3>Overview</h3>
+                                                    <table class="table" id="toc-table">
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#5741b3ebdbd760994c348fefc1c29307a736a88bed0833cfa6ef12dd2172f608"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify that admin user can successfully login with valid credentials
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
 
-                                                <div id="tree"></div>
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="5bd70114d0d3809262ac97730cb740e47e3738b345cd627be1214f9b90e21324.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
 
-                                                <!-- STATS -->
-    <div>
-        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
-        <div>
-            <table class="table table-striped table-hover">
-                <tbody>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-card-checklist"></i> Number of Scenarios
-                    </td>
-                    <td>0</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
-                    </td>
-                    <td>0</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-flag-fill"></i> Tests Started
-                    </td>
-                    <td></td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stop-circle"></i> Tests
-                        Finished
-                    </td>
-                    <td></td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stopwatch"></i> Total
-                        Duration
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-trophy"></i> Fastest Test
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-skip-start"></i> Slowest
-                        Test
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stopwatch"></i> Average
-                        Execution Time
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                <tr scope="row">
-                    <td>
-                        <i class="bi bi-stopwatch-fill"></i> Cumulative Test Time
-                        <br/><small class="text-muted">(sum of all individual test durations)</small>
-                    </td>
-                    <td>0ms</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-                                                <!-- END STATS -->
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="5bd70114d0d3809262ac97730cb740e47e3738b345cd627be1214f9b90e21324.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#288453e35dce93e5b42d4a023231635ef0ad14d74bbdad4bd7c4f4f59cbb8963"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify validation message is displayed when admin submits empty login form
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="30be62a542e8b8f855e09b6b38a5f9b25cf838bb564617a632de3c171d2b5012.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="30be62a542e8b8f855e09b6b38a5f9b25cf838bb564617a632de3c171d2b5012.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#1d358091ca0afbf48382c1614f13331d0674b36eb18221dbc2ecb9ee83047276"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify logout success message is displayed for admin user
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="e00acbcd30407c769712dbbc102431e2407fada110233078229d7f34d3cd4a40.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="e00acbcd30407c769712dbbc102431e2407fada110233078229d7f34d3cd4a40.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                    </table>
+                                                </div>
+                                                <!--- END OF TOC --->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3>Scenarios</h3>
+
+                                                    <a name="9d4ec9de-99a9-48ac-8c99-2f4fc2d89661"></a>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="5741b3ebdbd760994c348fefc1c29307a736a88bed0833cfa6ef12dd2172f608">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="5bd70114d0d3809262ac97730cb740e47e3738b345cd627be1214f9b90e21324.html"
+                                                                               title="View test results">Scenario: Verify that admin user can successfully login with valid credentials</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="a5c6e0902dc258ea9be31178e18ac8ec2b58aa73003ec64bcaa378d5e9a3682d.html">UI_AUTH_ADMIN_001 (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">smoke (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given the admin is on the login page</p>
+                                                                        <p>When the admin enters valid admin credentials</p>
+                                                                        <p>And the admin clicks the login button</p>
+                                                                        <p>Then the login should be successful</p>
+                                                                        <p>And the admin should be redirected to the dashboard page</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="288453e35dce93e5b42d4a023231635ef0ad14d74bbdad4bd7c4f4f59cbb8963">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="30be62a542e8b8f855e09b6b38a5f9b25cf838bb564617a632de3c171d2b5012.html"
+                                                                               title="View test results">Scenario: Verify validation message is displayed when admin submits empty login form</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">regression (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="36c77c2412952c7919ada2ab1bd2d26a29c637224476b0d7c7795ff257ff0fc1.html">UI_AUTH_ADMIN_002 (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given the admin is on the login page</p>
+                                                                        <p>When the admin submits the login form without entering any credentials</p>
+                                                                        <p>Then a validation message &quot;Username is required&quot; should be displayed below the username field</p>
+                                                                        <p>And a validation message &quot;Password is required&quot; should be displayed below the password field</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="1d358091ca0afbf48382c1614f13331d0674b36eb18221dbc2ecb9ee83047276">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="e00acbcd30407c769712dbbc102431e2407fada110233078229d7f34d3cd4a40.html"
+                                                                               title="View test results">Scenario: Verify logout success message is displayed for admin user</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="d8ab45aaf055bae87cd36890f9896013940a781d388a4909166474faa767f8f8.html">UI_AUTH_ADMIN_003 (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">smoke (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given the admin is logged in successfully</p>
+                                                                        <p>When the admin clicks the logout button</p>
+                                                                        <p>Then the admin should be logged out successfully</p>
+                                                                        <p>And a success logout message should be displayed</p>
+                                                                        <p>And the admin should be redirected to the login page</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                             </div>
                                         </div>
                                     </div>
@@ -404,6 +604,9 @@
                                             <div class="col-sm-4">
                                                 <h3>Feature Coverage By Scenario</h3>
                                                 <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
@@ -435,22 +638,22 @@
                     <td>
                         <i class="bi bi-card-checklist"></i> Number of Scenarios
                     </td>
-                    <td>0</td>
+                    <td>3</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Total
                         Duration
                     </td>
-                    <td>0ms</td>
+                    <td>11s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-caret-right"></i> Total Number of Test Cases
                     </td>
-                    <td>0</td>
+                    <td>3</td>
                     <td>
                         <i class="bi bi-trophy"></i> Fastest Test
                     </td>
-                    <td>0ms</td>
+                    <td>2s</td>
                 </tr>
                 <tr scope="row">
                     <td>
@@ -461,30 +664,30 @@
                         <i class="bi bi-skip-start"></i> Slowest
                         Test
                     </td>
-                    <td>0ms</td>
+                    <td>4s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-flag-fill"></i> Tests Started
                     </td>
-                    <td></td>
+                    <td>Jun 12, 2026 11:38:47</td>
                     <td>
                         <i class="bi bi-stopwatch"></i> Average
                         Execution Time
                     </td>
-                    <td>0ms</td>
+                    <td>3s</td>
                 </tr>
                 <tr scope="row">
                     <td>
                         <i class="bi bi-stop-circle"></i> Tests
                         Finished
                     </td>
-                    <td></td>
+                    <td>Jun 12, 2026 11:38:59</td>
                     <td>
                         <i class="bi bi-stopwatch-fill"></i> Cumulative Test Time
                         <br/><small class="text-muted">(sum of all individual test durations)</small>
                     </td>
-                    <td>0ms</td>
+                    <td>11s</td>
                 </tr>
                 </tbody>
             </table>
@@ -493,7 +696,66 @@
 
                                                 <h3><i class="bi bi-gear"></i> Automated Tests</h3>
 
-                                                    No automated tests were executed
+                                                    <table class="scenario-result-table table" id="scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>feature</th>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Context</th>
+                                                            <th>Steps</th>
+                                                            <th>Started</th>
+                                                            <th>Total Duration</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Authentication - Admin UI</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="5bd70114d0d3809262ac97730cb740e47e3738b345cd627be1214f9b90e21324.html">Verify that admin user can successfully login with valid credentials</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>11:38:47</td>
+                                                                    <td>4s 127ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Authentication - Admin UI</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="30be62a542e8b8f855e09b6b38a5f9b25cf838bb564617a632de3c171d2b5012.html">Verify validation message is displayed when admin submits empty login form</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>11:38:51</td>
+                                                                    <td>2s 939ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Authentication - Admin UI</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="e00acbcd30407c769712dbbc102431e2407fada110233078229d7f34d3cd4a40.html">Verify logout success message is displayed for admin user</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>5</td>
+                                                                    <td>11:38:54</td>
+                                                                    <td>4s 467ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
 
                                             </div>
                                         </div>
@@ -507,6 +769,69 @@
                                             </div>
                                         </div>
 
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Regression&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="a5c6e0902dc258ea9be31178e18ac8ec2b58aa73003ec64bcaa378d5e9a3682d.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> UI AUTH ADMIN 001&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Ui&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                                    <a href="d8ab45aaf055bae87cd36890f9896013940a781d388a4909166474faa767f8f8.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> UI AUTH ADMIN 003&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="36c77c2412952c7919ada2ab1bd2d26a29c637224476b0d7c7795ff257ff0fc1.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> UI AUTH ADMIN 002&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="3447f77379c16a5bb29fa6a6fe37b4b4d20fe344b053c4ae136be0a1e7290834.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Admin&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                                    <a href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Smoke&nbsp;&nbsp;&nbsp;2
+                                    </span>
+                                    </a>
+                                    <a href="29fc4e8afd129773ed0480d3187dd71c40c1ff9a388a67f93095a06664b80af7.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Auth&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="83a1614f3dda521b0b7f5f6481c9e8fca62028b7ee1d7022b7d38143cdeaeee1.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Mac&nbsp;&nbsp;&nbsp;3
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
                                     </div>
                                 </div>
                             </div>
@@ -547,7 +872,7 @@
             datasets: [{
                 label: 'Test Results',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 3}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -598,7 +923,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = " "
+                        var text = "100%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -642,7 +967,7 @@
             datasets: [{
                 label: 'Feature Coverage',
                 fill: false,
-                data: [{meta: 'Passing tests', value: 0}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                data: [{meta: 'Passing tests', value: 3}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
                 backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                 borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                 borderWidth: 1,
@@ -693,7 +1018,7 @@
                         ctx.font = fontSize + "em sans-serif";
                         ctx.textBaseline = "middle";
 
-                        var text = " "
+                        var text = "100%"
                         textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
                         textY = (height / 2) - 40;
 
@@ -738,7 +1063,7 @@
             datasets: [
                 {
                     label: 'Automated',
-                    data: [0,0,0,0,0,0,0,0],
+                    data: [3,0,0,0,0,0,0,0],
                     backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
                     borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
                     borderWidth: 1
@@ -821,7 +1146,7 @@
             datasets: [{
                 label: 'Number of tests per duration',
                 fill: false,
-                data: ['0','0','0','0','0','0','0','0'],
+                data: ['0','3','0','0','0','0','0','0'],
                 backgroundColor: 'rgba(83, 146, 255,0.5)',
                 borderColor: 'rgba(83, 146, 255, 1)',
             }]
