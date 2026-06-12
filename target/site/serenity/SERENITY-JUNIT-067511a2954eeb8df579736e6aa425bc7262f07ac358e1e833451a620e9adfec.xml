@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Plantation Page - Admin" skipped="0" tests="5" time="56.11" timestamp="2026-06-12 02:16:02"><testcase name="Verify add a plant button appear to the admin role"/><testcase name="Verify admin can add a new plant with valid data"/><testcase name="Verify Plant Name, Sub-category, Price, and Quantity are required fields"/><testcase name="Verify the system successfully searches for plants with multi-word names"><failure message="[Search results should not show 'No plants found' empty state] &#13;&#10;Expecting value to be false but was true" type="org.opentest4j.AssertionFailedError">[Search results should not show 'No plants found' empty state] &#13;
+Expecting value to be false but was true</failure><system-err>[Search results should not show 'No plants found' empty state] &#13;
+Expecting value to be false but was true&#13;
+starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)&#13;
+starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)&#13;
+✽.the plant list should accurately display the "Red Anthurium" record(file:///E:/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:41)&#13;
+</system-err></testcase><testcase name="Verify admin can successfully edit existing plant data with valid plant data"/></testsuite>

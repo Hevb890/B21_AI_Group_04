@@ -327,12 +327,20 @@ public class PlantPage extends PageObject {
 
     public void clickEditButtonForPlant(String plantName) {
         waitForPlantsListPage();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//tr[td[1][contains(translate(normalize-space(.),"
+                                + " 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '"
+                                + plantName.toLowerCase().trim() + "')]]")),
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//tr/td[contains(normalize-space(.), 'No plants found')]"))
+        ));
         WebElement editLink = findEditLinkForPlant(plantName);
         if (editLink == null) {
             throw new org.openqa.selenium.NoSuchElementException(
                     "Edit link not found for plant row: " + plantName);
         }
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(editLink));
         editLink.click();
         WebDriverWait editWait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));

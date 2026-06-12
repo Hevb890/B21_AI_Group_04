@@ -21,6 +21,7 @@ public class PlantAdminApiSteps {
     private Response lastResponse;
 
     public static Long resolvedPlantId;
+    public static Long editTargetPlantId;
     public static Long resolvedSubCategoryId = 3L;
     /** Last plant name used in POST create (unique per run) */
     public static String lastCreatedPlantName;
@@ -41,6 +42,10 @@ public class PlantAdminApiSteps {
             getAdminToken();
         }
         return adminToken;
+    }
+
+    public static void syncAdminToken(String token) {
+        adminToken = token;
     }
 
     @Step("Get admin authentication token")
@@ -67,26 +72,46 @@ public class PlantAdminApiSteps {
     @Step("Ensure sub-category ID exists")
     public void ensureSubCategoryExists() {
         getAdminToken();
-        // Swagger: GET /api/categories/sub-categories
         Response response = SerenityRest
                 .given()
                 .baseUri(BASE_URL)
                 .header("Authorization", "Bearer " + getOrFetchToken())
                 .when()
-                .get("/api/categories/sub-categories");
+                .get("/api/categories");
 
-        if (response.statusCode() == 200) {
-            List<Map<String, Object>> subCategories = response.jsonPath().getList("$");
-            if (subCategories != null && !subCategories.isEmpty()) {
-                for (Map<String, Object> subCategory : subCategories) {
-                    String name = subCategory.get("name") != null ? subCategory.get("name").toString() : "";
-                    if (name.toLowerCase().contains("anthoorium") || name.toLowerCase().contains("anthurium")) {
-                        resolvedSubCategoryId = Long.valueOf(subCategory.get("id").toString());
-                        return;
-                    }
-                }
-                resolvedSubCategoryId = Long.valueOf(subCategories.get(0).get("id").toString());
+        if (response.statusCode() != 200) {
+            return;
+        }
+
+        List<Map<String, Object>> categories = response.jsonPath().getList("$");
+        if (categories == null || categories.isEmpty()) {
+            return;
+        }
+
+        Long fallbackSubCategoryId = null;
+        for (Map<String, Object> category : categories) {
+            String parentName = category.get("parentName") != null
+                    ? category.get("parentName").toString()
+                    : "-";
+            if ("-".equals(parentName)) {
+                continue;
             }
+
+            Long id = Long.valueOf(category.get("id").toString());
+            fallbackSubCategoryId = id;
+
+            String name = category.get("name") != null ? category.get("name").toString() : "";
+            String parent = parentName.toLowerCase();
+            String lowerName = name.toLowerCase();
+            if (lowerName.contains("anthoorium") || lowerName.contains("anthurium")
+                    || parent.contains("anthoorium") || parent.contains("anthurium")) {
+                resolvedSubCategoryId = id;
+                return;
+            }
+        }
+
+        if (fallbackSubCategoryId != null) {
+            resolvedSubCategoryId = fallbackSubCategoryId;
         }
     }
 
@@ -312,6 +337,7 @@ public class PlantAdminApiSteps {
 
     @Step("Prepare edit target plant '{0}' for UI edit test")
     public void prepareEditTargetPlant(String plantName) {
+<<<<<<< Updated upstream
         if (SEARCH_PLANT_NAME.equalsIgnoreCase(plantName.trim())) {
             prepareEditTargetPlantForUiEditTest();
             return;
@@ -330,6 +356,49 @@ public class PlantAdminApiSteps {
         assertThat(plantExistsByExactName(SEARCH_PLANT_NAME))
                 .as("Edit target plant '%s' must exist in the database before ADMIN_05", SEARCH_PLANT_NAME)
                 .isTrue();
+    }
+
+    private boolean plantExistsByExactName(String plantName) {
+        for (Map<String, Object> plant : fetchAllPlants()) {
+            Object nameValue = plant.get("name");
+            if (nameValue != null && nameValue.toString().trim().equalsIgnoreCase(plantName.trim())) {
+                return true;
+=======
+        prepareEditTargetPlantForUiEditTest();
+    }
+
+    @Step("Prepare fresh Red Anthurium in database for ADMIN_05 edit UI test")
+    public void prepareEditTargetPlantForUiEditTest() {
+        getAdminToken();
+        ensureSubCategoryExists();
+        deletePlantsByExactName(EDIT_RENAME_PLANT_NAME, SEARCH_PLANT_NAME, UI_CREATE_PLANT_NAME);
+        Response response = createPlantUnderCategory(resolvedSubCategoryId, SEARCH_PLANT_NAME, 150, 20);
+        assertThat(response.statusCode())
+                .as("API should create edit target plant '%s'", SEARCH_PLANT_NAME)
+                .isIn(200, 201);
+        editTargetPlantId = resolvedPlantId;
+        assertThat(plantExistsByExactName(SEARCH_PLANT_NAME))
+                .as("Edit target plant '%s' must exist in database", SEARCH_PLANT_NAME)
+                .isTrue();
+    }
+
+    private void deletePlantsByExactName(String... plantNames) {
+        for (Map<String, Object> plant : fetchAllPlants()) {
+            Object nameValue = plant.get("name");
+            Object idValue = plant.get("id");
+            if (nameValue == null || idValue == null) {
+                continue;
+            }
+            String existingName = nameValue.toString().trim();
+            for (String targetName : plantNames) {
+                if (existingName.equalsIgnoreCase(targetName.trim())) {
+                    deletePlantById(Long.valueOf(idValue.toString()));
+                    break;
+                }
+>>>>>>> Stashed changes
+            }
+        }
+        return false;
     }
 
     private boolean plantExistsByExactName(String plantName) {

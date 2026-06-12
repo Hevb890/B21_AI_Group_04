@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: starter.CucumberTestSuite
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 178.4 s <<< FAILURE! -- in starter.CucumberTestSuite
+starter.CucumberTestSuite.runScenario["Verify the system successfully searches for plants with multi-word names", "Plantation Page - Admin"](14) -- Time elapsed: 15.95 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[Search results should not show 'No plants found' empty state] 
+Expecting value to be false but was true
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$hEye6Ml6.verifyPlantListDisplaysRecord$accessor$HqWYG5xL(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$hEye6Ml6.verifyPlantListDisplaysRecord(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+	at ✽.the plant list should accurately display the "Red Anthurium" record(file:///E:/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:41)
+
+starter.CucumberTestSuite.runScenario["Verify the system successfully searches for plants with multi-word names", "Plantation Page - User"](16) -- Time elapsed: 19.88 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[Search results should not show 'No plants found' empty state] 
+Expecting value to be false but was true
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$hEye6Ml6.verifyPlantListDisplaysRecord$accessor$HqWYG5xL(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.PlantAdminUiSteps$ByteBuddy$hEye6Ml6.verifyPlantListDisplaysRecord(Unknown Source)
+	at starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+	at ✽.the plant list should accurately display the "Red Anthurium" record(file:///E:/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:14)
+

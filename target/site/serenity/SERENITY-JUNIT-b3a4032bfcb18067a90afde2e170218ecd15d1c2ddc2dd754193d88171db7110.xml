@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Plantation Page - User" skipped="0" tests="5" time="54.82" timestamp="2026-06-12 02:17:21"><testcase name="Verify the system successfully searches for plants with multi-word names"><failure message="[Search results should not show 'No plants found' empty state] &#13;&#10;Expecting value to be false but was true" type="org.opentest4j.AssertionFailedError">[Search results should not show 'No plants found' empty state] &#13;
+Expecting value to be false but was true</failure><system-err>[Search results should not show 'No plants found' empty state] &#13;
+Expecting value to be false but was true&#13;
+starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)&#13;
+starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)&#13;
+✽.the plant list should accurately display the "Red Anthurium" record(file:///E:/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:14)&#13;
+</system-err></testcase><testcase name="Verify clicking the Reset button clears all search filters and restores the full plant records display"/><testcase name="Verify visual indicator logic for low-stock plant products"/><testcase name="Verify multi-column sorting functionality for the plant data table"/><testcase name="Verify the No plants found empty state behavior on the plants list dashboard"/></testsuite>
