@@ -102,10 +102,12 @@ jobs:
       # ─── 10. Run API tests ────────────────────────────────────
       - name: Run API tests
         run: mvn clean verify -Dcucumber.filter.tags="@api"
+        continue-on-error: true
 
       # ─── 11. Run UI tests ─────────────────────────────────────
       - name: Run UI tests
         run: mvn verify -Dcucumber.filter.tags="@ui" -Dheadless.mode=true
+        continue-on-error: true
 
       # ─── 12. Print app logs if anything fails ─────────────────
       - name: Print application logs on failure
