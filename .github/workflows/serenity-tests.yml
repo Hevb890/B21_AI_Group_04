@@ -51,8 +51,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      # FIX: Ensure 'app' directory exists before writing properties
       - name: Configure application properties
         run: |
+          mkdir -p app
           cat > app/application.properties << EOF
           server.port=8080
           spring.datasource.url=jdbc:mysql://127.0.0.1:3306/qa_training
@@ -78,27 +80,40 @@ jobs:
             -e "CREATE DATABASE IF NOT EXISTS qa_training;"
           echo "Database qa_training created."
 
+      # FIX: Added a quick sleep and early log check to trap instant startup failures
       - name: Start application
         run: |
+          mkdir -p app
           nohup java -jar app/qa-training-app.jar \
             --spring.config.location=app/application.properties \
             > app.log 2>&1 &
           echo "Application starting..."
+          sleep 3
+          echo "=== Early Startup Check (First 3 Seconds) ==="
+          cat app.log || echo "No logs written yet."
 
+      # FIX: Loop tracks a SUCCESS variable so curl errors don't crash the step implicitly
       - name: Wait for application to start
         run: |
           echo "Waiting for application on port 8080..."
+          SUCCESS=false
           for i in {1..60}; do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-              http://localhost:8080/ui/login)
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 2 http://localhost:8080/ui/login || echo "000")
             if [ "$STATUS" = "200" ] || [ "$STATUS" = "302" ]; then
               echo "Application is up! Status: $STATUS"
+              SUCCESS=true
               break
             fi
             echo "Attempt $i: Status=$STATUS, waiting 5s..."
             sleep 5
           done
 
+          if [ "$SUCCESS" = false ]; then
+            echo "❌ Application failed to start within 5 minutes."
+            exit 1
+          fi
+
+      # Note: Added 'needs: Wait for application to start' dependency implicitly by step order
       - name: Run API tests
         run: mvn clean verify -Dcucumber.filter.tags="@api"
         continue-on-error: true
@@ -107,9 +122,16 @@ jobs:
         run: mvn verify -Dcucumber.filter.tags="@ui" -Dheadless.mode=true
         continue-on-error: true
 
+      # FIX: Changed to if: always() to guarantee you see the stack trace if it fails
       - name: Print application logs on failure
-        if: failure()
-        run: cat app.log
+        if: always()
+        run: |
+          if [ -f app.log ]; then
+            echo "=== FINAL APPLICATION LOGS ==="
+            cat app.log
+          else
+            echo "app.log file does not exist."
+          fi
 
       # ─── Upload artifact for Pages deployment ─────────────────
       - name: Upload Serenity Report as Pages artifact
