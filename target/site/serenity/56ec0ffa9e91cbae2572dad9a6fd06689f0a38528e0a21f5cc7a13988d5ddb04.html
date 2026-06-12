@@ -1,0 +1,2711 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Verify the No plants found empty state behavior on the plants list dashboard</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jquery-ui-1.14.1/jquery-ui.css" rel="Stylesheet" />
+<script type="text/javascript" src="jquery-ui-1.14.1/jquery-ui.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<!-- ImgPreview -->
+<script src="scripts/imgpreview.full.jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="results-page">
+
+
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity and Cucumber Quick Start</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs">
+            <a href="index.html" class="breadcrumbs">Home</a>
+
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="fd849f147b7183049a2b4d217294cdc60c0807707d8d5f08180731313a1c9f01.html">
+            Ui
+        </a>
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="55ea1bb5b7df217c060cdc1298f81700140f0f02712317a05b537db5e3c613b7.html">
+            Plantation Page - User
+        </a>
+        >
+            Verify the no plants found empty state behavior on the plants list dashboard
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 12-06-2026 15:39</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                                <div>
+                                    <h3 class="discreet-story-header">
+                                        <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
+                                        <span class="story-header-title">Plantation Page - User </span>
+                                    </h3>
+
+                                </div>
+
+                        </td>
+                        <td valign="top">
+                            <p class="tag">
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="6c02cb97a96249ec50ae21978e1dac68f7ccba6e0bf0b8b9c388a9c7a17634e1.html">UI PLANTATIONPAGE USER 03
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">Regression
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">Ui
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="34658a1663fcf042bd7acb3325affbe4e647c8acd84d0228be2f52e1381e61b9.html">10 To 30 Seconds
+                                              (Duration)
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="2e8f1269fe45189870d5526ad4ad731be44b38828d72bce8e524d95df0079f07.html">User
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="216dd23caf4e52c0aa46632ecbec15b37e14db019fabbbbc43ae4f9c0325a713.html">Destructive
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="8368df1f1b528996f419de2840157de2dbd71e343831cc17b51f54bb7510234a.html">Plant
+                                        </a>
+                                </span>
+                                    <span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-windows' title='Windows'></i></span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="failing-color">
+                                    Verify the No plants found empty state behavior on the plants list dashboard
+                                        <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+</div>
+</div>
+
+<div class="clr"></div>
+
+
+<div id="beforetable"></div>
+
+
+<div id="tablecontents">
+    <div>
+        <table class="step-table">
+            <tr class="step-titles">
+                <th width="65">
+                </th>
+                <th class="step-description-column greentext">
+                    Steps
+                </th>
+
+                    <th width="150" class="greentext">Screenshots</th>
+                <th width="130" class="greentext">Outcome</th>
+                <th width="100" class="greentext"><i title="Duration" class="bi bi-stopwatch"></i></th>
+            </tr>
+            <tr class="step-table-separator">
+                <td colspan="5"></td>
+            </tr>
+
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection0 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Given the plant user is logged in
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=2">
+                                    <img src="87bf56af7e6519d038b8ed7fc8b7844dab495568837a09bb979a3a145c0f8899.png"
+                                         href="87bf56af7e6519d038b8ed7fc8b7844dab495568837a09bb979a3a145c0f8899.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">4s 831ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="0-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                User logs in with username 'testuser' and password 'test123'
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=1">
+                                    <img src="87bf56af7e6519d038b8ed7fc8b7844dab495568837a09bb979a3a145c0f8899.png"
+                                         href="87bf56af7e6519d038b8ed7fc8b7844dab495568837a09bb979a3a145c0f8899.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">4s 741ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection1 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                And the user navigates to the plant page
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=4">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">664ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="1-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                User navigates to the Plant page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=3">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">663ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection2 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Given no plants exist in the system
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=4">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                                <i class="bi bi-arrow-right"></i>
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=12">
+                                    <img src="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         href="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">7s 952ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection2-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Clear all plants for empty-state UI test
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=10">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">7s 340ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Get admin authentication token
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=6">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">009ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-1')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection2-0-1 success-icon"
+                                   style="margin-left: 60px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-1')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Delete all plants from the database
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=9">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">7s 314ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0-1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-0"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Get admin authentication token
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=8">
+                                    <img src="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         href="f39f20f03bb417b816c107e50c5bd7657077149999aac1987ebf2f905b704cf9.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">006ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-1"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET http://localhost:8080/api/plants/paged?page=0&amp;size=500
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-10">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/paged?page=0&size=500</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=4EF5F895DCD9F18B3B7E6A2652C60FA1; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 2401<br>Date: Fri, 12 Jun 2026 10:09:36 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;content&quot;: [<br>        {<br>            &quot;id&quot;: 169,<br>            &quot;name&quot;: &quot;Category Filter Plant&quot;,<br>            &quot;price&quot;: 120.0,<br>            &quot;quantity&quot;: 8,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;whiteroses&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 170,<br>            &quot;name&quot;: &quot;ApiPlant6437&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 172,<br>            &quot;name&quot;: &quot;ApiPlant9810&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 188,<br>            &quot;name&quot;: &quot;PlantrBAyl&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 150,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 189,<br>            &quot;name&quot;: &quot;PlantDZvyM&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 192,<br>            &quot;name&quot;: &quot;ApiPlant5808&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 194,<br>            &quot;name&quot;: &quot;ApiPlant763&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 99,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 196,<br>            &quot;name&quot;: &quot;PlanturZUd&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 197,<br>            &quot;name&quot;: &quot;PlantNpayk&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 198,<br>            &quot;name&quot;: &quot;PlantEuZgk&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 199,<br>            &quot;name&quot;: &quot;PlantWKvYr&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 200,<br>            &quot;name&quot;: &quot;PlantCrmwi&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 150,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 201,<br>            &quot;name&quot;: &quot;PlantAPJjV&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 202,<br>            &quot;name&quot;: &quot;PlantqRUpZ&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 203,<br>            &quot;name&quot;: &quot;PlantDDCGp&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 250,<br>            &quot;name&quot;: &quot;Alpha Sort Plant&quot;,<br>            &quot;price&quot;: 100.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 251,<br>            &quot;name&quot;: &quot;Beta Sort Plant&quot;,<br>            &quot;price&quot;: 200.0,<br>            &quot;quantity&quot;: 8,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        {<br>            &quot;id&quot;: 252,<br>            &quot;name&quot;: &quot;Gamma Sort Plant&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 20,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 4,<br>                &quot;name&quot;: &quot;anthrm&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        }<br>    ],<br>    &quot;pageable&quot;: {<br>        &quot;pageNumber&quot;: 0,<br>        &quot;pageSize&quot;: 500,<br>        &quot;sort&quot;: {<br>            &quot;empty&quot;: true,<br>            &quot;sorted&quot;: false,<br>            &quot;unsorted&quot;: true<br>        },<br>        &quot;offset&quot;: 0,<br>        &quot;unpaged&quot;: false,<br>        &quot;paged&quot;: true<br>    },<br>    &quot;last&quot;: true,<br>    &quot;totalPages&quot;: 1,<br>    &quot;totalElements&quot;: 18,<br>    &quot;size&quot;: 500,<br>    &quot;number&quot;: 0,<br>    &quot;first&quot;: true,<br>    &quot;sort&quot;: {<br>        &quot;empty&quot;: true,<br>        &quot;sorted&quot;: false,<br>        &quot;unsorted&quot;: true<br>    },<br>    &quot;numberOfElements&quot;: 18,<br>    &quot;empty&quot;: false<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=4EF5F895DCD9F18B3B7E6A2652C60FA1;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-2"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/169
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-11">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-11">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/169</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=29A71501EA8BE3E5E0340E305968395B; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:36 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:37.1412889&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=29A71501EA8BE3E5E0340E305968395B;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-3"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/170
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-12">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/170</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=69D72B5AC9A6FDCE986876F4CFD046DF; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:37 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:37.6582919&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=69D72B5AC9A6FDCE986876F4CFD046DF;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-4"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/172
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-13">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-13">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/172</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=7D4FEFC66CD0308DA08D5667C2515152; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:37 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:37.8462854&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=7D4FEFC66CD0308DA08D5667C2515152;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-5"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/188
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-14">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-14">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/188</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=C8C636758817F3A22A8E93507D4F5160; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:37 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:38.1092918&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=C8C636758817F3A22A8E93507D4F5160;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-6"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/189
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-15">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-15">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/189</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=3CFEECA30FFAD1F05E29603B80E625FF; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:37 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:38.4112874&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=3CFEECA30FFAD1F05E29603B80E625FF;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-7"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/192
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-16">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-16">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/192</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=17175128D42749B494A6B21CE330B5E5; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:37 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:38.6372875&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=17175128D42749B494A6B21CE330B5E5;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-8"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/194
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-17">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-17">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/194</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=8F7176147E79DB27F5D9EDBAF5A28A16; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:38 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:38.7932889&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=8F7176147E79DB27F5D9EDBAF5A28A16;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-9"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/196
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-18">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-18">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/196</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=45EDF5BFB32C31CAA81D984A5AAE3588; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:38 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:38.9942861&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=45EDF5BFB32C31CAA81D984A5AAE3588;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-10"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/197
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-19">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-19">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/197</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=53C2E4D6812E2D835CBB548DDF007D3E; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:38 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:39.1872873&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=53C2E4D6812E2D835CBB548DDF007D3E;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-11"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/198
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-20">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-20">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/198</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=5589303DAA49822397A91E4E52D3AFB6; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:38 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:39.5012881&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=5589303DAA49822397A91E4E52D3AFB6;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-12"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/199
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-21">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-21">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/199</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=4398907A8930502F630266007390F231; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:39 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:39.9342892&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=4398907A8930502F630266007390F231;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-13"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/200
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-22">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-22">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/200</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=C08F00EC642D392761534DB24D8F6FCC; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:39 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:40.1212907&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=C08F00EC642D392761534DB24D8F6FCC;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-14"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/201
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-23">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-23">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/201</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=69E38A83715F8B246379AA93F4CEE06A; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:39 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:40.3212874&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=69E38A83715F8B246379AA93F4CEE06A;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-15"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/202
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-24">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-24">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/202</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=980D56693C6D0C7DB3E13297DBD9C6D0; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 408<br>Date: Fri, 12 Jun 2026 10:09:39 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:40.475292&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=980D56693C6D0C7DB3E13297DBD9C6D0;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-16"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/203
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-25">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-25">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/203</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=01F5DBB4CA25952983DA9FF299EDDCD7; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 408<br>Date: Fri, 12 Jun 2026 10:09:39 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:40.597287&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=01F5DBB4CA25952983DA9FF299EDDCD7;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-17"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/250
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-26">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-26">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/250</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=5B395B79E3BDE5BAC4E09C97EB21195B; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=5B395B79E3BDE5BAC4E09C97EB21195B;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-18"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/251
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-27">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-27">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/251</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=3CC826EF3ACD15199AC265E3F46082B3; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=3CC826EF3ACD15199AC265E3F46082B3;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-19"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/252
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-28">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-28">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/252</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=F8B64264929D66BDD6F5AAE6729790ED; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=F8B64264929D66BDD6F5AAE6729790ED;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-20"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET http://localhost:8080/api/plants
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-29">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-29">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=669ABEB53827D152E89224D477C576E6; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 1726<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    {<br>        &quot;id&quot;: 169,<br>        &quot;name&quot;: &quot;Category Filter Plant&quot;,<br>        &quot;price&quot;: 120.0,<br>        &quot;quantity&quot;: 8,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;whiteroses&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 170,<br>        &quot;name&quot;: &quot;ApiPlant6437&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 172,<br>        &quot;name&quot;: &quot;ApiPlant9810&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 188,<br>        &quot;name&quot;: &quot;PlantrBAyl&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 189,<br>        &quot;name&quot;: &quot;PlantDZvyM&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 192,<br>        &quot;name&quot;: &quot;ApiPlant5808&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 194,<br>        &quot;name&quot;: &quot;ApiPlant763&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 99,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 196,<br>        &quot;name&quot;: &quot;PlanturZUd&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 197,<br>        &quot;name&quot;: &quot;PlantNpayk&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 198,<br>        &quot;name&quot;: &quot;PlantEuZgk&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 199,<br>        &quot;name&quot;: &quot;PlantWKvYr&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 200,<br>        &quot;name&quot;: &quot;PlantCrmwi&quot;,<br>        &quot;price&quot;: 100.0,<br>        &quot;quantity&quot;: 150,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 201,<br>        &quot;name&quot;: &quot;PlantAPJjV&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 202,<br>        &quot;name&quot;: &quot;PlantqRUpZ&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    {<br>        &quot;id&quot;: 203,<br>        &quot;name&quot;: &quot;PlantDDCGp&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 4,<br>            &quot;name&quot;: &quot;anthrm&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    }<br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=669ABEB53827D152E89224D477C576E6;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-21"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/169
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-30">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-30">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/169</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=0698E10C4A36853F742FD074CFBD0DD0; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:41.7712887&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=0698E10C4A36853F742FD074CFBD0DD0;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-22"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/170
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-31">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-31">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/170</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=FE48FB367C7108241437898BE864D101; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:41.9092913&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=FE48FB367C7108241437898BE864D101;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-23"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/172
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-32">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-32">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/172</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=6A86336EA9A9B4B519BA0BF8329DC10C; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:41 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:42.0612896&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=6A86336EA9A9B4B519BA0BF8329DC10C;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-24"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/188
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-33">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-33">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/188</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=8101BBE9E67100910599160DB642E9AD; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:42.2770242&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=8101BBE9E67100910599160DB642E9AD;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-25"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/189
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-34">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-34">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/189</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=B82B0B9430BD1932A73A907E4A2F7549; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:42.5108439&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=B82B0B9430BD1932A73A907E4A2F7549;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-26"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/192
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-35">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-35">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/192</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=7BA4EF382EEE9CA2B97D5D9D61563A8F; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 408<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:42.629302&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=7BA4EF382EEE9CA2B97D5D9D61563A8F;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-27"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/194
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-36">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-36">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/194</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=D76AF60CC465706D656E93DA189C926E; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:42.7538711&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=D76AF60CC465706D656E93DA189C926E;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-28"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/196
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-37">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-37">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/196</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=4B7EF055CDC1236D874BAD6CCB293249; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:42.9289278&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=4B7EF055CDC1236D874BAD6CCB293249;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-29"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/197
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-38">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-38">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/197</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=8F1253D3DE78F88E7C94BB6B60D510A9; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:43.0463074&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=8F1253D3DE78F88E7C94BB6B60D510A9;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-30"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/198
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-39">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-39">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/198</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=57C96C40CB7A20F2CB1E84D23EC0799E; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:42 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:43.1724213&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=57C96C40CB7A20F2CB1E84D23EC0799E;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-31"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/199
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-40">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-40">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/199</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=977E73DA36AD55F2617A84CD019984F4; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 408<br>Date: Fri, 12 Jun 2026 10:09:43 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:43.332492&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=977E73DA36AD55F2617A84CD019984F4;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-32"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/200
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-41">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-41">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/200</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=A549EED182ABDAD9664BB307D62AB196; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:43 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:43.6224906&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=A549EED182ABDAD9664BB307D62AB196;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-33"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/201
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-42">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-42">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/201</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=FA686C49B4F0409A9F8F92371F4318D5; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:43 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:43.7614927&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=FA686C49B4F0409A9F8F92371F4318D5;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-34"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/202
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-43">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-43">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/202</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=720AEFF38441C86A2DC46B942FEBD38D; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:43 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:43.8864876&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=720AEFF38441C86A2DC46B942FEBD38D;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-1-35"></a>
+                            <span style="margin-left: 80px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                DELETE http://localhost:8080/api/plants/203
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-44">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-44">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/203</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjU4ODM2LCJleHAiOjE3ODEyNjI0MzZ9.NHMYpBk9lydt1Ljip9AqDxoh2WhOhahtHThLoRJhwNs<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=5EF6C6084AA12229F3F788CBAD91C9C2; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 409<br>Date: Fri, 12 Jun 2026 10:09:43 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T15:39:44.0279194&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=5EF6C6084AA12229F3F788CBAD91C9C2;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-1"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Refresh the Plant page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=9">
+                                    <img src="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         href="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">608ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-FAILURE">
+
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection3 failure-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Then the user should see the message "No plants found" on the plant page
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="FAILURE-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=11">
+                                    <img src="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         href="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">FAILURE</span></td>
+                    <td width="100"><span class="top-level-step">8s 238ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3" class="step-table-nested" style="display:none;">
+                <tr class="test-FAILURE">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Verify 'No plants found' message is displayed
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="FAILURE-text">
+
+                                <a href="56ec0ffa9e91cbae2572dad9a6fd06689f0a38528e0a21f5cc7a13988d5ddb04_screenshots.html?screenshot=11">
+                                    <img src="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         href="aedae7d097af1b54c540113986af5f6ab587c0b174c769820b5bb6419ec4b342.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">FAILURE</span></td>
+                    <td width="100"><span class="nested-group-step">2s 259ms</span></td>
+                </tr>
+                    <tr class="test-FAILURE">
+                        <td width="40">&nbsp</td>
+                        <td width="%" colspan="4" class="error-message-cell">
+
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">org.opentest4j.AssertionFailedError: [&#39;No plants found&#39; message should be displayed] <br>Expecting value to be true but was false</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-47"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-47">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.opentest4j.AssertionFailedError </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>starter.steps.PlantUserUiSteps.verifyNoPlantsMessageDisplayed(PlantUserUiSteps.java:86)<br />starter.stepdefinitions.PlantUiStepDefinitions.userSeesMessageOnPlantPage(PlantUiStepDefinitions.java:243)<br />✽.the user should see the message "No plants found" on the plant page(file:///E:/B21_AI_Group_04/src/test/resources/features/ui/plant_user.feature:48)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+            <tr class="test-FAILURE">
+                    <td colspan="3"></td>
+                <td width="130"><span class="top-level-step"><em>FAILURE</em></span></td>
+                <td width="100"><span class="top-level-step"><em>15.86s</em></span></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="beforefooter"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 5.3.8</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function toggleDiv(divId) {
+        $("#" + divId).toggle();
+        var $icon = $(".img" + divId);
+        $icon.toggleClass("bi-caret-right-square");
+        $icon.toggleClass("bi-caret-down-square");
+    }
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    $(document).ready(function () {
+        $('img.screenshot').imgPreview({
+            imgCSS: {
+                width: '500px'
+            },
+            distanceFromCursor: {top: 10, left: -200}
+        });
+    });
+
+    //]]>
+</script>
+<div id="imgPreviewContainer" style="position: absolute; top: 612px; left: 355px; display: none; " class=""><img
+            src="" style="display: none; "></div>
+<div id="imgPreviewContainer2" style="position: absolute; top: 925px; left: 320px; display: none; " class="">
+    <img style="width: 200px; display: none; " src=""></div>
+<div id="imgPreviewWithStyles" style="position: absolute; top: 1272px; left: 321px; display: none; " class="">
+    <img style="height: 200px; opacity: 1; display: none; " src=""></div>
+<div id="imgPreviewWithStyles2" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+<div id="imgPreviewWithStyles3" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+
+</div>
+</body>
+</html>

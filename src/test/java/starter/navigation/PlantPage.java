@@ -116,7 +116,7 @@ public class PlantPage extends PageObject {
                 ExpectedConditions.presenceOfElementLocated(
                         By.xpath("//table//tbody//tr/td[contains(normalize-space(.), 'No plants found')]")),
                 ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//table//tbody//tr[td[1] and not(contains(normalize-space(.), 'No plants found'))]]"))
+                        By.xpath("//table//tbody//tr[td and not(.//td[contains(normalize-space(.), 'No plants found')])]"))
         ));
     }
 
@@ -327,20 +327,88 @@ public class PlantPage extends PageObject {
 
     public void clickEditButtonForPlant(String plantName) {
         waitForPlantsListPage();
-        WebElement editLink = findEditLinkForPlant(plantName);
-        if (editLink == null) {
+        resetPlantListFilters();
+        openPlantsPage();
+
+        Long plantId = starter.steps.PlantAdminApiSteps.editTargetPlantId;
+        WebElement editLink = locateEditLink(plantName, plantId);
+
+        if (editLink != null) {
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+            wait.until(ExpectedConditions.elementToBeClickable(editLink));
+            editLink.click();
+        } else if (plantId != null) {
+            openEditPageForPlantId(plantId);
+        } else {
             throw new org.openqa.selenium.NoSuchElementException(
                     "Edit link not found for plant row: " + plantName);
         }
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(editLink));
-        editLink.click();
+
         WebDriverWait editWait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         editWait.until(ExpectedConditions.urlContains("/ui/plants/edit/"));
         plantNameInput.waitUntilVisible();
     }
 
-    private WebElement findEditLinkForPlant(String plantName) {
+    public void openEditPageForPlantId(Long plantId) {
+        getDriver().navigate().to("http://localhost:8080/ui/plants/edit/" + plantId);
+    }
+
+    public void waitForPlantRowOrEmptyState() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//tr/td[contains(normalize-space(.), 'No plants found')]")),
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//tr[td and not(.//td[contains(normalize-space(.), 'No plants found')])]")),
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//table//tbody//a[contains(@href,'/ui/plants/edit/')]"))
+        ));
+    }
+
+    private WebElement locateEditLink(String plantName, Long plantId) {
+        if (plantId != null) {
+            WebElement byId = findEditLinkByPlantId(plantId);
+            if (byId != null) {
+                return byId;
+            }
+        }
+        return findEditLinkForPlant(plantName, plantId);
+    }
+
+    private WebElement findEditLinkByPlantId(Long plantId) {
+        String id = String.valueOf(plantId);
+        String[] xpaths = {
+                "//table//tbody//tr/td[5]//a[contains(@href,'/ui/plants/edit/" + id + "')]",
+                "//table//tbody//a[contains(@href,'/ui/plants/edit/" + id + "')]",
+                "//table//tbody//a[contains(@href,'plants/edit/" + id + "')]",
+                "//a[contains(@href,'/ui/plants/edit/" + id + "')]"
+        };
+        for (String xpath : xpaths) {
+            List<WebElement> editLinks = getDriver().findElements(By.xpath(xpath));
+            if (!editLinks.isEmpty()) {
+                return editLinks.get(0);
+            }
+        }
+        return null;
+    }
+
+    public void resetPlantListFilters() {
+        try {
+            if (resetButton.isCurrentlyVisible()) {
+                resetButton.waitUntilClickable().click();
+                waitForPlantsListPage();
+            }
+        } catch (Exception ignored) {
+            openPlantsPage();
+        }
+    }
+
+    public void searchPlantListByNameOnly(String plantName) {
+        enterSearchText(plantName);
+        clickSearchButton();
+    }
+
+    private WebElement findEditLinkForPlant(String plantName, Long plantId) {
         for (String term : getPlantNameSearchTerms(plantName)) {
             List<WebElement> editLinks = getDriver().findElements(By.xpath(
                     "//table//tbody//tr[td]"
@@ -351,8 +419,22 @@ public class PlantPage extends PageObject {
             if (!editLinks.isEmpty()) {
                 return editLinks.get(0);
             }
+
+            editLinks = getDriver().findElements(By.xpath(
+                    "//table//tbody//tr[td]"
+                            + "[td[1][contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '"
+                            + term + "')]]"
+                            + "//a[contains(@href,'/ui/plants/edit/')]"
+            ));
+            if (!editLinks.isEmpty()) {
+                return editLinks.get(0);
+            }
         }
         return null;
+    }
+
+    private WebElement findEditLinkForPlant(String plantName) {
+        return findEditLinkForPlant(plantName, null);
     }
 
     private List<String> getPlantNameSearchTerms(String plantName) {

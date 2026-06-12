@@ -21,6 +21,7 @@ public class PlantAdminApiSteps {
     private Response lastResponse;
 
     public static Long resolvedPlantId;
+    public static Long editTargetPlantId;
     public static Long resolvedSubCategoryId = 3L;
     /** Last plant name used in POST create (unique per run) */
     public static String lastCreatedPlantName;
@@ -41,6 +42,10 @@ public class PlantAdminApiSteps {
             getAdminToken();
         }
         return adminToken;
+    }
+
+    public static void syncAdminToken(String token) {
+        adminToken = token;
     }
 
     @Step("Get admin authentication token")
@@ -325,11 +330,32 @@ public class PlantAdminApiSteps {
     public void prepareEditTargetPlantForUiEditTest() {
         getAdminToken();
         ensureSubCategoryExists();
-        deletePlantsByName(EDIT_RENAME_PLANT_NAME);
-        recreatePlantForUi(SEARCH_PLANT_NAME, 150, 20);
+        deletePlantsByExactName(EDIT_RENAME_PLANT_NAME, SEARCH_PLANT_NAME, UI_CREATE_PLANT_NAME);
+        Response response = createPlantUnderCategory(resolvedSubCategoryId, SEARCH_PLANT_NAME, 150, 20);
+        assertThat(response.statusCode())
+                .as("API should create edit target plant '%s'", SEARCH_PLANT_NAME)
+                .isIn(200, 201);
+        editTargetPlantId = resolvedPlantId;
         assertThat(plantExistsByExactName(SEARCH_PLANT_NAME))
                 .as("Edit target plant '%s' must exist in the database before ADMIN_05", SEARCH_PLANT_NAME)
                 .isTrue();
+    }
+
+    private void deletePlantsByExactName(String... plantNames) {
+        for (Map<String, Object> plant : fetchAllPlants()) {
+            Object nameValue = plant.get("name");
+            Object idValue = plant.get("id");
+            if (nameValue == null || idValue == null) {
+                continue;
+            }
+            String existingName = nameValue.toString().trim();
+            for (String targetName : plantNames) {
+                if (existingName.equalsIgnoreCase(targetName.trim())) {
+                    deletePlantById(Long.valueOf(idValue.toString()));
+                    break;
+                }
+            }
+        }
     }
 
     private boolean plantExistsByExactName(String plantName) {
