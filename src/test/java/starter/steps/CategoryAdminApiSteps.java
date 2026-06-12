@@ -3,6 +3,7 @@ package starter.steps;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
+import starter.hooks.CategoryHooks;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -79,6 +80,8 @@ public class CategoryAdminApiSteps {
         if (createResponse.statusCode() == 201 || createResponse.statusCode() == 200) {
             resolvedCategoryId = createResponse.jsonPath().getLong("id");
             lastResponse = createResponse;
+            // Register for cleanup
+            CategoryHooks.registerCreatedCategory(resolvedCategoryId);
         } else {
             // Fallback: fetch list and use first category if creation failed
             Response listResponse = SerenityRest
@@ -113,6 +116,8 @@ public class CategoryAdminApiSteps {
         if (lastResponse.statusCode() == 201 || lastResponse.statusCode() == 200) {
             try {
                 lastCreatedCategoryId = lastResponse.jsonPath().getLong("id");
+                // Register for cleanup after scenario ends
+                CategoryHooks.registerCreatedCategory(lastCreatedCategoryId);
             } catch (Exception e) {
                 System.out.println("Could not extract ID from response");
             }
