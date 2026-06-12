@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [main]
 
+# Required for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -105,21 +111,32 @@ jobs:
         if: failure()
         run: cat app.log
 
-      - name: Upload Serenity Report
+      # ─── Upload artifact for Pages deployment ─────────────────
+      - name: Upload Serenity Report as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: target/site/serenity/
+
+      # ─── Also keep regular artifact download ──────────────────
+      - name: Upload Serenity Report as downloadable artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: serenity-report
           path: target/site/serenity/
 
-      - name: Print test summary
-        if: always()
-        run: |
-          echo "=============================="
-          echo "   SERENITY TEST SUMMARY"
-          echo "=============================="
-          grep -A 5 "Serenity BDD Test Results" target/site/serenity/serenity-summary.html \
-            | grep -oP '\d+ tests.*' || \
-          find target/site/serenity -name "*.json" | head -1 | \
-            xargs grep -o '"total":[0-9]*' || \
-          echo "See serenity-report artifact for full results"
+  # ─── Deploy to GitHub Pages ───────────────────────────────────
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
