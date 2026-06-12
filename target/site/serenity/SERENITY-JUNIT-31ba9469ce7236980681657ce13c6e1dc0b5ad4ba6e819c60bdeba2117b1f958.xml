@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Dashboard - User UI" skipped="0" tests="2" time="6.08" timestamp="2026-06-12 11:40:08"><testcase name="Verify dashboard summary information is displayed for regular user"/><testcase name="Verify active navigation menu is highlighted on Dashboard page for regular user"/></testsuite>

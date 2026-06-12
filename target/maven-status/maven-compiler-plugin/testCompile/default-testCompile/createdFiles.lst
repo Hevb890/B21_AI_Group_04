@@ -24,6 +24,7 @@ starter/steps/SalesListAdminSteps.class
 starter/navigation/CategoryAdminApiPage.class
 starter/steps/CategoryUserApiSteps.class
 starter/steps/AuthUserApiSteps.class
+starter/hooks/PlantHooks.class
 starter/steps/AuthAdminApiSteps.class
 starter/steps/CategoryUserUiSteps.class
 starter/navigation/SalesListPage.class
