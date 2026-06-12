@@ -1,22 +1,3 @@
-# Maven build output (highly recommended)
-target/
-
-# Gradle build output (re-added)
-.gradle/
-build/
-
-# IDE and Editor configs (highly recommended)
-.vscode/
-.idea/
-*.iml
-*.iws
-.settings/
-.classpath
-.project
-
-# OS-specific files
-.DS_Store
-Thumbs.db
 
 # Log files
 *.log

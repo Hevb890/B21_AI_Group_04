@@ -77,9 +77,9 @@ public class SalesListAdminSteps {
         sellPlantPage.clickSubmit();
     }
 
-    @Step("Verify error message is shown for exceeded stock")
+    @Step("Verify error message is displayed for exceeding stock")
     public void verifyStockExceededErrorMessage() {
-        assertThat(sellPlantPage.isErrorMessageDisplayed())
+        assertThat(sellPlantPage.isStockExceededErrorDisplayed())
                 .as("An error message should be displayed when quantity exceeds stock")
                 .isTrue();
     }

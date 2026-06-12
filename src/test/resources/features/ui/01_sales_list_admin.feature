@@ -14,13 +14,13 @@ Feature: Sales List Page - Admin
     When the admin clicks the "Delete" button on a sales record
     Then a confirmation prompt should appear
 
-  @UI_SALESLISTPAGE_ADMIN_03 @regression
+  @UI_SALESLISTPAGE_ADMIN_03 @smoke
   Scenario: Verify plant dropdown contains available plants and current stock
     When the admin clicks the "Sell Plant" button
     And the admin opens the plant dropdown
     Then the plant dropdown should contain available plants with stock information
 
-  @UI_SALESLISTPAGE_ADMIN_04 @regression
+  @UI_SALESLISTPAGE_ADMIN_04 @smoke
   Scenario: Verify error message is displayed when quantity exceeds current stock
     When the admin clicks the "Sell Plant" button
     And the admin selects a plant from the dropdown
@@ -28,7 +28,7 @@ Feature: Sales List Page - Admin
     And the admin submits the sell plant form
     Then an error message should be displayed for exceeding stock
 
-  @UI_SALESLISTPAGE_ADMIN_05 @regression
+  @UI_SALESLISTPAGE_ADMIN_05 @smoke
   Scenario: Verify navigation back to sales list page when cancel button is clicked
     When the admin clicks the "Sell Plant" button
     And the admin clicks the "Cancel" button on the sell plant page
