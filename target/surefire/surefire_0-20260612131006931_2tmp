@@ -1,6 +1,0 @@
-#surefire_0
-#Fri Jun 12 13:10:06 IST 2026
-basedir=/Users/hevindutilakasena/ITQA/B21_AI_Group_04
-cucumber.filter.tags=@ui or @api
-localRepository=/Users/hevindutilakasena/.m2/repository
-webdriver.base.url=

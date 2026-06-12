@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Dashboard - Admin UI" skipped="0" tests="2" time="7.26" timestamp="2026-06-12 01:12:48"><testcase name="Verify dashboard summary information is displayed for admin user"/><testcase name="Verify active navigation menu is highlighted on Dashboard page for admin user"/></testsuite>

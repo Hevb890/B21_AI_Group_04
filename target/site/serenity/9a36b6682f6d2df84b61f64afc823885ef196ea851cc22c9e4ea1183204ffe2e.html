@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jquery-ui-1.14.1/jquery-ui.css" rel="Stylesheet" />
+<script type="text/javascript" src="jquery-ui-1.14.1/jquery-ui.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $.fn.dataTable.ext.type.order['test-result-pre'] = function(data) {
+                // Extract the text from the hidden span (SUCCESS, FAILURE, etc.)
+                var match = data.match(/<span[^>]*style="display:none"[^>]*>(.*?)<\/span>/);
+                var result = match ? match[1].trim() : '';
+
+                // Define sort priority (failures first when ascending)
+                var order = {
+                    'FAILURE': 1,
+                    'ERROR': 2,
+                    'BROKEN': 3,
+                    'COMPROMISED': 4,
+                    'PENDING': 5,
+                    'IGNORED': 6,
+                    'SKIPPED': 7,
+                    'ABORTED': 8,
+                    'SUCCESS': 9
+                };
+
+                return order[result] || 99;
+            };
+
+            // Then modify your DataTable initialization
+            $("#scenario-results").DataTable({
+                "order": [[0, "asc"], [1, "asc"], [2, "asc"]], // Keep your default sort order
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 4, // Started column
+                        visible: false
+                    },
+                    {
+                        type: 'time-elapsed-dhms',
+                        targets: 5 // Total Duration column (adjusted from 6 to 5)
+                    },
+                    {
+                        type: 'test-result',
+                        targets: 6 // Result column (changed from 7 to 6)
+                    }
+                ]
+            })
+            $("#manual-scenario-results").DataTable({
+                "order": [[0, "asc",], [1, "asc",]],
+                "language": {
+                    searchPlaceholder: "Filter",
+                    search: ""
+                },
+            })
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                {
+                    searching: false,
+                    ordering: false,
+                    paging: false,
+                    info: false
+                }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Plantation API - Admin","type":"feature","href":"9a36b6682f6d2df84b61f64afc823885ef196ea851cc22c9e4ea1183204ffe2e.html","nodes":[],"selectable":false,"tags":["\u003ca href\u003d\u0027##beforetable\u0027\u003e\u003ci class\u003d\u0027bi bi-check-circle-fill success-icon \u0027 title\u003d\u0027SUCCESS\u0027\u003e\u003c/i\u003e\u003c/a\u003e","\u003cspan class\u003d\u0027feature-count\u0027\u003e5 scenarios\u003c/span\u003e, \u003cspan class\u003d\u0027feature-count\u0027\u003e5 test cases\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                levels: 10,
+                showTags: true,
+                expandIcon: "bi bi-journal-plus",
+                collapseIcon: "bi bi-journal-minus",
+                emptyIcon: "bi bi-journal"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
+            });
+        });
+    </script>
+</head>
+
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity and Cucumber Quick Start</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+                > <a href="5b0b500db2dfd98ccb3584eed6275bc7ba4d506665983d1b8fc2e8acb36c8678.html">Api</a>
+
+
+                    > <span class="truncate-40">Plantation API - admin</span>
+
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 12-06-2026 13:10</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="table">
+            <div class=row">
+                <div class="col-sm-12">
+                    <div>
+                        <div clas="table">
+                            <div class="row">
+
+                                <div class="col-sm-8">
+                                        <span>
+                                            <h2><i class="bi bi-book"></i> Feature: Plantation API - admin</h2>
+                                        </span>
+                                    </div>
+                                        <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                            <p class="tag">
+                                                <span class="badge feature-tag tag-badge" style="background:default;">
+                                                        <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink"
+                                                                                               style="background:default;"
+                                                                                               href="3447f77379c16a5bb29fa6a6fe37b4b4d20fe344b053c4ae136be0a1e7290834.html">admin (tag)</a>
+                                                    </span>
+                                                <span class="badge feature-tag tag-badge" style="background:default;">
+                                                        <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink"
+                                                                                               style="background:default;"
+                                                                                               href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">api (tag)</a>
+                                                    </span>
+                                                <span class="badge feature-tag tag-badge" style="background:default;">
+                                                        <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink"
+                                                                                               style="background:default;"
+                                                                                               href="8368df1f1b528996f419de2840157de2dbd71e343831cc17b51f54bb7510234a.html">plant (tag)</a>
+                                                    </span>
+                                            </p>
+                                        </span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="requirementNarrativeTitle">
+                                
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Requirements result tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#specs"><i class="bi bi-journal-text"></i> Specifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#results"><i class="bi bi-speedometer"></i> Test Results</a>
+                            </li>
+                        </ul>
+
+                        <!-- Specifications and Results tabs -->
+                        <div class="card border">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div id="specs" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+
+                                                <!-- REQUIREMENTS PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="requirementChart" width="300" height="300"></canvas>
+                                                    </div>
+
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <!--- TOC --->
+                                                <div id="toc">
+                                                    <h3>Overview</h3>
+                                                    <table class="table" id="toc-table">
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#5e6a9f4b81a375f3433484e4ca6f960b7a072d2fa7af3801d5bcf6cf2d2c519e"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify admin can add a new plant successfully
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="8929f01e84271c7724c7ec787f71a33a95f31880a53abdcc75d5e0e33462ba4b.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="8929f01e84271c7724c7ec787f71a33a95f31880a53abdcc75d5e0e33462ba4b.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#b031b9b5685f88edc52fbb99bfbbf1d51c3b69435c8718d0363472ed58266c53"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify successful retrieval of plant record by ID
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="9b601abe1d0bdd8b1c7a3f430d916dc456b620dda11f9bc947f574c868516f3d.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="9b601abe1d0bdd8b1c7a3f430d916dc456b620dda11f9bc947f574c868516f3d.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#7057b7f76fdb61a6db15f027403b1e6b5358c5c5eb545e8e7cf7bc261786a63c"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify successful deletion of a plant record by ID
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="2435e152cfb943451fe1a2d31d2d9771d1b940e581c092b95dfe3dea1906a098.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="2435e152cfb943451fe1a2d31d2d9771d1b940e581c092b95dfe3dea1906a098.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#c67dc075e8e35069c885e77963afe24cb64121436e748081eb5075ef6920c8ac"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Verify filtering plants by category ID
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="cd03922d0d0eaefc91caf8799d946b6f2fccbbb4d0b781a15105b4c1da2700da.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="cd03922d0d0eaefc91caf8799d946b6f2fccbbb4d0b781a15105b4c1da2700da.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="width:95%;" class="toc-title">
+                                                                            <span class="orphan-scenario-toc-entry">
+                                                                                    <a href="#c4eb98e9e335c4977b3c7f234ac0cf5b405a7163142c7e6c7b461b52242117e2"
+                                                                                       title="View scenario details">
+                                                                                        <i class="bi bi-chat-dots"></i> Scenario: Validate handling of non-existent plant deletion
+                                                                                    </a>
+                                                                                </span>
+                                                                        </td>
+                                                                        <td>
+
+                                                                        </td>
+                                                                        <td style="width:5%;">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td class="icons-bar">
+                                                                                        <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                           href="0c50264d61b49cfc976fa586403d26d1dd0f4cf976b3e3f54756cce1ed7d993c.html"
+                                                                                           title="View test results">
+                                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                                            </a>
+
+
+                                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                                               href="0c50264d61b49cfc976fa586403d26d1dd0f4cf976b3e3f54756cce1ed7d993c.html"
+                                                                                               title="View test results">
+                                                                                                <i class="bi bi-eyeglasses"></i>
+                                                                                            </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                    </table>
+                                                </div>
+                                                <!--- END OF TOC --->
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3>Scenarios</h3>
+
+                                                    <a name="931418c5-f35b-44b2-aec1-be5347c97bc3"></a>
+                                                    <p class="rule-tags inline-tag">
+                                                    </p>
+
+
+                                                        <div class="scenario-docs card" id="5e6a9f4b81a375f3433484e4ca6f960b7a072d2fa7af3801d5bcf6cf2d2c519e">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="8929f01e84271c7724c7ec787f71a33a95f31880a53abdcc75d5e0e33462ba4b.html"
+                                                                               title="View test results">Scenario: Verify admin can add a new plant successfully</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">smoke (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="e1b2a67d6d7c83776bc4be6282f3bb12371b8b0a8371f91e1aa62fd90a34de89.html">API_POST_PLANTATIONPAGE_ADMIN_01 (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given a valid sub-category ID exists</p>
+                                                                        <p>When the admin sends a POST request to add a plant for the category</p>
+                                                                        <p>Then the API response status code should be 201 Created</p>
+                                                                        <p>And the plant record should be created successfully in the response</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="b031b9b5685f88edc52fbb99bfbbf1d51c3b69435c8718d0363472ed58266c53">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="9b601abe1d0bdd8b1c7a3f430d916dc456b620dda11f9bc947f574c868516f3d.html"
+                                                                               title="View test results">Scenario: Verify successful retrieval of plant record by ID</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="c61861002f10ec1bb1ab1c432210a40788510c0f9ce961dc98bd8abde19b57e9.html">API_GET_PLANTATIONPAGE_ADMIN_02 (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">smoke (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given a plant record exists in the database</p>
+                                                                        <p>When the admin sends a GET request to retrieve the plant by ID</p>
+                                                                        <p>Then the API response status code should be 200 OK</p>
+                                                                        <p>And the response should contain the plant details</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="7057b7f76fdb61a6db15f027403b1e6b5358c5c5eb545e8e7cf7bc261786a63c">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="2435e152cfb943451fe1a2d31d2d9771d1b940e581c092b95dfe3dea1906a098.html"
+                                                                               title="View test results">Scenario: Verify successful deletion of a plant record by ID</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">smoke (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="78edd6f927361c68128b510f744ba2fcb772503e40013507cfe0ac5fe4aa7094.html">API_DELETE_PLANTATIONPAGE_ADMIN_03 (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given a plant record exists in the database</p>
+                                                                        <p>When the admin sends a DELETE request for the plant ID</p>
+                                                                        <p>Then the API response status code should be 204 No Content</p>
+                                                                        <p>And the plant record should be completely removed from the database</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="c67dc075e8e35069c885e77963afe24cb64121436e748081eb5075ef6920c8ac">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="cd03922d0d0eaefc91caf8799d946b6f2fccbbb4d0b781a15105b4c1da2700da.html"
+                                                                               title="View test results">Scenario: Verify filtering plants by category ID</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">smoke (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="f5cbd50cefd48791e7e27f5af49b3c3d06eaa151ee19d4dacefde39fb6ad4a29.html">API_GET_PLANTATIONPAGE_ADMIN_04 (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given plant records exist under a specific category ID</p>
+                                                                        <p>When the admin sends a GET request to filter plants by the category ID</p>
+                                                                        <p>Then the API response status code should be 200 or 204</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="scenario-docs card" id="c4eb98e9e335c4977b3c7f234ac0cf5b405a7163142c7e6c7b461b52242117e2">
+                                                            <div class="scenario-docs card-header success"
+                                                                 style="min-height:1.5em;">
+                                                                <div>
+                                                                        <span class="scenario-heading">
+                                                                            <a href="0c50264d61b49cfc976fa586403d26d1dd0f4cf976b3e3f54756cce1ed7d993c.html"
+                                                                               title="View test results">Scenario: Validate handling of non-existent plant deletion</a>
+                                                                        </span>
+
+                                                                        <span class="example-tags inline-tag">
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">regression (tag)</a>
+                                                                                </span>
+                                                                                <span class="badge tag-badge"
+                                                                                      style="background:default;">
+                                                                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                                                                    <a class="tagLink"
+                                                                                       style="background:default;"
+                                                                                       href="064b10890d6636cc338a934680edcbfde81d6b3a419f4704c38b10bb86682550.html">API_DELETE_PLANTATIONPAGE_ADMIN_05 (tag)</a>
+                                                                                </span>
+                                                                        </span>
+
+                                                                    <span class="scenario-result-icon">
+                                                                    
+
+                                                                            <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                        </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="scenario-docs card-body">
+                                                                        <p>Given target plant ID 99999 does not exist in the database</p>
+                                                                        <p>When the admin sends a DELETE request for the plant ID 99999</p>
+                                                                        <p>Then the API response status code should be 204 No Content</p>
+                                                                        <p>And the non-existent plant record should remain absent from the database</p>
+                                                                <div class="examples">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="results" class="tab-pane fade">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h3>Feature Coverage By Scenario</h3>
+                                                <!-- TEST RESULT PIE CHART -->
+                                                    <div class="chart-container" style="position: relative; width:30vw">
+                                                        <canvas id="resultChart" width="300" height="300"></canvas>
+                                                    </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-check-square"></i> Test Outcomes</h4>
+                                                <!-- Severity bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="severityChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <h4><i class="bi bi-graph-up"></i> Test Performance</h4>
+
+                                                <!-- Duration bar chart -->
+                                                <div class="chart-container" style="position: relative; width:30vw">
+                                                    <canvas id="durationChart" width="300" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+    <div>
+        <h3><i class="bi bi-speedometer2"></i> Key Statistics</h3>
+        <div>
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-card-checklist"></i> Number of Scenarios
+                    </td>
+                    <td>5</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Total
+                        Duration
+                    </td>
+                    <td>393ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-caret-right"></i> Total Number of Test Cases
+                    </td>
+                    <td>5</td>
+                    <td>
+                        <i class="bi bi-trophy"></i> Fastest Test
+                    </td>
+                    <td>34ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-person"></i> Number of Manual Test Cases
+                    </td>
+                    <td>0</td>
+                    <td>
+                        <i class="bi bi-skip-start"></i> Slowest
+                        Test
+                    </td>
+                    <td>170ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-flag-fill"></i> Tests Started
+                    </td>
+                    <td>Jun 12, 2026 13:10:13</td>
+                    <td>
+                        <i class="bi bi-stopwatch"></i> Average
+                        Execution Time
+                    </td>
+                    <td>77ms</td>
+                </tr>
+                <tr scope="row">
+                    <td>
+                        <i class="bi bi-stop-circle"></i> Tests
+                        Finished
+                    </td>
+                    <td>Jun 12, 2026 13:10:14</td>
+                    <td>
+                        <i class="bi bi-stopwatch-fill"></i> Cumulative Test Time
+                        <br/><small class="text-muted">(sum of all individual test durations)</small>
+                    </td>
+                    <td>386ms</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+                                                <h3><i class="bi bi-gear"></i> Automated Tests</h3>
+
+                                                    <table class="scenario-result-table table" id="scenario-results">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>feature</th>
+                                                            <th class="test-name-column">Scenario</th>
+                                                            <th>Context</th>
+                                                            <th>Steps</th>
+                                                            <th>Started</th>
+                                                            <th>Total Duration</th>
+                                                            <th>Result</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Plantation API - Admin</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="8929f01e84271c7724c7ec787f71a33a95f31880a53abdcc75d5e0e33462ba4b.html">Verify admin can add a new plant successfully</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>13:10:13</td>
+                                                                    <td>170ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Plantation API - Admin</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="9b601abe1d0bdd8b1c7a3f430d916dc456b620dda11f9bc947f574c868516f3d.html">Verify successful retrieval of plant record by ID</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>13:10:14</td>
+                                                                    <td>080ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Plantation API - Admin</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="2435e152cfb943451fe1a2d31d2d9771d1b940e581c092b95dfe3dea1906a098.html">Verify successful deletion of a plant record by ID</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>13:10:14</td>
+                                                                    <td>060ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Plantation API - Admin</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="cd03922d0d0eaefc91caf8799d946b6f2fccbbb4d0b781a15105b4c1da2700da.html">Verify filtering plants by category ID</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>3</td>
+                                                                    <td>13:10:14</td>
+                                                                    <td>034ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="scenario-result SUCCESS">
+                                                                    <td>
+                                                                            <a href="#">Plantation API - Admin</a>
+                                                                    </td>
+                                                                    <td>
+                                                                            <a href="0c50264d61b49cfc976fa586403d26d1dd0f4cf976b3e3f54756cce1ed7d993c.html">Validate handling of non-existent plant deletion</a>
+                                                                    </td>
+                                                                    <td><span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span><span style="display:none">Chrome,Mac OS X</span>
+                                                                    </td>
+                                                                    <td>4</td>
+                                                                    <td>13:10:14</td>
+                                                                    <td>042ms</td>
+                                                                    <td class="test-result-cell"><span style="display:none">SUCCESS</span> <a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="bi bi-hand-index-thumb"></i> Manual Tests</h3>
+
+                                                    No manual tests were recorded
+
+                                            </div>
+                                        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                    <a href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Regression&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="064b10890d6636cc338a934680edcbfde81d6b3a419f4704c38b10bb86682550.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API DELETE PLANTATIONPAGE ADMIN 05&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="78edd6f927361c68128b510f744ba2fcb772503e40013507cfe0ac5fe4aa7094.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API DELETE PLANTATIONPAGE ADMIN 03&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="f5cbd50cefd48791e7e27f5af49b3c3d06eaa151ee19d4dacefde39fb6ad4a29.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API GET PLANTATIONPAGE ADMIN 04&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="03c38abc150ec1d5070f58913415ff083b86c70994705a423d87e59bdc0f9a7e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Api&nbsp;&nbsp;&nbsp;5
+                                    </span>
+                                    </a>
+                                    <a href="8368df1f1b528996f419de2840157de2dbd71e343831cc17b51f54bb7510234a.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Plant&nbsp;&nbsp;&nbsp;5
+                                    </span>
+                                    </a>
+                                    <a href="c61861002f10ec1bb1ab1c432210a40788510c0f9ce961dc98bd8abde19b57e9.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API GET PLANTATIONPAGE ADMIN 02&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                                    <a href="3447f77379c16a5bb29fa6a6fe37b4b4d20fe344b053c4ae136be0a1e7290834.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Admin&nbsp;&nbsp;&nbsp;5
+                                    </span>
+                                    </a>
+                                    <a href="65a2df077748f74ccd607af4e962738958bdf672b0d6b0150ae42bcfa475044e.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Smoke&nbsp;&nbsp;&nbsp;4
+                                    </span>
+                                    </a>
+                                    <a href="e1b2a67d6d7c83776bc4be6282f3bb12371b8b0a8371f91e1aa62fd90a34de89.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> API POST PLANTATIONPAGE ADMIN 01&nbsp;&nbsp;&nbsp;1
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                                <h5 class="card-title">Context</h5>
+                            <div>
+                                    <a href="83a1614f3dda521b0b7f5f6481c9e8fca62028b7ee1d7022b7d38143cdeaeee1.html">
+                                    <span class="tag-badge badge" style="background-color:#b0cf73; margin:1em;padding:4px;">
+                                        <i class="bi bi-tag-fill"></i> Chrome, Mac&nbsp;&nbsp;&nbsp;5
+                                    </span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="version">Serenity BDD version 5.3.8</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart data -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const outcomeChartCtx = document.getElementById('resultChart');
+
+        // Options define for display value on top of bars
+        const outcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "94aabc3d1755e1e21f3a3217fb29cbc8d0a1bf2ea990dce3070a6c9fb1353f2b.html" },
+            { title: 'Pending Test Cases', link: "1f0146852821c16dfd43a050cf50f7ece9c140e49d608a222ac587e91d6de66f.html" },
+            { title: 'Ignored Test Cases', link: "93463bf82ad620b03f4a7e3aba0a7531f25c1d9fc91921d67fbae26954ca7fa7.html" },
+            { title: 'Skipped Test Cases', link: "d37eb941d4958016c62f10c7a8a93e5b31883f7dacfcea15faeba0243da1c859.html" },
+            { title: 'Aborted Test Cases',  link: "1b9f0917dc4f3e5b655a12531c913e95a8ccfde0cbfe3b215b288ef51b3a1668.html"},
+            { title: 'Failed Test Cases', link: "5f8baa4296b2e5ca86b2e8579b4ff66435250c156ad2c3a98513a7a3455a5172.html"  },
+            { title: 'Broken Test Cases', link: "8530f8db4ef8ef1990a0f05f1b1760f10c317397fcac455b269ca1d4782ddc2f.html"    },
+            { title: 'Compromised Test Cases',  link: "b465be739621c90db703bbc3e4c9baf0edc233cea6cc4d1063d9018c1fec3a32.html" },
+        ]
+        const outcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Test Results',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 5}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const outcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const outcomeChart = new Chart(outcomeChartCtx, {
+            type: 'doughnut',
+            data: outcomeData,
+            options: outcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function clickHandler(click) {
+            const points = outcomeChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(outcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        outcomeChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END PIE CHART -->
+    <!-- PIE CHART -->
+    <script>
+
+        // The results pie chart
+        const requirementsChartCtx = document.getElementById('requirementChart');
+
+        // Options define for display value on top of bars
+        const requirementsOutcomeDetailsReports = [
+            { title: 'Passing Test Cases', link: "94aabc3d1755e1e21f3a3217fb29cbc8d0a1bf2ea990dce3070a6c9fb1353f2b.html" },
+            { title: 'Pending Test Cases', link: "1f0146852821c16dfd43a050cf50f7ece9c140e49d608a222ac587e91d6de66f.html" },
+            { title: 'Ignored Test Cases', link: "93463bf82ad620b03f4a7e3aba0a7531f25c1d9fc91921d67fbae26954ca7fa7.html" },
+            { title: 'Skipped Test Cases', link: "d37eb941d4958016c62f10c7a8a93e5b31883f7dacfcea15faeba0243da1c859.html" },
+            { title: 'Aborted Test Cases',  link: "1b9f0917dc4f3e5b655a12531c913e95a8ccfde0cbfe3b215b288ef51b3a1668.html"},
+            { title: 'Failed Test Cases', link: "5f8baa4296b2e5ca86b2e8579b4ff66435250c156ad2c3a98513a7a3455a5172.html"  },
+            { title: 'Broken Test Cases', link: "8530f8db4ef8ef1990a0f05f1b1760f10c317397fcac455b269ca1d4782ddc2f.html"    },
+            { title: 'Compromised Test Cases',  link: "b465be739621c90db703bbc3e4c9baf0edc233cea6cc4d1063d9018c1fec3a32.html" },
+            { title: 'Undefined Test Cases',  link: "" },
+        ]
+        const requirementsOutcomeData = {
+            labels: ['Passing Test Cases', 'Pending Test Cases', 'Ignored Test Cases', 'Skipped Test Cases', 'Aborted Test Cases', 'Failed Test Cases', 'Broken Test Cases', 'Compromised Test Cases','Undefined Test Cases'],
+            datasets: [{
+                label: 'Feature Coverage',
+                fill: false,
+                data: [{meta: 'Passing tests', value: 5}, {meta: 'Pending tests', value: 0}, {meta: 'Ignored tests', value: 0}, {meta: 'Skipped tests', value: 0}, {meta: 'Aborted tests', value: 0}, {meta: 'Failing tests', value: 0}, {meta: 'Broken tests', value: 0}, {meta: 'Compromised tests', value: 0}],
+                backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                borderWidth: 1,
+            }]
+        }
+        const requirementsOutcomeOptions = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(0) + "%";
+                        if (percentage === '0%' || percentage === 'NaN%') {
+                            return '';
+                        } else {
+                            return percentage;
+                        }
+                    },
+                },
+            }
+        }
+
+        const requirementsChart = new Chart(requirementsChartCtx, {
+            type: 'doughnut',
+            data: requirementsOutcomeData,
+            options: requirementsOutcomeOptions,
+            plugins: [
+                {
+                    id: 'text',
+                    beforeDraw: function (chart, a, b) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 200).toFixed(1);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+
+                        var text = "100%"
+                        textX = 10 + Math.round((width - ctx.measureText(text).width) / 2);
+                        textY = (height / 2) - 40;
+
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+        });
+
+        function reqsClickHandler(click) {
+            const points = requirementsChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length && requirementsOutcomeDetailsReports[firstPoint.index].link) {
+                const firstPoint = points[0];
+                window.open(requirementsOutcomeDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        requirementsChartCtx.onclick = reqsClickHandler;
+    </script>
+    <!-- END PIE CHART -->
+
+    <!-- SUMMARY BAR CHART -->
+    <script>
+
+        // The Severity bar chart
+        const severityChartCtx = document.getElementById('severityChart');
+
+        // Options define for display value on top of bars
+
+        const severityDetailsReports = [
+            { title: 'Passing Scenarios', link: "94aabc3d1755e1e21f3a3217fb29cbc8d0a1bf2ea990dce3070a6c9fb1353f2b.html" },
+            { title: 'Pending Scenarios', link: "1f0146852821c16dfd43a050cf50f7ece9c140e49d608a222ac587e91d6de66f.html" },
+            { title: 'Ignored Scenarios', link: "93463bf82ad620b03f4a7e3aba0a7531f25c1d9fc91921d67fbae26954ca7fa7.html" },
+            { title: 'Skipped Scenarios', link: "d37eb941d4958016c62f10c7a8a93e5b31883f7dacfcea15faeba0243da1c859.html" },
+            { title: 'Aborted Scenarios',  link: "1b9f0917dc4f3e5b655a12531c913e95a8ccfde0cbfe3b215b288ef51b3a1668.html"},
+            { title: 'Failed Scenarios', link: "5f8baa4296b2e5ca86b2e8579b4ff66435250c156ad2c3a98513a7a3455a5172.html"  },
+            { title: 'Broken Scenarios', link: "8530f8db4ef8ef1990a0f05f1b1760f10c317397fcac455b269ca1d4782ddc2f.html"    },
+            { title: 'Compromised Scenarios',  link: "b465be739621c90db703bbc3e4c9baf0edc233cea6cc4d1063d9018c1fec3a32.html" },
+        ]
+        const severityData = {
+            labels: ['Passing', 'Pending', 'Ignored', 'Skipped', 'Aborted', 'Failed', 'Broken', 'Compromised'],
+            datasets: [
+                {
+                    label: 'Automated',
+                    data: [5,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.5)','rgba(165, 199, 238, 0.5)','rgba(168, 168, 168, 0.5)','rgba(238, 224, 152, 0.75)','rgba(255, 153, 102, 0.5)','rgba(255, 22, 49, 0.5)','rgba(255, 97, 8, 0.5)','rgba(255, 104, 255, 0.5)','rgba(83, 50, 168, 0.5)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Manual',
+                    data: [0,0,0,0,0,0,0,0],
+                    backgroundColor: ['rgba(153,204,51,0.25)','rgba(165, 199, 238, 0.25)','rgba(168, 168, 168, 0.25)','rgba(238, 224, 152, 0.375)','rgba(255, 153, 102, 0.25)','rgba(255, 22, 49, 0.25)','rgba(255, 97, 8, 0.25)','rgba(255, 104, 255, 0.25)','rgba(83, 50, 168, 0.25)'],
+                    borderColor: ['rgba(153,204,51,1)','rgba(165, 199, 238, 1)','rgba(168, 168, 168, 1)','rgba(238, 224, 152, 1)','rgba(255, 153, 102, 1)','rgba(255, 22, 49, 1)','rgba(255, 97, 8, 1)','rgba(255, 104, 255, 1)','rgba(83, 50, 168, 1)'],
+                    borderWidth: 1
+                },
+
+            ]
+        }
+        const severityOptions = {
+            responsive: true,
+            skipNull: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                }
+            },
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value === 0) {
+                            return '';
+                        } else {
+                            return value;
+                        }
+                    },
+                }
+            }
+        }
+        const severityChart = new Chart(severityChartCtx, {
+            type: 'bar',
+            data: severityData,
+            options: severityOptions
+        });
+
+        function clickHandler(click) {
+            const points = severityChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(severityDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+        severityChartCtx.onclick = clickHandler;
+    </script>
+    <!-- END SUMMARY CHART -->
+
+    <!-- DURATION CHART -->
+    <script>
+
+        // Options define for display value on top of bars
+        const durationDetailsReports = [
+                {title: "Under 1 second", link: "e47fefa49e9d2accc9c8c2c568b4525f0107e905f9098ffad36d0b20eec72708.html"},
+                {title: "1 to 10 seconds", link: "a0b5f81be7339ac54e63dfb15235cddb49bb68374d3db271b0510e03efe577f2.html"},
+                {title: "10 to 30 seconds", link: "bf0ba141e9a969c518e77640b857f655f04e24e771a51fef2058f7a3af30d1da.html"},
+                {title: "30 to 60 seconds", link: "1fd12e7217da5fdbec1c796ae95dbf647c4a9b4bb7c6c23895340971129e902e.html"},
+                {title: "1 to 2 minutes", link: "7a22263e98c378f8db556b6e9dd7cbe58b3f543b18c977d91399d8dea3c2eb93.html"},
+                {title: "2 to 5 minutes", link: "6477f574bce34bb2ed82125f266bb745b064893e20ac3649ed3e6d2f33b94b5c.html"},
+                {title: "5 to 10 minutes", link: "c32c76bf4ab7fa9bf344d3ee3be31873855825df39d80a39471814327de48c09.html"},
+                {title: "10 minutes or over", link: "5865faa376deccde3b95bf72228172f11346d74cfbd2b9322fd4b0ef7bf6f3b4.html"},
+        ]
+        // The Severity bar chart
+        const durationChartCtx = document.getElementById('durationChart');
+
+        // Options define for display value on top of bars
+
+        const durationData = {
+            labels: ['Under 1 second','1 to 10 seconds','10 to 30 seconds','30 to 60 seconds','1 to 2 minutes','2 to 5 minutes','5 to 10 minutes','10 minutes or over'],
+            datasets: [{
+                label: 'Number of tests per duration',
+                fill: false,
+                data: ['5','0','0','0','0','0','0','0'],
+                backgroundColor: 'rgba(83, 146, 255,0.5)',
+                borderColor: 'rgba(83, 146, 255, 1)',
+            }]
+        }
+        const durationOptions = {
+            responsive: true,
+            plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                    color: '#444444',
+                    'font.weight': 'bold',
+                    formatter: (value, ctx) => {
+                        if (value > 0) {
+                            return value;
+                        } else {
+                            return '';
+                        }
+                    },
+                },
+                tooltip: {
+                    enabled: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: (data) => {
+                            return data.parsed.y + ' tests'
+                        }
+                    },
+                },
+            },
+        }
+
+        const durationChart = new Chart(durationChartCtx, {
+            type: 'bar',
+            data: durationData,
+            options: durationOptions
+        });
+
+        function durationClickHandler(click) {
+            const points = durationChart.getElementsAtEventForMode(click, 'nearest', {intersect: true}, true);
+            if (points.length) {
+                const firstPoint = points[0];
+                window.open(durationDetailsReports[firstPoint.index].link, "_self")
+
+            }
+        }
+
+        durationChartCtx.onclick = durationClickHandler;
+    </script>
+    <!-- END DURATION CHART -->
+</body>
+</html>

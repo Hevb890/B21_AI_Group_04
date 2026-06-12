@@ -1,0 +1,130 @@
+name: Serenity BDD Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: qa_training
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      # ─── 1. Checkout code ────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # ─── 2. Set up Java 21 ───────────────────────────────────
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: "21"
+          distribution: "temurin"
+
+      # ─── 3. Set up Chrome for UI tests ───────────────────────
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      # ─── 4. Cache Maven dependencies ─────────────────────────
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # ─── 5. Configure application.properties for CI ──────────
+      - name: Configure application properties
+        run: |
+          cat > app/application.properties << EOF
+          server.port=8080
+          spring.datasource.url=jdbc:mysql://127.0.0.1:3306/qa_training
+          spring.datasource.username=root
+          spring.datasource.password=root
+          spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+          spring.jpa.hibernate.ddl-auto=update
+          api.base-url=http://localhost:8080
+          EOF
+
+      # ─── 6. Wait for MySQL to be ready ───────────────────────
+      - name: Wait for MySQL
+        run: |
+          echo "Waiting for MySQL to be ready..."
+          until mysqladmin ping -h 127.0.0.1 -u root -proot --silent; do
+            echo "MySQL not ready, retrying in 3s..."
+            sleep 3
+          done
+          echo "MySQL is ready."
+
+      # ─── 7. Create database ───────────────────────────────────
+      - name: Create database
+        run: |
+          mysql -h 127.0.0.1 -u root -proot -e "CREATE DATABASE IF NOT EXISTS qa_training;"
+          echo "Database qa_training created."
+
+      # ─── 8. Start the application ─────────────────────────────
+      - name: Start application
+        run: |
+          nohup java -jar app/qa-training-app.jar \
+            --spring.config.location=app/application.properties \
+            > app.log 2>&1 &
+          echo "Application starting..."
+
+      # ─── 9. Wait for application to be ready ─────────────────
+      - name: Wait for application to start
+        run: |
+          echo "Waiting for application on port 8080..."
+          for i in {1..30}; do
+            if curl -s http://localhost:8080/ui/login > /dev/null; then
+              echo "Application is up!"
+              break
+            fi
+            echo "Attempt $i: not ready yet, waiting 5s..."
+            sleep 5
+          done
+
+      # ─── 10. Run API tests ────────────────────────────────────
+      - name: Run API tests
+        run: mvn clean verify -Dcucumber.filter.tags="@api"
+
+      # ─── 11. Run UI tests ─────────────────────────────────────
+      - name: Run UI tests
+        run: mvn verify -Dcucumber.filter.tags="@ui" -Dheadless.mode=true
+
+      # ─── 12. Print app logs if anything fails ─────────────────
+      - name: Print application logs on failure
+        if: failure()
+        run: cat app.log
+
+      # ─── 13. Upload Serenity HTML report ──────────────────────
+      - name: Upload Serenity Report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: serenity-report
+          path: target/site/serenity/
+
+      # ─── 14. Publish test results summary ─────────────────────
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Serenity Test Results
+          path: target/failsafe-reports/*.xml
+          reporter: java-junit

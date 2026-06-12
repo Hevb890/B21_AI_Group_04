@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="1" name="Plantation Page - Admin" skipped="0" tests="5" time="51.62" timestamp="2026-06-12 01:13:02"><testcase name="Verify add a plant button appear to the admin role"/><testcase name="Verify admin can add a new plant with valid data"/><testcase name="Verify Plant Name, Sub-category, Price, and Quantity are required fields"/><testcase name="Verify the system successfully searches for plants with multi-word names"><failure message="[Search results should not show 'No plants found' empty state] &#10;Expecting value to be false but was true" type="org.opentest4j.AssertionFailedError">[Search results should not show 'No plants found' empty state] 
+Expecting value to be false but was true</failure><system-err>[Search results should not show 'No plants found' empty state] 
+Expecting value to be false but was true
+starter.steps.PlantAdminUiSteps.verifyPlantListDisplaysRecord(PlantAdminUiSteps.java:129)
+starter.stepdefinitions.PlantUiStepDefinitions.plantListAccuratelyDisplaysRecord(PlantUiStepDefinitions.java:127)
+✽.the plant list should accurately display the "Red Anthurium" record(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:41)
+</system-err></testcase><testcase name="Verify admin can successfully edit existing plant data with valid plant data"><error message="Edit link not found for plant row: Red Anthurium&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception&#10;Build info: version: '4.41.0', revision: '9fc754f'&#10;System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.4.1', java.version: '21'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Edit link not found for plant row: Red Anthurium
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.41.0', revision: '9fc754f'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.4.1', java.version: '21'
+Driver info: driver.version: unknown</error><system-err>Edit link not found for plant row: Red Anthurium
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.41.0', revision: '9fc754f'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.4.1', java.version: '21'
+Driver info: driver.version: unknown
+starter.navigation.PlantPage.clickEditButtonForPlant(PlantPage.java:332)
+starter.steps.PlantAdminUiSteps.clickEditButtonForPlant(PlantAdminUiSteps.java:137)
+starter.stepdefinitions.PlantUiStepDefinitions.adminClicksEditButton(PlantUiStepDefinitions.java:162)
+✽.the admin clicks the Edit button on a particular plant data row "Red Anthurium"(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/ui/plant_admin.feature:46)
+</system-err></testcase></testsuite>

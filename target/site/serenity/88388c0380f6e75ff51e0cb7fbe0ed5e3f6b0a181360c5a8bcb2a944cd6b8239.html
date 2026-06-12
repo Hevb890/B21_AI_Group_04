@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Verify error message is displayed when quantity exceeds current stock</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jquery-ui-1.14.1/jquery-ui.css" rel="Stylesheet" />
+<script type="text/javascript" src="jquery-ui-1.14.1/jquery-ui.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<!-- ImgPreview -->
+<script src="scripts/imgpreview.full.jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="results-page">
+
+
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity and Cucumber Quick Start</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs">
+            <a href="index.html" class="breadcrumbs">Home</a>
+
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="2623001b95f13b2c65ad5345fe8f9ded3199543becc82972c476d3413259ad15.html">
+            Ui
+        </a>
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="c2cf408d3606a12c78dda528e3bfd770c00e0711e1cb9c04884f22b5a923d1a0.html">
+            Sales List Page - Admin
+        </a>
+        >
+            Verify error message is displayed when quantity exceeds current stock
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 12-06-2026 13:10</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                                <div>
+                                    <h3 class="discreet-story-header">
+                                        <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
+                                        <span class="story-header-title">Sales List Page - Admin </span>
+                                    </h3>
+
+                                </div>
+
+                        </td>
+                        <td valign="top">
+                            <p class="tag">
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="56a43dbd512fc1f9d9ef2dc0e2046cbd29bbc9e0aad2e1d1b8333e89833c61cb.html">UI SALESLISTPAGE ADMIN 04
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="1d0c02fb9cb969bbd9e2f900ec6333e01b070c6fb5e26345e9374169cfab9e68.html">Regression
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="17577daaad2fd309e0837b76421d7c81a554f65af8961466d1a2c3c19c8c6e49.html">Ui
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="d90251482f38cdbfa54d8febaa9556420fb2115e9e965248d4778ab264711f79.html">Sales
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="6c5512236937b92cd7a296b24edb966c2bd94be46b8910f8b129a42d6150eb25.html">1 To 10 Seconds
+                                              (Duration)
+                                        </a>
+                                </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="3447f77379c16a5bb29fa6a6fe37b4b4d20fe344b053c4ae136be0a1e7290834.html">Admin
+                                        </a>
+                                </span>
+                                    <span class='context-icon'><i class='bi bi-browser-chrome' title='Chrome'></i> <i class='bi bi-apple' title='Mac OS X'></i></span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">
+                                    Verify error message is displayed when quantity exceeds current stock
+                                        <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+</div>
+</div>
+
+<div class="clr"></div>
+
+
+<div id="beforetable"></div>
+
+
+<div id="tablecontents">
+    <div>
+        <table class="step-table">
+            <tr class="step-titles">
+                <th width="65">
+                </th>
+                <th class="step-description-column greentext">
+                    Steps
+                </th>
+
+                    <th width="150" class="greentext">Screenshots</th>
+                <th width="130" class="greentext">Outcome</th>
+                <th width="100" class="greentext"><i title="Duration" class="bi bi-stopwatch"></i></th>
+            </tr>
+            <tr class="step-table-separator">
+                <td colspan="5"></td>
+            </tr>
+
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="0"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/auth/login
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-1">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/auth/login</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Content Body</h4>
+                                    <pre>{<br>    &quot;username&quot;: &quot;admin&quot;,<br>    &quot;password&quot;: &quot;admin123&quot;<br>}</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=50B2C40FCD5234C81398E80991A2D9B3; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 194<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI&quot;,<br>    &quot;tokenType&quot;: &quot;Bearer&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=50B2C40FCD5234C81398E80991A2D9B3;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="1"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                GET http://localhost:8080/api/sales
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-2">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=C0BECFBD6EE4DDAC69C3105F95C807A6; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 2<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    <br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=C0BECFBD6EE4DDAC69C3105F95C807A6;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                GET http://localhost:8080/api/categories/sub-categories
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-3">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/categories/sub-categories</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=4FD16B48169022E422F73743AAED3EE0; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 46<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    {<br>        &quot;id&quot;: 2,<br>        &quot;name&quot;: &quot;TestSub&quot;,<br>        &quot;subCategories&quot;: [<br>            <br>        ]<br>    }<br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=4FD16B48169022E422F73743AAED3EE0;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/plants/category/2
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-4">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/category/2</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Content Body</h4>
+                                    <pre>{<br>    &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>    &quot;price&quot;: 50.0,<br>    &quot;quantity&quot;: 20<br>}</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=C447DDD82505E5DC7831D63B956F6CA6; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 113<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;id&quot;: 127,<br>    &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>    &quot;price&quot;: 50.0,<br>    &quot;quantity&quot;: 20,<br>    &quot;category&quot;: {<br>        &quot;id&quot;: 2,<br>        &quot;name&quot;: &quot;TestSub&quot;,<br>        &quot;subCategories&quot;: [<br>            <br>        ]<br>    }<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=C447DDD82505E5DC7831D63B956F6CA6;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/sales/plant/127?quantity=1
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-5">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/plant/127?quantity=1</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=019DF21485E00370139C4865BA79A44C; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 201<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;id&quot;: 523,<br>    &quot;plant&quot;: {<br>        &quot;id&quot;: 127,<br>        &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 19,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    &quot;quantity&quot;: 1,<br>    &quot;totalPrice&quot;: 50.0,<br>    &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.804075&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=019DF21485E00370139C4865BA79A44C;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="5"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/sales/plant/127?quantity=1
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-6">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/plant/127?quantity=1</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=2985FC46771A0174AC81844C86DCF6EF; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 201<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;id&quot;: 524,<br>    &quot;plant&quot;: {<br>        &quot;id&quot;: 127,<br>        &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 18,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    &quot;quantity&quot;: 1,<br>    &quot;totalPrice&quot;: 50.0,<br>    &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.822439&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=2985FC46771A0174AC81844C86DCF6EF;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="6"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/sales/plant/127?quantity=1
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-7">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/plant/127?quantity=1</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=09F195812788B385EBB21576FC347CA8; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 201<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;id&quot;: 525,<br>    &quot;plant&quot;: {<br>        &quot;id&quot;: 127,<br>        &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 17,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    &quot;quantity&quot;: 1,<br>    &quot;totalPrice&quot;: 50.0,<br>    &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.838914&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=09F195812788B385EBB21576FC347CA8;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="7"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/sales/plant/127?quantity=1
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-8">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/plant/127?quantity=1</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=06983624FECEA55EEEFE2DF752098174; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 201<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;id&quot;: 526,<br>    &quot;plant&quot;: {<br>        &quot;id&quot;: 127,<br>        &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 16,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    &quot;quantity&quot;: 1,<br>    &quot;totalPrice&quot;: 50.0,<br>    &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.858462&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=06983624FECEA55EEEFE2DF752098174;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="8"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/sales/plant/127?quantity=1
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-9">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/plant/127?quantity=1</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDQ2LCJleHAiOjE3ODEyNTM2NDZ9._PzZgVMex6QzKgS_WKmwbppjf5Qb0AJXSS5bUdjYSvI<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=9D7FB96239316FDB6DB032BD7D77D8DD; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 201<br>Date: Fri, 12 Jun 2026 07:40:46 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;id&quot;: 527,<br>    &quot;plant&quot;: {<br>        &quot;id&quot;: 127,<br>        &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>        &quot;price&quot;: 50.0,<br>        &quot;quantity&quot;: 15,<br>        &quot;category&quot;: {<br>            &quot;id&quot;: 2,<br>            &quot;name&quot;: &quot;TestSub&quot;,<br>            &quot;subCategories&quot;: [<br>                <br>            ]<br>        }<br>    },<br>    &quot;quantity&quot;: 1,<br>    &quot;totalPrice&quot;: 50.0,<br>    &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.878578&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=9D7FB96239316FDB6DB032BD7D77D8DD;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="9"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection9')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection9 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection9')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Given the sales admin is logged in
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=2">
+                                    <img src="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         href="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">3s 111ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection9" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="9-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin logs in with username 'admin'
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=1">
+                                    <img src="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         href="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">3s 103ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="10"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection10')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection10 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection10')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                And the admin navigates to the sales list page
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=4">
+                                    <img src="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         href="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">029ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection10" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="10-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Navigate to the Sales List page
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=3">
+                                    <img src="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         href="e69c3711f2994aa2287dc002593a3eae398836e4a5013833cd5237c2f441c4b2.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">029ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="11"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection11')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection11 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection11')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                When the admin clicks the "Sell Plant" sales button
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=6">
+                                    <img src="57d03bcf31e1c1574e28a0ad8415741e1bbdd0d3620c8829fd796b4a1d5a02b6.png"
+                                         href="57d03bcf31e1c1574e28a0ad8415741e1bbdd0d3620c8829fd796b4a1d5a02b6.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">1s 140ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection11" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="11-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin clicks the Sell Plant button
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=5">
+                                    <img src="57d03bcf31e1c1574e28a0ad8415741e1bbdd0d3620c8829fd796b4a1d5a02b6.png"
+                                         href="57d03bcf31e1c1574e28a0ad8415741e1bbdd0d3620c8829fd796b4a1d5a02b6.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">1s 140ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="12"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection12')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection12 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection12')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                And the admin selects a plant from the dropdown
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=8">
+                                    <img src="544c493b944202073d88529cf82c5048b96547227a103440c578d7826f55146d.png"
+                                         href="544c493b944202073d88529cf82c5048b96547227a103440c578d7826f55146d.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">668ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection12" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="12-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin selects the first available plant from the dropdown
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=7">
+                                    <img src="544c493b944202073d88529cf82c5048b96547227a103440c578d7826f55146d.png"
+                                         href="544c493b944202073d88529cf82c5048b96547227a103440c578d7826f55146d.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">668ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="13"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection13')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection13 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection13')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                And the admin enters a quantity that exceeds the current stock
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=10">
+                                    <img src="922d2a77e5cd9e7b88e47e2be7458e224a85b3c8d26674abe3772548526742dc.png"
+                                         href="922d2a77e5cd9e7b88e47e2be7458e224a85b3c8d26674abe3772548526742dc.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">653ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection13" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="13-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin enters quantity 99999 which exceeds current stock
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=9">
+                                    <img src="922d2a77e5cd9e7b88e47e2be7458e224a85b3c8d26674abe3772548526742dc.png"
+                                         href="922d2a77e5cd9e7b88e47e2be7458e224a85b3c8d26674abe3772548526742dc.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">653ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="14"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection14')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection14 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection14')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                And the admin submits the sell plant form
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=12">
+                                    <img src="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         href="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">637ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection14" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="14-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Admin submits the sell plant form
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=11">
+                                    <img src="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         href="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">637ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="15"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection15')"
+                               style="display:block">
+                                <i class="bi bi-caret-right-square imgstepSection15 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection15')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Then an error message should be displayed for exceeding stock
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=14">
+                                    <img src="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         href="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">010ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection15" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="15-0"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Verify error message is displayed for exceeding stock
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="88388c0380f6e75ff51e0cb7fbe0ed5e3f6b0a181360c5a8bcb2a944cd6b8239_screenshots.html?screenshot=13">
+                                    <img src="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         href="443178756c77d527c24602eed06767bcdcbd7f377f0225db96ce1b0b52330e2a.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">010ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="16"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                POST http://localhost:8080/api/auth/login
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-24">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-24">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/auth/login</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Content Body</h4>
+                                    <pre>{<br>    &quot;username&quot;: &quot;admin&quot;,<br>    &quot;password&quot;: &quot;admin123&quot;<br>}</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=3DB6911C29A5EF445A9F698B5D98387E; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 194<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0&quot;,<br>    &quot;tokenType&quot;: &quot;Bearer&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=3DB6911C29A5EF445A9F698B5D98387E;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="17"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                GET http://localhost:8080/api/sales
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-25">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-25">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=5D6F3E75211A42D561D7E6D877D36155; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 1011<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre>[<br>    {<br>        &quot;id&quot;: 523,<br>        &quot;plant&quot;: {<br>            &quot;id&quot;: 127,<br>            &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        &quot;quantity&quot;: 1,<br>        &quot;totalPrice&quot;: 50.0,<br>        &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.804075&quot;<br>    },<br>    {<br>        &quot;id&quot;: 524,<br>        &quot;plant&quot;: {<br>            &quot;id&quot;: 127,<br>            &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        &quot;quantity&quot;: 1,<br>        &quot;totalPrice&quot;: 50.0,<br>        &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.822439&quot;<br>    },<br>    {<br>        &quot;id&quot;: 525,<br>        &quot;plant&quot;: {<br>            &quot;id&quot;: 127,<br>            &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        &quot;quantity&quot;: 1,<br>        &quot;totalPrice&quot;: 50.0,<br>        &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.838914&quot;<br>    },<br>    {<br>        &quot;id&quot;: 526,<br>        &quot;plant&quot;: {<br>            &quot;id&quot;: 127,<br>            &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        &quot;quantity&quot;: 1,<br>        &quot;totalPrice&quot;: 50.0,<br>        &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.858462&quot;<br>    },<br>    {<br>        &quot;id&quot;: 527,<br>        &quot;plant&quot;: {<br>            &quot;id&quot;: 127,<br>            &quot;name&quot;: &quot;PlantVQRvY&quot;,<br>            &quot;price&quot;: 50.0,<br>            &quot;quantity&quot;: 15,<br>            &quot;category&quot;: {<br>                &quot;id&quot;: 2,<br>                &quot;name&quot;: &quot;TestSub&quot;,<br>                &quot;subCategories&quot;: [<br>                    <br>                ]<br>            }<br>        },<br>        &quot;quantity&quot;: 1,<br>        &quot;totalPrice&quot;: 50.0,<br>        &quot;soldAt&quot;: &quot;2026-06-12T13:10:46.878578&quot;<br>    }<br>]</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=5D6F3E75211A42D561D7E6D877D36155;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="18"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                DELETE http://localhost:8080/api/sales/523
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-26">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-26">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/523</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=66D7D2290DEB3FAC294B17644E72656C; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=66D7D2290DEB3FAC294B17644E72656C;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="19"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                DELETE http://localhost:8080/api/sales/524
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-27">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-27">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/524</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=7AF78A478E47FCC33DA12FED33A2FBED; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=7AF78A478E47FCC33DA12FED33A2FBED;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="20"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                DELETE http://localhost:8080/api/sales/525
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-28">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-28">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/525</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=D80ACD1DE1987F5F513E075D41216E0E; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=D80ACD1DE1987F5F513E075D41216E0E;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="21"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                DELETE http://localhost:8080/api/sales/526
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-29">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-29">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/526</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=52D37B7D19C7AA456E121D4C3DD24056; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=52D37B7D19C7AA456E121D4C3DD24056;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="22"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                DELETE http://localhost:8080/api/sales/527
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-30">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-30">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/sales/527</p>
+                                    <p>Status code: 204</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=84C9AF4742C9723A1606EF911AC1890D; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Keep-Alive: timeout=60<br>Connection: keep-alive</pre>
+                                <h4>Response Body</h4>
+                                    <pre></pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=84C9AF4742C9723A1606EF911AC1890D;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="23"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                DELETE http://localhost:8080/api/plants/127
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-31">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-31">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: http://localhost:8080/api/plants/127</p>
+                                    <p>Status code: 500</p>
+                                    <p>Content Type: null</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNzgxMjUwMDUzLCJleHAiOjE3ODEyNTM2NTN9.ySCV57FK8_1l4pg3xxPpctcTjW39bYiGndTaGeVQ1T0<br>Accept=*/*</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Set-Cookie: JSESSIONID=2B559745FCDEAEDDD817053658E73BFF; Path=/; HttpOnly<br>X-Content-Type-Options: nosniff<br>X-XSS-Protection: 0<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-Frame-Options: DENY<br>Content-Type: application/json<br>Content-Length: 408<br>Date: Fri, 12 Jun 2026 07:40:52 GMT<br>Connection: close</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;status&quot;: 500,<br>    &quot;error&quot;: &quot;INTERNAL_SERVER_ERROR&quot;,<br>    &quot;message&quot;: &quot;could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`qa_training`.`inventory`, CONSTRAINT `FKkpd5nc87b63jxt98yeuj6ryak` FOREIGN KEY (`plant_id`) REFERENCES `plants` (`id`))] [delete from plants where id=?]; SQL [delete from plants where id=?]; constraint [null]&quot;,<br>    &quot;timestamp&quot;: &quot;2026-06-12T13:10:53.404399&quot;<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre>JSESSIONID=2B559745FCDEAEDDD817053658E73BFF;Path=/;HttpOnly</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step"></span></td>
+                </tr>
+            <tr class="test-SUCCESS">
+                    <td colspan="3"></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>6.75s</em></span></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="beforefooter"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 5.3.8</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function toggleDiv(divId) {
+        $("#" + divId).toggle();
+        var $icon = $(".img" + divId);
+        $icon.toggleClass("bi-caret-right-square");
+        $icon.toggleClass("bi-caret-down-square");
+    }
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    $(document).ready(function () {
+        $('img.screenshot').imgPreview({
+            imgCSS: {
+                width: '500px'
+            },
+            distanceFromCursor: {top: 10, left: -200}
+        });
+    });
+
+    //]]>
+</script>
+<div id="imgPreviewContainer" style="position: absolute; top: 612px; left: 355px; display: none; " class=""><img
+            src="" style="display: none; "></div>
+<div id="imgPreviewContainer2" style="position: absolute; top: 925px; left: 320px; display: none; " class="">
+    <img style="width: 200px; display: none; " src=""></div>
+<div id="imgPreviewWithStyles" style="position: absolute; top: 1272px; left: 321px; display: none; " class="">
+    <img style="height: 200px; opacity: 1; display: none; " src=""></div>
+<div id="imgPreviewWithStyles2" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+<div id="imgPreviewWithStyles3" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+
+</div>
+</body>
+</html>
