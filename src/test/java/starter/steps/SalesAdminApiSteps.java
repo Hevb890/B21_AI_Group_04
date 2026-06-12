@@ -14,7 +14,6 @@ public class SalesAdminApiSteps {
         private static final String ADMIN_USER = "admin";
         private static final String ADMIN_PASS = "admin123";
 
-        // Stored between steps
         private String adminToken;
         private Integer testPlantId;
         private Integer testSaleId;
@@ -40,15 +39,21 @@ public class SalesAdminApiSteps {
                 System.out.println("[SalesAdminApiSteps] Admin token obtained.");
         }
 
+        private void ensureToken() {
+                if (adminToken == null) {
+                        getAdminToken();
+                }
+        }
+
         // ─── Setup: create plant with stock ───────────────────────
 
         @Step("Create a valid plant with sufficient stock")
         public void createValidPlantWithSufficientStock() {
-                // Step 1: get or create sub-category
+                ensureToken();
+
                 Long subCategoryId = getExistingSubCategoryId();
 
                 if (subCategoryId == null) {
-                        // Create main category
                         Response mainCat = SerenityRest
                                         .given()
                                         .baseUri(BASE_URL)
@@ -60,7 +65,6 @@ public class SalesAdminApiSteps {
 
                         Long mainCatId = mainCat.jsonPath().getLong("id");
 
-                        // Create sub-category
                         Response subCat = SerenityRest
                                         .given()
                                         .baseUri(BASE_URL)
@@ -73,7 +77,6 @@ public class SalesAdminApiSteps {
                         subCategoryId = subCat.jsonPath().getLong("id");
                 }
 
-                // Create plant with 100 stock
                 String plantName = "ApiPlant" + (int) (Math.random() * 10000);
                 Response plantResponse = SerenityRest
                                 .given()
@@ -97,6 +100,7 @@ public class SalesAdminApiSteps {
 
         @Step("Create a sale record to use for deletion")
         public void createSaleRecord() {
+                ensureToken();
                 createValidPlantWithSufficientStock();
 
                 Response saleResponse = SerenityRest
@@ -119,6 +123,7 @@ public class SalesAdminApiSteps {
 
         @Step("Admin sends POST request to sell plant with quantity 1")
         public void sellPlantWithValidQuantity() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -137,6 +142,7 @@ public class SalesAdminApiSteps {
 
         @Step("Verify plant stock is reduced after sale")
         public void verifyStockReduced() {
+                ensureToken();
                 Response plantResponse = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -156,6 +162,7 @@ public class SalesAdminApiSteps {
 
         @Step("Admin sends POST request to sell plant with exceeded quantity")
         public void sellPlantWithExceededQuantity() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -173,6 +180,7 @@ public class SalesAdminApiSteps {
 
         @Step("Admin sends DELETE request to delete sale id: {0}")
         public void deleteSale() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -189,6 +197,7 @@ public class SalesAdminApiSteps {
 
         @Step("Admin sends POST request to sell plant with quantity 0")
         public void sellPlantWithZeroQuantity() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -206,6 +215,7 @@ public class SalesAdminApiSteps {
 
         @Step("Admin sends GET request to retrieve all sales")
         public void getAllSales() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)

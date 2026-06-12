@@ -1,0 +1,99 @@
+-------------------------------------------------------------------------------
+Test set: starter.CucumberTestSuite
+-------------------------------------------------------------------------------
+Tests run: 43, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 10.64 s <<< FAILURE! -- in starter.CucumberTestSuite
+starter.CucumberTestSuite.runScenario["Verify admin login fails with invalid password", "Authentication & Dashboard API - Admin"](2) -- Time elapsed: 0.118 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[Response status code should be 400] 
+expected: 400
+ but was: 401
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_admin.feature:13)
+
+starter.CucumberTestSuite.runScenario["Verify user login fails with empty credentials", "Authentication & Dashboard API - User"](7) -- Time elapsed: 0.102 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[Response status code should be 400] 
+expected: 400
+ but was: 401
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
+
+starter.CucumberTestSuite.runScenario["Verify unauthorized user cannot access sales details without valid token", "Authentication & Dashboard API - User"](8) -- Time elapsed: 0.025 s <<< FAILURE!
+io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"the response status code should be 401 or 403" matches more than one step definition:
+  "the response status code should be 401 or 403" in starter.stepdefinitions.AuthUserApiStepDefinitions.theResponseStatusCodeShouldBe401Or403()
+  "the response status code should be {int} or {int}" in starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBeOrElse(int,int)
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:458)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:425)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:184)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:164)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:147)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+starter.CucumberTestSuite.runScenario["Verify unauthorized access to plant selling with user token", "Sales API - User"](37) -- Time elapsed: 0.254 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 201
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:162)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser$accessor$UPqikj2q(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:40)
+	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+
+starter.CucumberTestSuite.runScenario["Verify unauthorized access to delete sales with user token", "Sales API - User"](38) -- Time elapsed: 0.363 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:180)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser$accessor$UPqikj2q(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:47)
+	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+

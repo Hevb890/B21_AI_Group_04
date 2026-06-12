@@ -40,11 +40,17 @@ public class SalesUserApiSteps {
                 System.out.println("[SalesUserApiSteps] User token obtained.");
         }
 
+        private void ensureToken() {
+                if (userToken == null) {
+                        getUserToken();
+                }
+        }
+
         // ─── Setup helpers ────────────────────────────────────────
 
         @Step("Ensure a valid plant id exists")
         public void ensureValidPlantExists() {
-                // Fetch all plants using admin token (user has read access too)
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -66,7 +72,7 @@ public class SalesUserApiSteps {
 
         @Step("Ensure a valid sale id exists")
         public void ensureValidSaleExists() {
-                // Use admin token to get sales (admin endpoint)
+                ensureToken();
                 String adminToken = getAdminToken();
 
                 Response response = SerenityRest
@@ -83,7 +89,6 @@ public class SalesUserApiSteps {
                 List<Integer> saleIds = response.jsonPath().getList("id", Integer.class);
 
                 if (saleIds == null || saleIds.isEmpty()) {
-                        // No sales exist — create one via admin
                         ensureValidPlantExists();
                         Response saleResponse = SerenityRest
                                         .given()
@@ -106,8 +111,10 @@ public class SalesUserApiSteps {
         }
 
         // ─── API_GET_PAGINATEDSALES_01 ────────────────────────────
+
         @Step("User sends GET request to retrieve paginated sales")
         public void getPaginatedSales() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -140,6 +147,7 @@ public class SalesUserApiSteps {
 
         @Step("User sends POST request to sell a plant — expects 401")
         public void sellPlantAsUser() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -158,6 +166,7 @@ public class SalesUserApiSteps {
 
         @Step("User sends DELETE request to delete a sale — expects 401")
         public void deleteSaleAsUser() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -175,6 +184,7 @@ public class SalesUserApiSteps {
 
         @Step("User sends GET request to retrieve sale by id")
         public void getSaleById() {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)
@@ -186,7 +196,6 @@ public class SalesUserApiSteps {
                 assertThat(response.statusCode())
                                 .as("Get sale by id should return 200").isEqualTo(200);
 
-                // Verify Sale schema fields
                 assertThat(response.jsonPath().get("id") != null)
                                 .as("Response should contain id").isTrue();
                 assertThat(response.jsonPath().get("plant") != null)
@@ -205,6 +214,7 @@ public class SalesUserApiSteps {
 
         @Step("User sends GET request for paginated sales sorted by '{0}' in '{1}' order")
         public void getPaginatedSalesSorted(String sortField, String sortDir) {
+                ensureToken();
                 Response response = SerenityRest
                                 .given()
                                 .baseUri(BASE_URL)

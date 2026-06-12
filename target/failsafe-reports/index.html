@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 5 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
+              <span class="suite-name border-failed">Surefire suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Surefire_suite" class="navigator-link ">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Surefire_suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Surefire_suite" class="navigator-link ">
+                    <span>1 group</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Surefire_suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Surefire_suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Surefire_suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Surefire_suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">43 methods, 5 failed,   38 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user login fails with empty credentials&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">runScenario("Verify user login fails with empty credentials", "Authentication & Dashboard API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify unauthorized access to delete sales with user token&quot;, &quot;Sales API - User&quot;)">runScenario("Verify unauthorized access to delete sales with user token", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify unauthorized user cannot access sales details without valid token&quot;, &quot;Authentication &amp; Dashbo...)">runScenario("Verify unauthorized user cannot access sales details without valid token", "Authentication & Dashbo...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin login fails with invalid password&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">runScenario("Verify admin login fails with invalid password", "Authentication & Dashboard API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify unauthorized access to plant selling with user token&quot;, &quot;Sales API - User&quot;)">runScenario("Verify unauthorized access to plant selling with user token", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods passed suite-Surefire_suite"> (hide)</a> <!-- hide-methods passed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods passed suite-Surefire_suite"> (show)</a> <!-- show-methods passed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Surefire_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful retrieval of paginated sales records when records are available&quot;, &quot;Sales API - Us...)">runScenario("Verify successful retrieval of paginated sales records when records are available", "Sales API - Us...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful deletion request with valid sale id&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify successful deletion request with valid sale id", "Sales API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can add a new plant successfully&quot;, &quot;Plantation API - Admin&quot;)">runScenario("Verify admin can add a new plant successfully", "Plantation API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful deletion of a plant record by ID&quot;, &quot;Plantation API - Admin&quot;)">runScenario("Verify successful deletion of a plant record by ID", "Plantation API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify filtering plants by category ID&quot;, &quot;Plantation API - Admin&quot;)">runScenario("Verify filtering plants by category ID", "Plantation API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user-role can get access plant summary data&quot;, &quot;Plantation API - User&quot;)">runScenario("Verify user-role can get access plant summary data", "Plantation API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can retrieve category by valid ID&quot;, &quot;Category API - User&quot;)">runScenario("Verify user can retrieve category by valid ID", "Category API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can create category successfully&quot;, &quot;Category API - Admin&quot;)">runScenario("Verify admin can create category successfully", "Category API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can login with valid credentials&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">runScenario("Verify admin can login with valid credentials", "Authentication & Dashboard API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify retrieval of all available sales records&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify retrieval of all available sales records", "Sales API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user receives error for invalid category ID&quot;, &quot;Category API - User&quot;)">runScenario("Verify user receives error for invalid category ID", "Category API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can retrieve sales records&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">runScenario("Verify admin can retrieve sales records", "Authentication & Dashboard API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify regular user can view category list&quot;, &quot;Category API - User&quot;)">runScenario("Verify regular user can view category list", "Category API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can login with valid credentials&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">runScenario("Verify user can login with valid credentials", "Authentication & Dashboard API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful retrieval of plant record by ID&quot;, &quot;Plantation API - Admin&quot;)">runScenario("Verify successful retrieval of plant record by ID", "Plantation API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify User-role cannot delete plant data via API&quot;, &quot;Plantation API - User&quot;)">runScenario("Verify User-role cannot delete plant data via API", "Plantation API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can update category details&quot;, &quot;Category API - Admin&quot;)">runScenario("Verify admin can update category details", "Category API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can delete category&quot;, &quot;Category API - Admin&quot;)">runScenario("Verify admin can delete category", "Category API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can retrieve category summary&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">runScenario("Verify admin can retrieve category summary", "Authentication & Dashboard API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can retrieve plant summary&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">runScenario("Verify user can retrieve plant summary", "Authentication & Dashboard API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify regular user cannot create category&quot;, &quot;Category API - User&quot;)">runScenario("Verify regular user cannot create category", "Category API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can retrieve paginated category list&quot;, &quot;Category API - Admin&quot;)">runScenario("Verify admin can retrieve paginated category list", "Category API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify User-role cannot add a plants data via API&quot;, &quot;Plantation API - User&quot;)">runScenario("Verify User-role cannot add a plants data via API", "Plantation API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can retrieve main categories only&quot;, &quot;Category API - User&quot;)">runScenario("Verify user can retrieve main categories only", "Category API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful sell plant request with valid plant id and quantity&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify successful sell plant request with valid plant id and quantity", "Sales API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify duplicate category creation is restricted&quot;, &quot;Category API - Admin&quot;)">runScenario("Verify duplicate category creation is restricted", "Category API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify validation of quantity less than 1&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify validation of quantity less than 1", "Sales API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Validate handling of non-existent plant deletion&quot;, &quot;Plantation API - Admin&quot;)">runScenario("Validate handling of non-existent plant deletion", "Plantation API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify admin can retrieve plant summary&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">runScenario("Verify admin can retrieve plant summary", "Authentication & Dashboard API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify successful retrieval of sale with valid sale id&quot;, &quot;Sales API - User&quot;)">runScenario("Verify successful retrieval of sale with valid sale id", "Sales API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can retrieve category summary&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">runScenario("Verify user can retrieve category summary", "Authentication & Dashboard API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify validation of exceeded plant quantity&quot;, &quot;Sales API - Admin&quot;)">runScenario("Verify validation of exceeded plant quantity", "Sales API - Admin")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify API boundary constraints for pagination query parameters&quot;, &quot;Plantation API - User&quot;)">runScenario("Verify API boundary constraints for pagination query parameters", "Plantation API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="starter.CucumberTestSuite" class="method navigator-link" hash-for-method="runScenario(&quot;Verify User-role cannot update plant data via API&quot;, &quot;Plantation API - User&quot;)">runScenario("Verify User-role cannot update plant data via API", "Plantation API - User")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Surefire_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">starter.CucumberTestSuite</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user login fails with empty credentials&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">
+                  </a> <!-- runScenario("Verify user login fails with empty credentials", "Authentication & Dashboard API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user login fails with empty credentials","Authentication & Dashboard API - User")</span>
+                  <div class="stack-trace">org.opentest4j.AssertionFailedError: [Response status code should be 400] 
+expected: 400
+ but was: 401
+	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
+... Removed 2 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify unauthorized access to delete sales with user token&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify unauthorized access to delete sales with user token", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify unauthorized access to delete sales with user token","Sales API - User")</span>
+                  <div class="stack-trace">org.opentest4j.AssertionFailedError: [User deleting sale should return 401 Unauthorized] 
+expected: 401
+ but was: 204
+	at starter.steps.SalesUserApiSteps.deleteSaleAsUser(SalesUserApiSteps.java:180)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser$accessor$UPqikj2q(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.deleteSaleAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsDeleteRequestToDeleteASale(SalesUserApiStepDefinitions.java:47)
+	at ✽.the user sends a DELETE request to delete a sale(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:22)
+... Removed 4 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify unauthorized user cannot access sales details without valid token&quot;, &quot;Authentication &amp; Dashbo...)">
+                  </a> <!-- runScenario("Verify unauthorized user cannot access sales details without valid token", "Authentication & Dashbo...) -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify unauthorized user cannot access sales details without valid token","Authentication & Dashboard API - User")</span>
+                  <div class="stack-trace">io.cucumber.core.runner.AmbiguousStepDefinitionsException: &quot;the response status code should be 401 or 403&quot; matches more than one step definition:
+  &quot;the response status code should be 401 or 403&quot; in starter.stepdefinitions.AuthUserApiStepDefinitions.theResponseStatusCodeShouldBe401Or403()
+  &quot;the response status code should be {int} or {int}&quot; in starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBeOrElse(int,int)
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:458)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:425)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:184)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:164)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:147)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 10 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin login fails with invalid password&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin login fails with invalid password", "Authentication & Dashboard API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin login fails with invalid password","Authentication & Dashboard API - Admin")</span>
+                  <div class="stack-trace">org.opentest4j.AssertionFailedError: [Response status code should be 400] 
+expected: 400
+ but was: 401
+	at starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+	at ✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_admin.feature:13)
+... Removed 2 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify unauthorized access to plant selling with user token&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify unauthorized access to plant selling with user token", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify unauthorized access to plant selling with user token","Sales API - User")</span>
+                  <div class="stack-trace">org.opentest4j.AssertionFailedError: [User selling plant should return 401 Unauthorized] 
+expected: 401
+ but was: 201
+	at starter.steps.SalesUserApiSteps.sellPlantAsUser(SalesUserApiSteps.java:162)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser$accessor$UPqikj2q(Unknown Source)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:550)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:530)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:492)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:234)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:205)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:93)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at starter.steps.SalesUserApiSteps$ByteBuddy$bek51W1n.sellPlantAsUser(Unknown Source)
+	at starter.stepdefinitions.SalesUserApiStepDefinitions.theUserSendsPostRequestToSellAPlant(SalesUserApiStepDefinitions.java:40)
+	at ✽.the user sends a POST request to sell a plant(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/sales_user.feature:16)
+... Removed 4 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">starter.CucumberTestSuite</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify successful retrieval of paginated sales records when records are available&quot;, &quot;Sales API - Us...)">
+                  </a> <!-- runScenario("Verify successful retrieval of paginated sales records when records are available", "Sales API - Us...) -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify successful retrieval of paginated sales records when records are available","Sales API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify successful deletion request with valid sale id&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify successful deletion request with valid sale id", "Sales API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify successful deletion request with valid sale id","Sales API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can add a new plant successfully&quot;, &quot;Plantation API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can add a new plant successfully", "Plantation API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can add a new plant successfully","Plantation API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify successful deletion of a plant record by ID&quot;, &quot;Plantation API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify successful deletion of a plant record by ID", "Plantation API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify successful deletion of a plant record by ID","Plantation API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify filtering plants by category ID&quot;, &quot;Plantation API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify filtering plants by category ID", "Plantation API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify filtering plants by category ID","Plantation API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user-role can get access plant summary data&quot;, &quot;Plantation API - User&quot;)">
+                  </a> <!-- runScenario("Verify user-role can get access plant summary data", "Plantation API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user-role can get access plant summary data","Plantation API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user can retrieve category by valid ID&quot;, &quot;Category API - User&quot;)">
+                  </a> <!-- runScenario("Verify user can retrieve category by valid ID", "Category API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user can retrieve category by valid ID","Category API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can create category successfully&quot;, &quot;Category API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can create category successfully", "Category API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can create category successfully","Category API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can login with valid credentials&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can login with valid credentials", "Authentication & Dashboard API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can login with valid credentials","Authentication & Dashboard API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify retrieval of all available sales records&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify retrieval of all available sales records", "Sales API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify retrieval of all available sales records","Sales API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user receives error for invalid category ID&quot;, &quot;Category API - User&quot;)">
+                  </a> <!-- runScenario("Verify user receives error for invalid category ID", "Category API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user receives error for invalid category ID","Category API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can retrieve sales records&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can retrieve sales records", "Authentication & Dashboard API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can retrieve sales records","Authentication & Dashboard API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify regular user can view category list&quot;, &quot;Category API - User&quot;)">
+                  </a> <!-- runScenario("Verify regular user can view category list", "Category API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify regular user can view category list","Category API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user can login with valid credentials&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">
+                  </a> <!-- runScenario("Verify user can login with valid credentials", "Authentication & Dashboard API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user can login with valid credentials","Authentication & Dashboard API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify successful retrieval of plant record by ID&quot;, &quot;Plantation API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify successful retrieval of plant record by ID", "Plantation API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify successful retrieval of plant record by ID","Plantation API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify User-role cannot delete plant data via API&quot;, &quot;Plantation API - User&quot;)">
+                  </a> <!-- runScenario("Verify User-role cannot delete plant data via API", "Plantation API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify User-role cannot delete plant data via API","Plantation API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can update category details&quot;, &quot;Category API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can update category details", "Category API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can update category details","Category API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can delete category&quot;, &quot;Category API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can delete category", "Category API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can delete category","Category API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can retrieve category summary&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can retrieve category summary", "Authentication & Dashboard API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can retrieve category summary","Authentication & Dashboard API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user can retrieve plant summary&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">
+                  </a> <!-- runScenario("Verify user can retrieve plant summary", "Authentication & Dashboard API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user can retrieve plant summary","Authentication & Dashboard API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify regular user cannot create category&quot;, &quot;Category API - User&quot;)">
+                  </a> <!-- runScenario("Verify regular user cannot create category", "Category API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify regular user cannot create category","Category API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can retrieve paginated category list&quot;, &quot;Category API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can retrieve paginated category list", "Category API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can retrieve paginated category list","Category API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify User-role cannot add a plants data via API&quot;, &quot;Plantation API - User&quot;)">
+                  </a> <!-- runScenario("Verify User-role cannot add a plants data via API", "Plantation API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify User-role cannot add a plants data via API","Plantation API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user can retrieve main categories only&quot;, &quot;Category API - User&quot;)">
+                  </a> <!-- runScenario("Verify user can retrieve main categories only", "Category API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user can retrieve main categories only","Category API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify successful sell plant request with valid plant id and quantity&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify successful sell plant request with valid plant id and quantity", "Sales API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify successful sell plant request with valid plant id and quantity","Sales API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify duplicate category creation is restricted&quot;, &quot;Category API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify duplicate category creation is restricted", "Category API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify duplicate category creation is restricted","Category API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify validation of quantity less than 1&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify validation of quantity less than 1", "Sales API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify validation of quantity less than 1","Sales API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify paginated sales retrieval with different sorting options&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify paginated sales retrieval with different sorting options","Sales API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Validate handling of non-existent plant deletion&quot;, &quot;Plantation API - Admin&quot;)">
+                  </a> <!-- runScenario("Validate handling of non-existent plant deletion", "Plantation API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Validate handling of non-existent plant deletion","Plantation API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify admin can retrieve plant summary&quot;, &quot;Authentication &amp; Dashboard API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify admin can retrieve plant summary", "Authentication & Dashboard API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify admin can retrieve plant summary","Authentication & Dashboard API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify successful retrieval of sale with valid sale id&quot;, &quot;Sales API - User&quot;)">
+                  </a> <!-- runScenario("Verify successful retrieval of sale with valid sale id", "Sales API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify successful retrieval of sale with valid sale id","Sales API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify user can retrieve category summary&quot;, &quot;Authentication &amp; Dashboard API - User&quot;)">
+                  </a> <!-- runScenario("Verify user can retrieve category summary", "Authentication & Dashboard API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify user can retrieve category summary","Authentication & Dashboard API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify validation of exceeded plant quantity&quot;, &quot;Sales API - Admin&quot;)">
+                  </a> <!-- runScenario("Verify validation of exceeded plant quantity", "Sales API - Admin") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify validation of exceeded plant quantity","Sales API - Admin")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify API boundary constraints for pagination query parameters&quot;, &quot;Plantation API - User&quot;)">
+                  </a> <!-- runScenario("Verify API boundary constraints for pagination query parameters", "Plantation API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify API boundary constraints for pagination query parameters","Plantation API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Verify User-role cannot update plant data via API&quot;, &quot;Plantation API - User&quot;)">
+                  </a> <!-- runScenario("Verify User-role cannot update plant data via API", "Plantation API - User") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Verify User-role cannot update plant data via API","Plantation API - User")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+        </div> <!-- panel Surefire_suite -->
+        <div panel-name="test-xml-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite parallel=&quot;methods&quot; name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;methods&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;starter.CucumberTestSuite&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Surefire test --&gt;
+&lt;/suite&gt; &lt;!-- Surefire suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Surefire test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">cucumber</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">runScenario</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Surefire_suite');
+function tableData_Surefire_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(43);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'runScenario')
+data.setCell(0, 2, 'starter.CucumberTestSuite')
+data.setCell(0, 3, 1739);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'runScenario')
+data.setCell(1, 2, 'starter.CucumberTestSuite')
+data.setCell(1, 3, 377);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'runScenario')
+data.setCell(2, 2, 'starter.CucumberTestSuite')
+data.setCell(2, 3, 362);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'runScenario')
+data.setCell(3, 2, 'starter.CucumberTestSuite')
+data.setCell(3, 3, 355);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'runScenario')
+data.setCell(4, 2, 'starter.CucumberTestSuite')
+data.setCell(4, 3, 338);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'runScenario')
+data.setCell(5, 2, 'starter.CucumberTestSuite')
+data.setCell(5, 3, 306);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'runScenario')
+data.setCell(6, 2, 'starter.CucumberTestSuite')
+data.setCell(6, 3, 305);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'runScenario')
+data.setCell(7, 2, 'starter.CucumberTestSuite')
+data.setCell(7, 3, 296);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'runScenario')
+data.setCell(8, 2, 'starter.CucumberTestSuite')
+data.setCell(8, 3, 294);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'runScenario')
+data.setCell(9, 2, 'starter.CucumberTestSuite')
+data.setCell(9, 3, 267);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'runScenario')
+data.setCell(10, 2, 'starter.CucumberTestSuite')
+data.setCell(10, 3, 266);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'runScenario')
+data.setCell(11, 2, 'starter.CucumberTestSuite')
+data.setCell(11, 3, 260);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'runScenario')
+data.setCell(12, 2, 'starter.CucumberTestSuite')
+data.setCell(12, 3, 258);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'runScenario')
+data.setCell(13, 2, 'starter.CucumberTestSuite')
+data.setCell(13, 3, 253);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'runScenario')
+data.setCell(14, 2, 'starter.CucumberTestSuite')
+data.setCell(14, 3, 249);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'runScenario')
+data.setCell(15, 2, 'starter.CucumberTestSuite')
+data.setCell(15, 3, 241);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'runScenario')
+data.setCell(16, 2, 'starter.CucumberTestSuite')
+data.setCell(16, 3, 232);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'runScenario')
+data.setCell(17, 2, 'starter.CucumberTestSuite')
+data.setCell(17, 3, 229);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'runScenario')
+data.setCell(18, 2, 'starter.CucumberTestSuite')
+data.setCell(18, 3, 217);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'runScenario')
+data.setCell(19, 2, 'starter.CucumberTestSuite')
+data.setCell(19, 3, 211);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'runScenario')
+data.setCell(20, 2, 'starter.CucumberTestSuite')
+data.setCell(20, 3, 206);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'runScenario')
+data.setCell(21, 2, 'starter.CucumberTestSuite')
+data.setCell(21, 3, 199);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'runScenario')
+data.setCell(22, 2, 'starter.CucumberTestSuite')
+data.setCell(22, 3, 135);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'runScenario')
+data.setCell(23, 2, 'starter.CucumberTestSuite')
+data.setCell(23, 3, 130);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'runScenario')
+data.setCell(24, 2, 'starter.CucumberTestSuite')
+data.setCell(24, 3, 127);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'runScenario')
+data.setCell(25, 2, 'starter.CucumberTestSuite')
+data.setCell(25, 3, 124);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'runScenario')
+data.setCell(26, 2, 'starter.CucumberTestSuite')
+data.setCell(26, 3, 123);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'runScenario')
+data.setCell(27, 2, 'starter.CucumberTestSuite')
+data.setCell(27, 3, 119);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'runScenario')
+data.setCell(28, 2, 'starter.CucumberTestSuite')
+data.setCell(28, 3, 119);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'runScenario')
+data.setCell(29, 2, 'starter.CucumberTestSuite')
+data.setCell(29, 3, 112);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'runScenario')
+data.setCell(30, 2, 'starter.CucumberTestSuite')
+data.setCell(30, 3, 109);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'runScenario')
+data.setCell(31, 2, 'starter.CucumberTestSuite')
+data.setCell(31, 3, 109);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'runScenario')
+data.setCell(32, 2, 'starter.CucumberTestSuite')
+data.setCell(32, 3, 109);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'runScenario')
+data.setCell(33, 2, 'starter.CucumberTestSuite')
+data.setCell(33, 3, 102);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'runScenario')
+data.setCell(34, 2, 'starter.CucumberTestSuite')
+data.setCell(34, 3, 98);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'runScenario')
+data.setCell(35, 2, 'starter.CucumberTestSuite')
+data.setCell(35, 3, 68);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'runScenario')
+data.setCell(36, 2, 'starter.CucumberTestSuite')
+data.setCell(36, 3, 62);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'runScenario')
+data.setCell(37, 2, 'starter.CucumberTestSuite')
+data.setCell(37, 3, 62);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'runScenario')
+data.setCell(38, 2, 'starter.CucumberTestSuite')
+data.setCell(38, 3, 61);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'runScenario')
+data.setCell(39, 2, 'starter.CucumberTestSuite')
+data.setCell(39, 3, 52);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'runScenario')
+data.setCell(40, 2, 'starter.CucumberTestSuite')
+data.setCell(40, 3, 45);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'runScenario')
+data.setCell(41, 2, 'starter.CucumberTestSuite')
+data.setCell(41, 3, 38);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'runScenario')
+data.setCell(42, 2, 'starter.CucumberTestSuite')
+data.setCell(42, 3, 23);
+window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <div id="times-div-Surefire_suite">
+              </div> <!-- times-div-Surefire_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">starter.CucumberTestSuite</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUpClass(org.testng.TestRunner@97e93f1)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can login with valid credentials", "Authentication & Dashboard API - Admin")</span>
+                <span class="method-start">428 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify admin login fails with invalid password", "Authentication & Dashboard API - Admin")</span>
+                <span class="method-start">2168 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can retrieve category summary", "Authentication & Dashboard API - Admin")</span>
+                <span class="method-start">2288 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can retrieve plant summary", "Authentication & Dashboard API - Admin")</span>
+                <span class="method-start">2627 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can retrieve sales records", "Authentication & Dashboard API - Admin")</span>
+                <span class="method-start">2757 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user can login with valid credentials", "Authentication & Dashboard API - User")</span>
+                <span class="method-start">2881 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify user login fails with empty credentials", "Authentication & Dashboard API - User")</span>
+                <span class="method-start">2991 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify unauthorized user cannot access sales details without valid token", "Authentication & Dashbo...)</span>
+                <span class="method-start">3094 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user can retrieve category summary", "Authentication & Dashboard API - User")</span>
+                <span class="method-start">3117 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user can retrieve plant summary", "Authentication & Dashboard API - User")</span>
+                <span class="method-start">3423 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can create category successfully", "Category API - Admin")</span>
+                <span class="method-start">3546 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify duplicate category creation is restricted", "Category API - Admin")</span>
+                <span class="method-start">3812 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can update category details", "Category API - Admin")</span>
+                <span class="method-start">4072 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can delete category", "Category API - Admin")</span>
+                <span class="method-start">4368 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can retrieve paginated category list", "Category API - Admin")</span>
+                <span class="method-start">4636 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify regular user can view category list", "Category API - User")</span>
+                <span class="method-start">4991 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user can retrieve category by valid ID", "Category API - User")</span>
+                <span class="method-start">5100 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify regular user cannot create category", "Category API - User")</span>
+                <span class="method-start">5236 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user receives error for invalid category ID", "Category API - User")</span>
+                <span class="method-start">5345 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user can retrieve main categories only", "Category API - User")</span>
+                <span class="method-start">5472 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify admin can add a new plant successfully", "Plantation API - Admin")</span>
+                <span class="method-start">5584 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify successful retrieval of plant record by ID", "Plantation API - Admin")</span>
+                <span class="method-start">5783 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify successful deletion of a plant record by ID", "Plantation API - Admin")</span>
+                <span class="method-start">5852 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify filtering plants by category ID", "Plantation API - Admin")</span>
+                <span class="method-start">5914 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Validate handling of non-existent plant deletion", "Plantation API - Admin")</span>
+                <span class="method-start">5953 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify User-role cannot add a plants data via API", "Plantation API - User")</span>
+                <span class="method-start">5998 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify User-role cannot update plant data via API", "Plantation API - User")</span>
+                <span class="method-start">6118 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify User-role cannot delete plant data via API", "Plantation API - User")</span>
+                <span class="method-start">6180 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify user-role can get access plant summary data", "Plantation API - User")</span>
+                <span class="method-start">6242 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify API boundary constraints for pagination query parameters", "Plantation API - User")</span>
+                <span class="method-start">6295 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify successful sell plant request with valid plant id and quantity", "Sales API - Admin")</span>
+                <span class="method-start">6393 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify validation of exceeded plant quantity", "Sales API - Admin")</span>
+                <span class="method-start">6701 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify successful deletion request with valid sale id", "Sales API - Admin")</span>
+                <span class="method-start">6960 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify validation of quantity less than 1", "Sales API - Admin")</span>
+                <span class="method-start">7254 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify retrieval of all available sales records", "Sales API - Admin")</span>
+                <span class="method-start">7503 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify successful retrieval of paginated sales records when records are available", "Sales API - Us...)</span>
+                <span class="method-start">7710 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify unauthorized access to plant selling with user token", "Sales API - User")</span>
+                <span class="method-start">7942 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Verify unauthorized access to delete sales with user token", "Sales API - User")</span>
+                <span class="method-start">8195 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify successful retrieval of sale with valid sale id", "Sales API - User")</span>
+                <span class="method-start">8558 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">8935 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">9152 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">9393 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Verify paginated sales retrieval with different sorting options", "Sales API - User")</span>
+                <span class="method-start">9623 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">9835 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

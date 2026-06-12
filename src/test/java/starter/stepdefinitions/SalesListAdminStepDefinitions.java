@@ -15,7 +15,7 @@ public class SalesListAdminStepDefinitions {
 
     // ─── Background ───────────────────────────────────────────
 
-    @Given("the admin is logged in")
+    @Given("the sales admin is logged in")
     public void theAdminIsLoggedIn() {
         salesListAdminSteps.loginAsAdmin(ADMIN_USERNAME, ADMIN_PASSWORD);
     }
@@ -27,7 +27,7 @@ public class SalesListAdminStepDefinitions {
 
     // ─── TC01: Sell Plant button visible ──────────────────────
 
-    @Then("the {string} button should be visible on the page")
+    @Then("the {string} button should be visible on the sales page")
     public void theButtonShouldBeVisibleOnThePage(String buttonName) {
         if (buttonName.equalsIgnoreCase("Sell Plant")) {
             salesListAdminSteps.verifySellPlantButtonIsVisible();
@@ -51,7 +51,7 @@ public class SalesListAdminStepDefinitions {
 
     // ─── TC03: Plant dropdown content ─────────────────────────
 
-    @When("the admin clicks the {string} button")
+    @When("the admin clicks the {string} sales button")
     public void theAdminClicksTheButton(String buttonName) {
         if (buttonName.equalsIgnoreCase("Sell Plant")) {
             salesListAdminSteps.clickSellPlantButton();

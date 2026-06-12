@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Authentication &amp; Dashboard API - User" skipped="0" tests="5" time="0.65" timestamp="2026-06-12 11:35:27"><testcase name="Verify user can login with valid credentials"/><testcase name="Verify user login fails with empty credentials"><failure message="[Response status code should be 400] &#10;expected: 400&#10; but was: 401" type="org.opentest4j.AssertionFailedError">[Response status code should be 400] 
+expected: 400
+ but was: 401</failure><system-err>[Response status code should be 400] 
+expected: 400
+ but was: 401
+starter.stepdefinitions.CommonApiStepDefinitions.theResponseStatusCodeShouldBe(CommonApiStepDefinitions.java:56)
+✽.the response status code should be 400(file:///Users/hevindutilakasena/ITQA/B21_AI_Group_04/src/test/resources/features/api/auth_user.feature:13)
+</system-err></testcase><testcase name="Verify unauthorized user cannot access sales details without valid token"/><testcase name="Verify user can retrieve category summary"/><testcase name="Verify user can retrieve plant summary"/></testsuite>
