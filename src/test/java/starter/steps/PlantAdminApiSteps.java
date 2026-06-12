@@ -28,6 +28,7 @@ public class PlantAdminApiSteps {
     public static final Long FILTER_CATEGORY_ID = 2L;
 
     public static final String SEARCH_PLANT_NAME = "Red Anthurium";
+    public static final String EDIT_RENAME_PLANT_NAME = "White Orkind";
     public static final String UI_CREATE_PLANT_NAME = "Red Anthoorium";
     public static final String LOW_STOCK_PLANT_NAME = "Low Stock Rose";
     public static final String HIGH_STOCK_PLANT_NAME = "High Stock Lily";
@@ -311,11 +312,34 @@ public class PlantAdminApiSteps {
 
     @Step("Prepare edit target plant '{0}' for UI edit test")
     public void prepareEditTargetPlant(String plantName) {
+        if (SEARCH_PLANT_NAME.equalsIgnoreCase(plantName.trim())) {
+            prepareEditTargetPlantForUiEditTest();
+            return;
+        }
         getAdminToken();
         ensureSubCategoryExists();
-        if (!plantExistsInDatabase(plantName)) {
-            createPlantForUi(plantName, 150, 20);
+        recreatePlantForUi(plantName, 150, 20);
+    }
+
+    @Step("Prepare fresh Red Anthurium plant for ADMIN_05 edit UI test")
+    public void prepareEditTargetPlantForUiEditTest() {
+        getAdminToken();
+        ensureSubCategoryExists();
+        deletePlantsByName(EDIT_RENAME_PLANT_NAME);
+        recreatePlantForUi(SEARCH_PLANT_NAME, 150, 20);
+        assertThat(plantExistsByExactName(SEARCH_PLANT_NAME))
+                .as("Edit target plant '%s' must exist in the database before ADMIN_05", SEARCH_PLANT_NAME)
+                .isTrue();
+    }
+
+    private boolean plantExistsByExactName(String plantName) {
+        for (Map<String, Object> plant : fetchAllPlants()) {
+            Object nameValue = plant.get("name");
+            if (nameValue != null && nameValue.toString().trim().equalsIgnoreCase(plantName.trim())) {
+                return true;
+            }
         }
+        return false;
     }
 
     @Step("Clear all plants for empty-state UI test")
