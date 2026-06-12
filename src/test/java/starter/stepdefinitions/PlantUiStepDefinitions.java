@@ -140,7 +140,6 @@ public class PlantUiStepDefinitions {
 
     @Given("the edit target plant {string} is prepared for UI tests")
     public void editTargetPlantPrepared(String plantName) {
-        plantAdminApiSteps.prepareEditTargetPlant(plantName);
         plantAdminUiSteps.refreshPlantsListPage();
     }
 
